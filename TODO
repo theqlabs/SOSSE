@@ -1,0 +1,9 @@
+February 25, 2012
+- Using [sosse20030413] as my base install
+- Made several modifications to make it compile in 'modern' avr-gcc-4.3 toolchain in Linux (Ubuntu 10.10)
+- Changes included:
+ + modifying tea-at90s8515.S lines 221 and 362, removed "breq _PC_+2" added "rjmp _PC_+2"
+ + commented out "outb()" functions, which have been deprecated and replaced by direct port/pin assignments
+ + modifying all instances of "eeprom_rb and eeprom_wb" for "eeprom_read_byte, eeprom_write_byte"
+
+There is a lot of cleaning and modernizing of the code left to do, I will update this section as I continue
