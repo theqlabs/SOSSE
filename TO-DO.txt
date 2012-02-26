@@ -1,7 +1,6 @@
 {BEGIN_TODO}
-[_] - Task1
-[_] - Task2
-[_] - Task3
+[_] - Make an example application
+[_] - Update the Wiki to possibly include doxygen output
 {END_TODO}
 
 <February 25, 2012>
