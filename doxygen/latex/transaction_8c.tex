@@ -1,0 +1,83 @@
+\subsection{transaction.c File Reference}
+\label{transaction_8c}\index{transaction.c@{transaction.c}}
+
+
+Transaction functions.  
+
+
+{\ttfamily \#include $<$config.h$>$}\par
+{\ttfamily \#include $<$sw.h$>$}\par
+{\ttfamily \#include $<$hal.h$>$}\par
+{\ttfamily \#include $<$transaction.h$>$}\par
+{\ttfamily \#include $<$types.h$>$}\par
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf bool} {\bf ta\_\-setdata} ({\bf iu8} $\ast$data, {\bf iu8} len, {\bf iu16} {\bf dst})
+\begin{DoxyCompactList}\small\item\em Begins a transaction and sets the data. \item\end{DoxyCompactList}\item 
+{\bf bool} {\bf ta\_\-commit} (void)
+\begin{DoxyCompactList}\small\item\em Commits the data in the transaction buffer. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Transaction functions. \begin{DoxyParagraph}{Id:}
+\doxyref{transaction.c}{p.}{transaction_8c},v 1.11 2002/12/22 15:42:56 m Exp 
+\end{DoxyParagraph}
+
+
+\subsubsection{Function Documentation}
+\index{transaction.c@{transaction.c}!ta\_\-commit@{ta\_\-commit}}
+\index{ta\_\-commit@{ta\_\-commit}!transaction.c@{transaction.c}}
+\paragraph[{ta\_\-commit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} ta\_\-commit (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{transaction_8c_acacd724418635980cbe9ff7caab01e9c}
+
+
+Commits the data in the transaction buffer. 
+
+Data is written to the destination specified in \doxyref{ta\_\-setdata()}{p.}{transaction_8c_ae0ead4e9d2dc0e305973f13324a356aa}. The state is then set to clean.
+
+This function must be called after each reset to commit pending transactions.
+
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em TRUE}]on success. \item[{\em FALSE}]on failure. Error code given in sw. \end{DoxyRetVals}
+
+
+References hal\_\-eeprom\_\-read(), hal\_\-eeprom\_\-write(), SW\_\-OTHER, sw\_\-set(), TRANSAC\_\-DATA\_\-ADDR, TRANSAC\_\-DATA\_\-LEN, TRANSAC\_\-STATE\_\-ADDR, TRANSAC\_\-STATE\_\-CLEAN, and TRANSAC\_\-STATE\_\-DATA.
+
+
+
+Referenced by auth\_\-createVerifyCryptogram(), auth\_\-setPin(), auth\_\-verifyPin(), fs\_\-create(), fs\_\-delete(), and main().
+
+\index{transaction.c@{transaction.c}!ta\_\-setdata@{ta\_\-setdata}}
+\index{ta\_\-setdata@{ta\_\-setdata}!transaction.c@{transaction.c}}
+\paragraph[{ta\_\-setdata}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} ta\_\-setdata (
+\begin{DoxyParamCaption}
+\item[{{\bf iu8} $\ast$}]{ data, }
+\item[{{\bf iu8}}]{ len, }
+\item[{{\bf iu16}}]{ dst}
+\end{DoxyParamCaption}
+)}\hfill\label{transaction_8c_ae0ead4e9d2dc0e305973f13324a356aa}
+
+
+Begins a transaction and sets the data. 
+
+{\itshape data/len\/} bytes are written to the transaction buffer. The destination address is also stored there. Then the state is set to TRANSAC\_\-STATE\_\-DATA.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em data}]Pointer to the data to write into the transaction buffer. \item[{\em len}]Length of the data. (Max.: TRANSAC\_\-DATA\_\-LEN) \item[{\em dst}]Destination of the data in EEPROM.\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em TRUE}]on success. \item[{\em FALSE}]on failure. Error code given in sw. \end{DoxyRetVals}
+
+
+References hal\_\-eeprom\_\-write(), SW\_\-FILE\_\-TO\_\-SHORT, sw\_\-set(), TRANSAC\_\-DATA\_\-ADDR, TRANSAC\_\-DATA\_\-LEN, and TRANSAC\_\-STATE\_\-ADDR.
+
+
+
+Referenced by auth\_\-createVerifyCryptogram(), auth\_\-setPin(), auth\_\-verifyPin(), fs\_\-create(), and fs\_\-delete().
+

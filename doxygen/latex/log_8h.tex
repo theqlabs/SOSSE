@@ -1,0 +1,130 @@
+\subsection{log.h File Reference}
+\label{log_8h}\index{log.h@{log.h}}
+
+
+Logging declarations.  
+
+
+{\ttfamily \#include $<$types.h$>$}\par
+\subsubsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf LOG\_\-START}~0x1800
+\item 
+\#define {\bf LOG\_\-TAG\_\-JOKER}~0xFE
+\item 
+\#define {\bf LOG\_\-TAG\_\-EEWRITE\_\-DST}~0x01
+\item 
+\#define {\bf LOG\_\-TAG\_\-EEWRITE\_\-SRC}~0x02
+\item 
+\#define {\bf LOG\_\-TAG\_\-EEWRITE\_\-LEN}~0x03
+\item 
+\#define {\bf LOG\_\-TAG\_\-EEREAD\_\-DST}~0x04
+\item 
+\#define {\bf LOG\_\-TAG\_\-EEREAD\_\-SRC}~0x05
+\item 
+\#define {\bf LOG\_\-TAG\_\-EEREAD\_\-LEN}~0x06
+\item 
+\#define {\bf LOG\_\-TAG\_\-FSCREATE}~0x07
+\item 
+\#define {\bf LOG\_\-TAG\_\-RANDOM}~0x08
+\item 
+\#define {\bf log\_\-init}()
+\begin{DoxyCompactList}\small\item\em Initialize global logging variables. \item\end{DoxyCompactList}\item 
+\#define {\bf log\_\-add}(tag, data, len)
+\begin{DoxyCompactList}\small\item\em Log data. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+{\bf bool} {\bf log\_\-enable}
+\begin{DoxyCompactList}\small\item\em Enables/disables logging. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Logging declarations. This logging facility can be used to assist debugging. It appends TLV objects (Tag, Length, Value) to logging area starting at LOG\_\-START+2. At LOG\_\-START the address of the end of data is maintained. This is in native byte order. (Native of architecture or compiler.)
+
+Tags can be used to specify what data has been logged. This is meant to assist testing, so be free to change the tags as needed.
+
+\begin{DoxyParagraph}{Id:}
+\doxyref{log.h}{p.}{log_8h},v 1.5 2002/12/22 15:42:55 m Exp 
+\end{DoxyParagraph}
+
+
+\subsubsection{Define Documentation}
+\index{log.h@{log.h}!log\_\-add@{log\_\-add}}
+\index{log\_\-add@{log\_\-add}!log.h@{log.h}}
+\paragraph[{log\_\-add}]{\setlength{\rightskip}{0pt plus 5cm}\#define log\_\-add(
+\begin{DoxyParamCaption}
+\item[{}]{tag, }
+\item[{}]{data, }
+\item[{}]{len}
+\end{DoxyParamCaption}
+)}\hfill\label{log_8h_ac0b4895ad0e0b6238ffebadc3a1f9bb1}
+
+
+Log data. 
+
+Tag, length and then the data itself is append to the log data. It can be called even, when CONF\_\-WITH\_\-LOGGING is not 1, because it is then neutralized with a define.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em tag}]Tag descriping the data. \item[{\em data}]Pointer to the data. \item[{\em len}]Length of the data in bytes. \end{DoxyParams}
+\index{log.h@{log.h}!log\_\-init@{log\_\-init}}
+\index{log\_\-init@{log\_\-init}!log.h@{log.h}}
+\paragraph[{log\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}\#define log\_\-init(
+\begin{DoxyParamCaption}
+\item[{}]{void}
+\end{DoxyParamCaption}
+)}\hfill\label{log_8h_acce8a93734a55d65a8a102a47c787b9d}
+
+
+Initialize global logging variables. 
+
+This function must be called before using log\_\-add. It can be called even, when CONF\_\-WITH\_\-LOGGING is not 1, because it is then neutralized with a define. \index{log.h@{log.h}!LOG\_\-START@{LOG\_\-START}}
+\index{LOG\_\-START@{LOG\_\-START}!log.h@{log.h}}
+\paragraph[{LOG\_\-START}]{\setlength{\rightskip}{0pt plus 5cm}\#define LOG\_\-START~0x1800}\hfill\label{log_8h_a4c5da377aedf46d6e87f65e8cbcef12a}
+
+
+Referenced by log\_\-add(), and log\_\-init().
+
+\index{log.h@{log.h}!LOG\_\-TAG\_\-EEREAD\_\-DST@{LOG\_\-TAG\_\-EEREAD\_\-DST}}
+\index{LOG\_\-TAG\_\-EEREAD\_\-DST@{LOG\_\-TAG\_\-EEREAD\_\-DST}!log.h@{log.h}}
+\paragraph[{LOG\_\-TAG\_\-EEREAD\_\-DST}]{\setlength{\rightskip}{0pt plus 5cm}\#define LOG\_\-TAG\_\-EEREAD\_\-DST~0x04}\hfill\label{log_8h_aabd96314c796c93f6b24d664687e6e62}
+\index{log.h@{log.h}!LOG\_\-TAG\_\-EEREAD\_\-LEN@{LOG\_\-TAG\_\-EEREAD\_\-LEN}}
+\index{LOG\_\-TAG\_\-EEREAD\_\-LEN@{LOG\_\-TAG\_\-EEREAD\_\-LEN}!log.h@{log.h}}
+\paragraph[{LOG\_\-TAG\_\-EEREAD\_\-LEN}]{\setlength{\rightskip}{0pt plus 5cm}\#define LOG\_\-TAG\_\-EEREAD\_\-LEN~0x06}\hfill\label{log_8h_aa8a4f45515905b2bafd3340a3543b602}
+\index{log.h@{log.h}!LOG\_\-TAG\_\-EEREAD\_\-SRC@{LOG\_\-TAG\_\-EEREAD\_\-SRC}}
+\index{LOG\_\-TAG\_\-EEREAD\_\-SRC@{LOG\_\-TAG\_\-EEREAD\_\-SRC}!log.h@{log.h}}
+\paragraph[{LOG\_\-TAG\_\-EEREAD\_\-SRC}]{\setlength{\rightskip}{0pt plus 5cm}\#define LOG\_\-TAG\_\-EEREAD\_\-SRC~0x05}\hfill\label{log_8h_a2f6f39692e5e67548d45540794ef0ee4}
+\index{log.h@{log.h}!LOG\_\-TAG\_\-EEWRITE\_\-DST@{LOG\_\-TAG\_\-EEWRITE\_\-DST}}
+\index{LOG\_\-TAG\_\-EEWRITE\_\-DST@{LOG\_\-TAG\_\-EEWRITE\_\-DST}!log.h@{log.h}}
+\paragraph[{LOG\_\-TAG\_\-EEWRITE\_\-DST}]{\setlength{\rightskip}{0pt plus 5cm}\#define LOG\_\-TAG\_\-EEWRITE\_\-DST~0x01}\hfill\label{log_8h_af841ab6d6fafadd887efd2d0851e80fd}
+\index{log.h@{log.h}!LOG\_\-TAG\_\-EEWRITE\_\-LEN@{LOG\_\-TAG\_\-EEWRITE\_\-LEN}}
+\index{LOG\_\-TAG\_\-EEWRITE\_\-LEN@{LOG\_\-TAG\_\-EEWRITE\_\-LEN}!log.h@{log.h}}
+\paragraph[{LOG\_\-TAG\_\-EEWRITE\_\-LEN}]{\setlength{\rightskip}{0pt plus 5cm}\#define LOG\_\-TAG\_\-EEWRITE\_\-LEN~0x03}\hfill\label{log_8h_a482e4d9211895d73b550926ef29abf04}
+\index{log.h@{log.h}!LOG\_\-TAG\_\-EEWRITE\_\-SRC@{LOG\_\-TAG\_\-EEWRITE\_\-SRC}}
+\index{LOG\_\-TAG\_\-EEWRITE\_\-SRC@{LOG\_\-TAG\_\-EEWRITE\_\-SRC}!log.h@{log.h}}
+\paragraph[{LOG\_\-TAG\_\-EEWRITE\_\-SRC}]{\setlength{\rightskip}{0pt plus 5cm}\#define LOG\_\-TAG\_\-EEWRITE\_\-SRC~0x02}\hfill\label{log_8h_a18932d2faf4c8f336bbcca397272ba9a}
+\index{log.h@{log.h}!LOG\_\-TAG\_\-FSCREATE@{LOG\_\-TAG\_\-FSCREATE}}
+\index{LOG\_\-TAG\_\-FSCREATE@{LOG\_\-TAG\_\-FSCREATE}!log.h@{log.h}}
+\paragraph[{LOG\_\-TAG\_\-FSCREATE}]{\setlength{\rightskip}{0pt plus 5cm}\#define LOG\_\-TAG\_\-FSCREATE~0x07}\hfill\label{log_8h_a454df4328215d8e40fd45e226d8f1520}
+\index{log.h@{log.h}!LOG\_\-TAG\_\-JOKER@{LOG\_\-TAG\_\-JOKER}}
+\index{LOG\_\-TAG\_\-JOKER@{LOG\_\-TAG\_\-JOKER}!log.h@{log.h}}
+\paragraph[{LOG\_\-TAG\_\-JOKER}]{\setlength{\rightskip}{0pt plus 5cm}\#define LOG\_\-TAG\_\-JOKER~0xFE}\hfill\label{log_8h_aff886d705f611cb105c5098ebb61f778}
+\index{log.h@{log.h}!LOG\_\-TAG\_\-RANDOM@{LOG\_\-TAG\_\-RANDOM}}
+\index{LOG\_\-TAG\_\-RANDOM@{LOG\_\-TAG\_\-RANDOM}!log.h@{log.h}}
+\paragraph[{LOG\_\-TAG\_\-RANDOM}]{\setlength{\rightskip}{0pt plus 5cm}\#define LOG\_\-TAG\_\-RANDOM~0x08}\hfill\label{log_8h_ab4f8b83dd9e063992c527ddc34b22bfc}
+
+
+\subsubsection{Variable Documentation}
+\index{log.h@{log.h}!log\_\-enable@{log\_\-enable}}
+\index{log\_\-enable@{log\_\-enable}!log.h@{log.h}}
+\paragraph[{log\_\-enable}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} {\bf log\_\-enable}}\hfill\label{log_8h_a47528543f9fdf3d4eda64b9e1fddcb7e}
+
+
+Enables/disables logging. 
+
+This must be set the TRUE, before any log\_\-add has an effect. It can be also changed in between to switch off and on logging to reduce unwanted data in the logging area. 
+
+Referenced by log\_\-add(), and log\_\-init().
+

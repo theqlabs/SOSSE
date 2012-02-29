@@ -1,0 +1,91 @@
+\subsection{fstest.c File Reference}
+\label{fstest_8c}\index{fstest.c@{fstest.c}}
+
+
+Test program for file system functions.  
+
+
+{\ttfamily \#include $<$stdio.h$>$}\par
+{\ttfamily \#include $<$auth.h$>$}\par
+{\ttfamily \#include $<$fs.h$>$}\par
+{\ttfamily \#include $<$fstream.h$>$}\par
+{\ttfamily \#include $<$hal.h$>$}\par
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int {\bf main} (int argc, char $\ast$argv[$\,$])
+\end{DoxyCompactItemize}
+\subsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+{\bf iu16} {\bf fsstart}
+\begin{DoxyCompactList}\small\item\em Start address of the MF file header. \item\end{DoxyCompactList}\item 
+{\bf iu16} {\bf fssize}
+\begin{DoxyCompactList}\small\item\em Size of the content area of the MF. \item\end{DoxyCompactList}\item 
+{\bf iu8} {\bf authstate}
+\begin{DoxyCompactList}\small\item\em Variable indicating current authentication state. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Test program for file system functions. \begin{DoxyParagraph}{Id:}
+\doxyref{fstest.c}{p.}{fstest_8c},v 1.11 2002/12/22 15:42:55 m Exp 
+\end{DoxyParagraph}
+
+
+\subsubsection{Function Documentation}
+\index{fstest.c@{fstest.c}!main@{main}}
+\index{main@{main}!fstest.c@{fstest.c}}
+\paragraph[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{ argc, }
+\item[{char $\ast$}]{ argv[$\,$]}
+\end{DoxyParamCaption}
+)}\hfill\label{fstest_8c_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+References s\_\-finfo::ac, AUTH\_\-AC\_\-ADM, AUTH\_\-AC\_\-ALW, AUTH\_\-AC\_\-PIN, auth\_\-checkAc(), authstate, s\_\-fpath::df, s\_\-fpath::ef, s\_\-finfo::fid, fs\_\-create(), fs\_\-delete(), fs\_\-getData(), fs\_\-getFPath(), fs\_\-init(), fssize, fsstart, fstream\_\-read(), fstream\_\-write(), hal\_\-eeprom\_\-read(), hal\_\-init(), s\_\-fstream::pos, selected, s\_\-fstream::size, s\_\-finfo::size, s\_\-fstream::start, and s\_\-finfo::type.
+
+
+
+\subsubsection{Variable Documentation}
+\index{fstest.c@{fstest.c}!authstate@{authstate}}
+\index{authstate@{authstate}!fstest.c@{fstest.c}}
+\paragraph[{authstate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf iu8} {\bf authstate}}\hfill\label{fstest_8c_ac023311503326e98022248d8e937b837}
+
+
+Variable indicating current authentication state. 
+
+Single bit flags indicate, which authorization process has been successful. The flag is cleared, at the reset of the card and after unsuccessful authorization processes.
+
+Valid flags are:
+
+
+\begin{DoxyItemize}
+\item AUTH\_\-FLAG\_\-PIN
+\item AUTH\_\-FLAG\_\-KEY 
+\end{DoxyItemize}
+
+Referenced by auth\_\-checkAc(), auth\_\-createVerifyCryptogram(), auth\_\-init(), auth\_\-verifyPin(), and main().
+
+\index{fstest.c@{fstest.c}!fssize@{fssize}}
+\index{fssize@{fssize}!fstest.c@{fstest.c}}
+\paragraph[{fssize}]{\setlength{\rightskip}{0pt plus 5cm}{\bf iu16} {\bf fssize}}\hfill\label{fstest_8c_a70ebcad91d36b8f6fc7f2f3ba5d292a6}
+
+
+Size of the content area of the MF. 
+
+
+
+Referenced by fs\_\-create(), fs\_\-getData(), fs\_\-init(), fs\_\-seek(), and main().
+
+\index{fstest.c@{fstest.c}!fsstart@{fsstart}}
+\index{fsstart@{fsstart}!fstest.c@{fstest.c}}
+\paragraph[{fsstart}]{\setlength{\rightskip}{0pt plus 5cm}{\bf iu16} {\bf fsstart}}\hfill\label{fstest_8c_a3120fb23f27b2aed57412777711a2ce6}
+
+
+Start address of the MF file header. 
+
+
+
+Referenced by fs\_\-create(), fs\_\-getData(), fs\_\-init(), fs\_\-seek(), and main().
+

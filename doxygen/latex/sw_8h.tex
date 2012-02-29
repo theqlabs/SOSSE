@@ -1,0 +1,172 @@
+\subsection{sw.h File Reference}
+\label{sw_8h}\index{sw.h@{sw.h}}
+
+
+Errno declarations.  
+
+
+{\ttfamily \#include $<$types.h$>$}\par
+\subsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum {\bf SW} \{ \par
+{\bf SW\_\-ACCESS\_\-DENIED} = 0x6982, 
+{\bf SW\_\-AUTH\_\-BLOCKED} = 0x6983, 
+{\bf SW\_\-AVAILABLE} = 0x6100, 
+{\bf SW\_\-CHANGE\_\-MEMORY\_\-ERROR} = 0x6581, 
+\par
+{\bf SW\_\-COUNTER} = 0x63C0, 
+{\bf SW\_\-EOD} = 0x6282, 
+{\bf SW\_\-FILE\_\-EXISTS} = 0x6A89, 
+{\bf SW\_\-FILE\_\-FILLED} = 0x6381, 
+\par
+{\bf SW\_\-FILE\_\-NOT\_\-FOUND} = 0x6A82, 
+{\bf SW\_\-FILE\_\-TO\_\-SHORT} = 0x6A84, 
+{\bf SW\_\-INCOMPATIBLE\_\-FILE} = 0x6981, 
+{\bf SW\_\-LC\_\-INCONSISTEND\_\-WITH\_\-P1P2} = 0x6A87, 
+\par
+{\bf SW\_\-NOT\_\-ALLOWED} = 0x6986, 
+{\bf SW\_\-NOT\_\-SUPPORTED} = 0x6A81, 
+{\bf SW\_\-OK} = 0x9000, 
+{\bf SW\_\-OTHER} = 0x6F00, 
+\par
+{\bf SW\_\-REF\_\-DATA\_\-INVALID} = 0x6984, 
+{\bf SW\_\-REF\_\-DATA\_\-NOT\_\-FOUND} = 0x6A88, 
+{\bf SW\_\-VERIFCATION\_\-FAILED} = 0x6300, 
+{\bf SW\_\-WRONG\_\-CLA} = 0x6E00, 
+\par
+{\bf SW\_\-WRONG\_\-CONDITION} = 0x6985, 
+{\bf SW\_\-WRONG\_\-DATA} = 0x6A80, 
+{\bf SW\_\-WRONG\_\-INS} = 0x6D00, 
+{\bf SW\_\-WRONG\_\-LE} = 0x6C00, 
+\par
+{\bf SW\_\-WRONG\_\-LEN} = 0x6700, 
+{\bf SW\_\-WRONG\_\-P1P2} = 0x6A86, 
+{\bf SW\_\-WRONG\_\-REFERENCE} = 0x6B00
+ \}
+\begin{DoxyCompactList}\small\item\em Status word values. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf sw\_\-set} ({\bf iu16} value)
+\begin{DoxyCompactList}\small\item\em Function for setting sw. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+{\bf iu16} {\bf sw}
+\begin{DoxyCompactList}\small\item\em Status word returned by functions. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Errno declarations. See also for the man page of sw.
+
+\begin{DoxyParagraph}{Id:}
+\doxyref{sw.h}{p.}{sw_8h},v 1.1 2002/12/22 15:42:55 m Exp 
+\end{DoxyParagraph}
+
+
+\subsubsection{Enumeration Type Documentation}
+\index{sw.h@{sw.h}!SW@{SW}}
+\index{SW@{SW}!sw.h@{sw.h}}
+\paragraph[{SW}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf SW}}\hfill\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16}
+
+
+Status word values. 
+
+\begin{DoxyNote}{Note}
+Implement this as defines, because doxygen apparently can't handle this? 
+\end{DoxyNote}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{SW\_\-ACCESS\_\-DENIED@{SW\_\-ACCESS\_\-DENIED}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-ACCESS\_\-DENIED@{SW\_\-ACCESS\_\-DENIED}}\item[{\em 
+SW\_\-ACCESS\_\-DENIED\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16af5dea942e1140e049f80d4586d7348fb}
+}]\index{SW\_\-AUTH\_\-BLOCKED@{SW\_\-AUTH\_\-BLOCKED}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-AUTH\_\-BLOCKED@{SW\_\-AUTH\_\-BLOCKED}}\item[{\em 
+SW\_\-AUTH\_\-BLOCKED\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16af2dae541c1660470465d87ad26e403d1}
+}]\index{SW\_\-AVAILABLE@{SW\_\-AVAILABLE}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-AVAILABLE@{SW\_\-AVAILABLE}}\item[{\em 
+SW\_\-AVAILABLE\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16a91e078ed6a69610ddebd92605fe08d9c}
+}]\index{SW\_\-CHANGE\_\-MEMORY\_\-ERROR@{SW\_\-CHANGE\_\-MEMORY\_\-ERROR}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-CHANGE\_\-MEMORY\_\-ERROR@{SW\_\-CHANGE\_\-MEMORY\_\-ERROR}}\item[{\em 
+SW\_\-CHANGE\_\-MEMORY\_\-ERROR\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16a5407a6359752a04815a939765234ed81}
+}]\index{SW\_\-COUNTER@{SW\_\-COUNTER}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-COUNTER@{SW\_\-COUNTER}}\item[{\em 
+SW\_\-COUNTER\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16a25c477063bc7a878924b8a22e5360d4e}
+}]\index{SW\_\-EOD@{SW\_\-EOD}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-EOD@{SW\_\-EOD}}\item[{\em 
+SW\_\-EOD\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16a9e275ff7fcaa49e3e09144e8c11c4f89}
+}]\index{SW\_\-FILE\_\-EXISTS@{SW\_\-FILE\_\-EXISTS}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-FILE\_\-EXISTS@{SW\_\-FILE\_\-EXISTS}}\item[{\em 
+SW\_\-FILE\_\-EXISTS\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16a544d38acdb172010e2096c1fe560f33d}
+}]\index{SW\_\-FILE\_\-FILLED@{SW\_\-FILE\_\-FILLED}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-FILE\_\-FILLED@{SW\_\-FILE\_\-FILLED}}\item[{\em 
+SW\_\-FILE\_\-FILLED\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16accb2e4667fa0f80738c41b4ed1e27b7f}
+}]\index{SW\_\-FILE\_\-NOT\_\-FOUND@{SW\_\-FILE\_\-NOT\_\-FOUND}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-FILE\_\-NOT\_\-FOUND@{SW\_\-FILE\_\-NOT\_\-FOUND}}\item[{\em 
+SW\_\-FILE\_\-NOT\_\-FOUND\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16ad983f0d2b14b39d009aa879049ca3d64}
+}]\index{SW\_\-FILE\_\-TO\_\-SHORT@{SW\_\-FILE\_\-TO\_\-SHORT}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-FILE\_\-TO\_\-SHORT@{SW\_\-FILE\_\-TO\_\-SHORT}}\item[{\em 
+SW\_\-FILE\_\-TO\_\-SHORT\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16ae1ed86541f1e21fe2ceb8cdba70e9664}
+}]\index{SW\_\-INCOMPATIBLE\_\-FILE@{SW\_\-INCOMPATIBLE\_\-FILE}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-INCOMPATIBLE\_\-FILE@{SW\_\-INCOMPATIBLE\_\-FILE}}\item[{\em 
+SW\_\-INCOMPATIBLE\_\-FILE\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16a30cb9ce5c29638a39404a551c3e4e283}
+}]\index{SW\_\-LC\_\-INCONSISTEND\_\-WITH\_\-P1P2@{SW\_\-LC\_\-INCONSISTEND\_\-WITH\_\-P1P2}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-LC\_\-INCONSISTEND\_\-WITH\_\-P1P2@{SW\_\-LC\_\-INCONSISTEND\_\-WITH\_\-P1P2}}\item[{\em 
+SW\_\-LC\_\-INCONSISTEND\_\-WITH\_\-P1P2\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16ad25273babeb8c80cfd5c15c276b802de}
+}]\index{SW\_\-NOT\_\-ALLOWED@{SW\_\-NOT\_\-ALLOWED}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-NOT\_\-ALLOWED@{SW\_\-NOT\_\-ALLOWED}}\item[{\em 
+SW\_\-NOT\_\-ALLOWED\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16a5d90427b96fdd79122d561a2804bd436}
+}]\index{SW\_\-NOT\_\-SUPPORTED@{SW\_\-NOT\_\-SUPPORTED}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-NOT\_\-SUPPORTED@{SW\_\-NOT\_\-SUPPORTED}}\item[{\em 
+SW\_\-NOT\_\-SUPPORTED\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16a0305aba7c2617f90349cecd922e9434c}
+}]\index{SW\_\-OK@{SW\_\-OK}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-OK@{SW\_\-OK}}\item[{\em 
+SW\_\-OK\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16a9f6cd90b783d2c34c77827dc6090e2e6}
+}]\index{SW\_\-OTHER@{SW\_\-OTHER}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-OTHER@{SW\_\-OTHER}}\item[{\em 
+SW\_\-OTHER\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16aa770ca9bfd6bb76490fe0abbe99d7bc0}
+}]\index{SW\_\-REF\_\-DATA\_\-INVALID@{SW\_\-REF\_\-DATA\_\-INVALID}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-REF\_\-DATA\_\-INVALID@{SW\_\-REF\_\-DATA\_\-INVALID}}\item[{\em 
+SW\_\-REF\_\-DATA\_\-INVALID\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16a2ddc2c2def5177c9dce5b190b90d45dd}
+}]\index{SW\_\-REF\_\-DATA\_\-NOT\_\-FOUND@{SW\_\-REF\_\-DATA\_\-NOT\_\-FOUND}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-REF\_\-DATA\_\-NOT\_\-FOUND@{SW\_\-REF\_\-DATA\_\-NOT\_\-FOUND}}\item[{\em 
+SW\_\-REF\_\-DATA\_\-NOT\_\-FOUND\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16a3e1a16db493d8245e8a29b3082660684}
+}]\index{SW\_\-VERIFCATION\_\-FAILED@{SW\_\-VERIFCATION\_\-FAILED}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-VERIFCATION\_\-FAILED@{SW\_\-VERIFCATION\_\-FAILED}}\item[{\em 
+SW\_\-VERIFCATION\_\-FAILED\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16a02cabf44f6053cafab05b89d4b15bb14}
+}]\index{SW\_\-WRONG\_\-CLA@{SW\_\-WRONG\_\-CLA}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-WRONG\_\-CLA@{SW\_\-WRONG\_\-CLA}}\item[{\em 
+SW\_\-WRONG\_\-CLA\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16a02c77991c5963aefa14e907abc36a812}
+}]\index{SW\_\-WRONG\_\-CONDITION@{SW\_\-WRONG\_\-CONDITION}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-WRONG\_\-CONDITION@{SW\_\-WRONG\_\-CONDITION}}\item[{\em 
+SW\_\-WRONG\_\-CONDITION\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16a3bbe413116997e6ba3153998a01eb3f5}
+}]\index{SW\_\-WRONG\_\-DATA@{SW\_\-WRONG\_\-DATA}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-WRONG\_\-DATA@{SW\_\-WRONG\_\-DATA}}\item[{\em 
+SW\_\-WRONG\_\-DATA\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16a4d90cdbadb0e74727d9523cd4a7176c6}
+}]\index{SW\_\-WRONG\_\-INS@{SW\_\-WRONG\_\-INS}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-WRONG\_\-INS@{SW\_\-WRONG\_\-INS}}\item[{\em 
+SW\_\-WRONG\_\-INS\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16a38dde3e09f854dadb91dbeb159d0ecf3}
+}]\index{SW\_\-WRONG\_\-LE@{SW\_\-WRONG\_\-LE}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-WRONG\_\-LE@{SW\_\-WRONG\_\-LE}}\item[{\em 
+SW\_\-WRONG\_\-LE\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16a6d3a06a7db89e4b965925a9d6a9b5137}
+}]\index{SW\_\-WRONG\_\-LEN@{SW\_\-WRONG\_\-LEN}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-WRONG\_\-LEN@{SW\_\-WRONG\_\-LEN}}\item[{\em 
+SW\_\-WRONG\_\-LEN\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16a8912359f8b7011f6e0bef47a566ef759}
+}]\index{SW\_\-WRONG\_\-P1P2@{SW\_\-WRONG\_\-P1P2}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-WRONG\_\-P1P2@{SW\_\-WRONG\_\-P1P2}}\item[{\em 
+SW\_\-WRONG\_\-P1P2\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16ab8a4f0612888f76b681332ebd272dfa4}
+}]\index{SW\_\-WRONG\_\-REFERENCE@{SW\_\-WRONG\_\-REFERENCE}!sw.h@{sw.h}}\index{sw.h@{sw.h}!SW\_\-WRONG\_\-REFERENCE@{SW\_\-WRONG\_\-REFERENCE}}\item[{\em 
+SW\_\-WRONG\_\-REFERENCE\label{sw_8h_ac5377a40197386a6b59fbf99128e0c16a8ab0defbf0f4d17e529f046885c3f326}
+}]\end{description}
+\end{Desc}
+
+
+
+\subsubsection{Function Documentation}
+\index{sw.h@{sw.h}!sw\_\-set@{sw\_\-set}}
+\index{sw\_\-set@{sw\_\-set}!sw.h@{sw.h}}
+\paragraph[{sw\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}void sw\_\-set (
+\begin{DoxyParamCaption}
+\item[{{\bf iu16}}]{ value}
+\end{DoxyParamCaption}
+)}\hfill\label{sw_8h_a06244878ad482424dc04d05cfdc81b7b}
+
+
+Function for setting sw. 
+
+This function reduces the code size on the AVR architecture. 
+
+Referenced by auth\_\-checkAc(), auth\_\-createVerifyCryptogram(), auth\_\-getChallenge(), auth\_\-getCheckPinLen(), auth\_\-verifyPin(), cmd\_\-changeUnblockPIN(), cmd\_\-create(), cmd\_\-delete(), cmd\_\-extAuth(), cmd\_\-getChallenge(), cmd\_\-getResponse(), cmd\_\-intAuth(), cmd\_\-read(), cmd\_\-readBinary(), cmd\_\-select(), cmd\_\-updateBinary(), cmd\_\-verifyKeyPIN(), cmd\_\-write(), fs\_\-create(), fs\_\-delete(), fs\_\-getFPath(), fs\_\-seek(), fstream\_\-test(), hal\_\-eeprom\_\-read(), hal\_\-eeprom\_\-write(), t0\_\-testP1P2(), t0\_\-testP3(), ta\_\-commit(), and ta\_\-setdata().
+
+
+
+\subsubsection{Variable Documentation}
+\index{sw.h@{sw.h}!sw@{sw}}
+\index{sw@{sw}!sw.h@{sw.h}}
+\paragraph[{sw}]{\setlength{\rightskip}{0pt plus 5cm}{\bf iu16} {\bf sw}}\hfill\label{sw_8h_a814d554b939d5196ce21afb6562e0a05}
+
+
+Status word returned by functions. 
+
+The state of sw is undefined, on return value TRUE.
+
+The content of this variable is returned at the end of the command interpreter loop. Functions falled from the command interpreter loop should set it to SW\_\-OK if they return without error. 
+
+Referenced by auth\_\-getCheckPinLen(), main(), and t0\_\-sendSw().
+

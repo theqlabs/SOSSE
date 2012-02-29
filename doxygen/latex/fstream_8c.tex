@@ -1,0 +1,113 @@
+\subsection{fstream.c File Reference}
+\label{fstream_8c}\index{fstream.c@{fstream.c}}
+
+
+File stream functions.  
+
+
+{\ttfamily \#include $<$sw.h$>$}\par
+{\ttfamily \#include $<$fstream.h$>$}\par
+{\ttfamily \#include $<$hal.h$>$}\par
+{\ttfamily \#include $<$types.h$>$}\par
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf bool} {\bf fstream\_\-read} ({\bf S\_\-FSTREAM} $\ast$fs, {\bf iu8} $\ast${\bf dst}, {\bf iu8} len)
+\begin{DoxyCompactList}\small\item\em Read data from a stream. \item\end{DoxyCompactList}\item 
+{\bf bool} {\bf fstream\_\-write} ({\bf S\_\-FSTREAM} $\ast$fs, {\bf iu8} $\ast$src, {\bf iu8} len)
+\begin{DoxyCompactList}\small\item\em Write data to a stream. \item\end{DoxyCompactList}\item 
+{\bf bool} {\bf fstream\_\-test} ({\bf S\_\-FSTREAM} $\ast$fs, {\bf iu16} len)
+\begin{DoxyCompactList}\small\item\em This function tests, if enough space is available to read or write {\itshape len\/} bytes. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+File stream functions. \begin{DoxyParagraph}{Id:}
+\doxyref{fstream.c}{p.}{fstream_8c},v 1.11 2002/12/22 15:42:55 m Exp 
+\end{DoxyParagraph}
+
+
+\subsubsection{Function Documentation}
+\index{fstream.c@{fstream.c}!fstream\_\-read@{fstream\_\-read}}
+\index{fstream\_\-read@{fstream\_\-read}!fstream.c@{fstream.c}}
+\paragraph[{fstream\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} fstream\_\-read (
+\begin{DoxyParamCaption}
+\item[{{\bf S\_\-FSTREAM} $\ast$}]{ fs, }
+\item[{{\bf iu8} $\ast$}]{ dst, }
+\item[{{\bf iu8}}]{ len}
+\end{DoxyParamCaption}
+)}\hfill\label{fstream_8c_a386424e62f60cec15c42698f322001e8}
+
+
+Read data from a stream. 
+
+Either this functions reads all data or nothing.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em fs}]Pointer to S\_\-FSTREAM, on which it should be operated. \item[{\em dst}]Pointer to the data destination. \item[{\em len}]Length of the data\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em TRUE}]on success. \item[{\em FALSE}]on failure. Error code given in sw. \end{DoxyRetVals}
+
+
+References fstream\_\-test(), hal\_\-eeprom\_\-read(), s\_\-fstream::pos, and s\_\-fstream::start.
+
+
+
+Referenced by cmd\_\-readBinary(), fs\_\-delete(), fs\_\-getData(), fs\_\-seek(), fs\_\-seekEnd(), and main().
+
+\index{fstream.c@{fstream.c}!fstream\_\-test@{fstream\_\-test}}
+\index{fstream\_\-test@{fstream\_\-test}!fstream.c@{fstream.c}}
+\paragraph[{fstream\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} fstream\_\-test (
+\begin{DoxyParamCaption}
+\item[{{\bf S\_\-FSTREAM} $\ast$}]{ fs, }
+\item[{{\bf iu16}}]{ len}
+\end{DoxyParamCaption}
+)}\hfill\label{fstream_8c_a73854dd54261634e486b4ca9eba03be9}
+
+
+This function tests, if enough space is available to read or write {\itshape len\/} bytes. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em fs}]Pointer to S\_\-FSTREAM, on which it should be operated. \item[{\em len}]Length of the data\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em TRUE}]on success. \item[{\em FALSE}]on failure. Error code given in sw. \end{DoxyRetVals}
+
+
+References s\_\-fstream::pos, s\_\-fstream::size, SW\_\-FILE\_\-TO\_\-SHORT, and sw\_\-set().
+
+
+
+Referenced by cmd\_\-readBinary(), cmd\_\-updateBinary(), fstream\_\-read(), and fstream\_\-write().
+
+\index{fstream.c@{fstream.c}!fstream\_\-write@{fstream\_\-write}}
+\index{fstream\_\-write@{fstream\_\-write}!fstream.c@{fstream.c}}
+\paragraph[{fstream\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} fstream\_\-write (
+\begin{DoxyParamCaption}
+\item[{{\bf S\_\-FSTREAM} $\ast$}]{ fs, }
+\item[{{\bf iu8} $\ast$}]{ src, }
+\item[{{\bf iu8}}]{ len}
+\end{DoxyParamCaption}
+)}\hfill\label{fstream_8c_ae973258fc48b63c8cc36ccc7168b1908}
+
+
+Write data to a stream. 
+
+This functions tries to write all or nothing.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em fs}]Pointer to S\_\-FSTREAM, on which it should be operated. \item[{\em src}]Pointer to data source. \item[{\em len}]Length of the data\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em TRUE}]on success. \item[{\em FALSE}]on failure. Error code given in sw. \end{DoxyRetVals}
+
+
+References fstream\_\-test(), hal\_\-eeprom\_\-write(), s\_\-fstream::pos, and s\_\-fstream::start.
+
+
+
+Referenced by cmd\_\-updateBinary(), fs\_\-create(), fs\_\-delete(), and main().
+

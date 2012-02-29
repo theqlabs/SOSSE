@@ -1,0 +1,139 @@
+\subsection{$<$avr/pgmspace.h$>$: Program Space Utilities}
+\label{group__avr__pgmspace}\index{$<$avr/pgmspace.h$>$: Program Space Utilities@{$<$avr/pgmspace.h$>$: Program Space Utilities}}
+\subsubsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf PROGMEM}~\_\-\_\-ATTR\_\-PROGMEM\_\-\_\-
+\item 
+\#define {\bf pgm\_\-read\_\-byte\_\-near}(address\_\-short)~\_\-\_\-LPM((uint16\_\-t)(address\_\-short))
+\item 
+\#define {\bf pgm\_\-read\_\-word\_\-near}(address\_\-short)~\_\-\_\-LPM\_\-word((uint16\_\-t)(address\_\-short))
+\item 
+\#define {\bf pgm\_\-read\_\-dword\_\-near}(address\_\-short)~\_\-\_\-LPM\_\-dword((uint16\_\-t)(address\_\-short))
+\item 
+\#define {\bf pgm\_\-read\_\-float\_\-near}(address\_\-short)~\_\-\_\-LPM\_\-float((uint16\_\-t)(address\_\-short))
+\item 
+\#define {\bf pgm\_\-read\_\-byte}(address\_\-short)~pgm\_\-read\_\-byte\_\-near(address\_\-short)
+\item 
+\#define {\bf pgm\_\-read\_\-word}(address\_\-short)~pgm\_\-read\_\-word\_\-near(address\_\-short)
+\item 
+\#define {\bf pgm\_\-read\_\-dword}(address\_\-short)~pgm\_\-read\_\-dword\_\-near(address\_\-short)
+\item 
+\#define {\bf pgm\_\-read\_\-float}(address\_\-short)~pgm\_\-read\_\-float\_\-near(address\_\-short)
+\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+
+\begin{DoxyCode}
+    #include <avr/io.h>
+    #include <avr/pgmspace.h>
+\end{DoxyCode}
+
+
+The functions in this module provide interfaces for a program to access data stored in program space (flash memory) of the device. In order to use these functions, the target device must support either the {\ttfamily LPM} or {\ttfamily ELPM} instructions.
+
+\begin{DoxyNote}{Note}
+These functions are an attempt to provide some compatibility with header files that come with IAR C, to make porting applications between different compilers easier. This is not 100\% compatibility though (GCC does not have full support for multiple address spaces yet).
+
+If you are working with strings which are completely based in ram, use the standard string functions described in avr\_\-string.
+
+If possible, put your constant tables in the lower 64 KB and use \doxyref{pgm\_\-read\_\-byte\_\-near()}{p.}{group__avr__pgmspace_ga88d7dd4863f87530e1a34ece430a587c} or \doxyref{pgm\_\-read\_\-word\_\-near()}{p.}{group__avr__pgmspace_gaf51eeaa847dd2668d2a66b70ecfb7398} instead of pgm\_\-read\_\-byte\_\-far() or pgm\_\-read\_\-word\_\-far() since it is more efficient that way, and you can still use the upper 64K for executable code. All functions that are suffixed with a {\ttfamily \_\-P} {\itshape require\/} their arguments to be in the lower 64 KB of the flash ROM, as they do not use ELPM instructions. This is normally not a big concern as the linker setup arranges any program space constants declared using the macros from this header file so they are placed right after the interrupt vectors, and in front of any executable code. However, it can become a problem if there are too many of these constants, or for bootloaders on devices with more than 64 KB of ROM. {\itshape All these functions will not work in that situation.\/}
+
+For {\bfseries Xmega} devices, make sure the NVM controller command register ({\ttfamily NVM.CMD} or {\ttfamily NVM\_\-CMD}) is set to 0x00 (NOP) before using any of these functions. 
+\end{DoxyNote}
+
+
+\subsubsection{Define Documentation}
+\index{avr\_\-pgmspace@{avr\_\-pgmspace}!pgm\_\-read\_\-byte@{pgm\_\-read\_\-byte}}
+\index{pgm\_\-read\_\-byte@{pgm\_\-read\_\-byte}!avr_pgmspace@{avr\_\-pgmspace}}
+\paragraph[{pgm\_\-read\_\-byte}]{\setlength{\rightskip}{0pt plus 5cm}\#define pgm\_\-read\_\-byte(
+\begin{DoxyParamCaption}
+\item[{}]{address\_\-short}
+\end{DoxyParamCaption}
+)~pgm\_\-read\_\-byte\_\-near(address\_\-short)}\hfill\label{group__avr__pgmspace_ga73084a8bbde259ffae72980354b3f027}
+Read a byte from the program space with a 16-\/bit (near) address.
+
+\begin{DoxyNote}{Note}
+The address is a byte address. The address is in the program space. 
+\end{DoxyNote}
+\index{avr\_\-pgmspace@{avr\_\-pgmspace}!pgm\_\-read\_\-byte\_\-near@{pgm\_\-read\_\-byte\_\-near}}
+\index{pgm\_\-read\_\-byte\_\-near@{pgm\_\-read\_\-byte\_\-near}!avr_pgmspace@{avr\_\-pgmspace}}
+\paragraph[{pgm\_\-read\_\-byte\_\-near}]{\setlength{\rightskip}{0pt plus 5cm}\#define pgm\_\-read\_\-byte\_\-near(
+\begin{DoxyParamCaption}
+\item[{}]{address\_\-short}
+\end{DoxyParamCaption}
+)~\_\-\_\-LPM((uint16\_\-t)(address\_\-short))}\hfill\label{group__avr__pgmspace_ga88d7dd4863f87530e1a34ece430a587c}
+Read a byte from the program space with a 16-\/bit (near) address. \begin{DoxyNote}{Note}
+The address is a byte address. The address is in the program space. 
+\end{DoxyNote}
+\index{avr\_\-pgmspace@{avr\_\-pgmspace}!pgm\_\-read\_\-dword@{pgm\_\-read\_\-dword}}
+\index{pgm\_\-read\_\-dword@{pgm\_\-read\_\-dword}!avr_pgmspace@{avr\_\-pgmspace}}
+\paragraph[{pgm\_\-read\_\-dword}]{\setlength{\rightskip}{0pt plus 5cm}\#define pgm\_\-read\_\-dword(
+\begin{DoxyParamCaption}
+\item[{}]{address\_\-short}
+\end{DoxyParamCaption}
+)~pgm\_\-read\_\-dword\_\-near(address\_\-short)}\hfill\label{group__avr__pgmspace_gabb68859ac5dfa6a09ac048b4037a83b6}
+Read a double word from the program space with a 16-\/bit (near) address.
+
+\begin{DoxyNote}{Note}
+The address is a byte address. The address is in the program space. 
+\end{DoxyNote}
+\index{avr\_\-pgmspace@{avr\_\-pgmspace}!pgm\_\-read\_\-dword\_\-near@{pgm\_\-read\_\-dword\_\-near}}
+\index{pgm\_\-read\_\-dword\_\-near@{pgm\_\-read\_\-dword\_\-near}!avr_pgmspace@{avr\_\-pgmspace}}
+\paragraph[{pgm\_\-read\_\-dword\_\-near}]{\setlength{\rightskip}{0pt plus 5cm}\#define pgm\_\-read\_\-dword\_\-near(
+\begin{DoxyParamCaption}
+\item[{}]{address\_\-short}
+\end{DoxyParamCaption}
+)~\_\-\_\-LPM\_\-dword((uint16\_\-t)(address\_\-short))}\hfill\label{group__avr__pgmspace_ga7fa92c0a662403a643859e0f33b0a182}
+Read a double word from the program space with a 16-\/bit (near) address. \begin{DoxyNote}{Note}
+The address is a byte address. The address is in the program space. 
+\end{DoxyNote}
+\index{avr\_\-pgmspace@{avr\_\-pgmspace}!pgm\_\-read\_\-float@{pgm\_\-read\_\-float}}
+\index{pgm\_\-read\_\-float@{pgm\_\-read\_\-float}!avr_pgmspace@{avr\_\-pgmspace}}
+\paragraph[{pgm\_\-read\_\-float}]{\setlength{\rightskip}{0pt plus 5cm}\#define pgm\_\-read\_\-float(
+\begin{DoxyParamCaption}
+\item[{}]{address\_\-short}
+\end{DoxyParamCaption}
+)~pgm\_\-read\_\-float\_\-near(address\_\-short)}\hfill\label{group__avr__pgmspace_ga7911bddb066a8a038efc4b7857728fa8}
+Read a float from the program space with a 16-\/bit (near) address.
+
+\begin{DoxyNote}{Note}
+The address is a byte address. The address is in the program space. 
+\end{DoxyNote}
+\index{avr\_\-pgmspace@{avr\_\-pgmspace}!pgm\_\-read\_\-float\_\-near@{pgm\_\-read\_\-float\_\-near}}
+\index{pgm\_\-read\_\-float\_\-near@{pgm\_\-read\_\-float\_\-near}!avr_pgmspace@{avr\_\-pgmspace}}
+\paragraph[{pgm\_\-read\_\-float\_\-near}]{\setlength{\rightskip}{0pt plus 5cm}\#define pgm\_\-read\_\-float\_\-near(
+\begin{DoxyParamCaption}
+\item[{}]{address\_\-short}
+\end{DoxyParamCaption}
+)~\_\-\_\-LPM\_\-float((uint16\_\-t)(address\_\-short))}\hfill\label{group__avr__pgmspace_ga066040df814dabc7980cd1422508b46b}
+Read a float from the program space with a 16-\/bit (near) address. \begin{DoxyNote}{Note}
+The address is a byte address. The address is in the program space. 
+\end{DoxyNote}
+\index{avr\_\-pgmspace@{avr\_\-pgmspace}!pgm\_\-read\_\-word@{pgm\_\-read\_\-word}}
+\index{pgm\_\-read\_\-word@{pgm\_\-read\_\-word}!avr_pgmspace@{avr\_\-pgmspace}}
+\paragraph[{pgm\_\-read\_\-word}]{\setlength{\rightskip}{0pt plus 5cm}\#define pgm\_\-read\_\-word(
+\begin{DoxyParamCaption}
+\item[{}]{address\_\-short}
+\end{DoxyParamCaption}
+)~pgm\_\-read\_\-word\_\-near(address\_\-short)}\hfill\label{group__avr__pgmspace_ga32d8ab354156f4b1ffdb77a275ba6223}
+Read a word from the program space with a 16-\/bit (near) address.
+
+\begin{DoxyNote}{Note}
+The address is a byte address. The address is in the program space. 
+\end{DoxyNote}
+\index{avr\_\-pgmspace@{avr\_\-pgmspace}!pgm\_\-read\_\-word\_\-near@{pgm\_\-read\_\-word\_\-near}}
+\index{pgm\_\-read\_\-word\_\-near@{pgm\_\-read\_\-word\_\-near}!avr_pgmspace@{avr\_\-pgmspace}}
+\paragraph[{pgm\_\-read\_\-word\_\-near}]{\setlength{\rightskip}{0pt plus 5cm}\#define pgm\_\-read\_\-word\_\-near(
+\begin{DoxyParamCaption}
+\item[{}]{address\_\-short}
+\end{DoxyParamCaption}
+)~\_\-\_\-LPM\_\-word((uint16\_\-t)(address\_\-short))}\hfill\label{group__avr__pgmspace_gaf51eeaa847dd2668d2a66b70ecfb7398}
+Read a word from the program space with a 16-\/bit (near) address. \begin{DoxyNote}{Note}
+The address is a byte address. The address is in the program space. 
+\end{DoxyNote}
+\index{avr\_\-pgmspace@{avr\_\-pgmspace}!PROGMEM@{PROGMEM}}
+\index{PROGMEM@{PROGMEM}!avr_pgmspace@{avr\_\-pgmspace}}
+\paragraph[{PROGMEM}]{\setlength{\rightskip}{0pt plus 5cm}\#define PROGMEM~\_\-\_\-ATTR\_\-PROGMEM\_\-\_\-}\hfill\label{group__avr__pgmspace_ga75acaba9e781937468d0911423bc0c35}
+Attribute to use in order to declare an object being located in flash ROM. 

@@ -1,0 +1,593 @@
+\contentsline {section}{\numberline {1}SOSSE -\/ Simple Operating System for Smartcard Education}{1}
+\contentsline {section}{\numberline {2}Todo List}{9}
+\contentsline {section}{\numberline {3}Module Index}{9}
+\contentsline {subsection}{\numberline {3.1}Modules}{9}
+\contentsline {section}{\numberline {4}Data Structure Index}{9}
+\contentsline {subsection}{\numberline {4.1}Data Structures}{9}
+\contentsline {section}{\numberline {5}File Index}{9}
+\contentsline {subsection}{\numberline {5.1}File List}{9}
+\contentsline {section}{\numberline {6}Module Documentation}{10}
+\contentsline {subsection}{\numberline {6.1}$<$avr/io.h$>$: AVR device-\/specific IO definitions}{10}
+\contentsline {subsection}{\numberline {6.2}$<$avr/pgmspace.h$>$: Program Space Utilities}{11}
+\contentsline {subsubsection}{\numberline {6.2.1}Detailed Description}{11}
+\contentsline {subsubsection}{\numberline {6.2.2}Define Documentation}{11}
+\contentsline {paragraph}{\numberline {6.2.2.1}pgm\_\discretionary {-}{}{}read\_\discretionary {-}{}{}byte}{11}
+\contentsline {paragraph}{\numberline {6.2.2.2}pgm\_\discretionary {-}{}{}read\_\discretionary {-}{}{}byte\_\discretionary {-}{}{}near}{11}
+\contentsline {paragraph}{\numberline {6.2.2.3}pgm\_\discretionary {-}{}{}read\_\discretionary {-}{}{}dword}{12}
+\contentsline {paragraph}{\numberline {6.2.2.4}pgm\_\discretionary {-}{}{}read\_\discretionary {-}{}{}dword\_\discretionary {-}{}{}near}{12}
+\contentsline {paragraph}{\numberline {6.2.2.5}pgm\_\discretionary {-}{}{}read\_\discretionary {-}{}{}float}{12}
+\contentsline {paragraph}{\numberline {6.2.2.6}pgm\_\discretionary {-}{}{}read\_\discretionary {-}{}{}float\_\discretionary {-}{}{}near}{12}
+\contentsline {paragraph}{\numberline {6.2.2.7}pgm\_\discretionary {-}{}{}read\_\discretionary {-}{}{}word}{12}
+\contentsline {paragraph}{\numberline {6.2.2.8}pgm\_\discretionary {-}{}{}read\_\discretionary {-}{}{}word\_\discretionary {-}{}{}near}{12}
+\contentsline {paragraph}{\numberline {6.2.2.9}PROGMEM}{12}
+\contentsline {section}{\numberline {7}Data Structure Documentation}{12}
+\contentsline {subsection}{\numberline {7.1}s\_\discretionary {-}{}{}finfo Struct Reference}{12}
+\contentsline {subsubsection}{\numberline {7.1.1}Detailed Description}{13}
+\contentsline {subsubsection}{\numberline {7.1.2}Field Documentation}{13}
+\contentsline {paragraph}{\numberline {7.1.2.1}ac}{13}
+\contentsline {paragraph}{\numberline {7.1.2.2}fid}{13}
+\contentsline {paragraph}{\numberline {7.1.2.3}size}{13}
+\contentsline {paragraph}{\numberline {7.1.2.4}type}{13}
+\contentsline {subsection}{\numberline {7.2}s\_\discretionary {-}{}{}fpath Struct Reference}{13}
+\contentsline {subsubsection}{\numberline {7.2.1}Detailed Description}{13}
+\contentsline {subsubsection}{\numberline {7.2.2}Field Documentation}{13}
+\contentsline {paragraph}{\numberline {7.2.2.1}df}{13}
+\contentsline {paragraph}{\numberline {7.2.2.2}ef}{14}
+\contentsline {subsection}{\numberline {7.3}s\_\discretionary {-}{}{}fstream Struct Reference}{14}
+\contentsline {subsubsection}{\numberline {7.3.1}Detailed Description}{14}
+\contentsline {subsubsection}{\numberline {7.3.2}Field Documentation}{14}
+\contentsline {paragraph}{\numberline {7.3.2.1}pos}{14}
+\contentsline {paragraph}{\numberline {7.3.2.2}size}{14}
+\contentsline {paragraph}{\numberline {7.3.2.3}start}{14}
+\contentsline {section}{\numberline {8}File Documentation}{14}
+\contentsline {subsection}{\numberline {8.1}auth.c File Reference}{14}
+\contentsline {subsubsection}{\numberline {8.1.1}Detailed Description}{16}
+\contentsline {subsubsection}{\numberline {8.1.2}Function Documentation}{16}
+\contentsline {paragraph}{\numberline {8.1.2.1}auth\_\discretionary {-}{}{}checkAc}{16}
+\contentsline {paragraph}{\numberline {8.1.2.2}auth\_\discretionary {-}{}{}createVerifyCryptogram}{16}
+\contentsline {paragraph}{\numberline {8.1.2.3}auth\_\discretionary {-}{}{}getChallenge}{16}
+\contentsline {paragraph}{\numberline {8.1.2.4}auth\_\discretionary {-}{}{}getCheckPinLen}{17}
+\contentsline {paragraph}{\numberline {8.1.2.5}auth\_\discretionary {-}{}{}init}{17}
+\contentsline {paragraph}{\numberline {8.1.2.6}auth\_\discretionary {-}{}{}setPin}{18}
+\contentsline {paragraph}{\numberline {8.1.2.7}auth\_\discretionary {-}{}{}verifyPin}{18}
+\contentsline {subsubsection}{\numberline {8.1.3}Variable Documentation}{18}
+\contentsline {paragraph}{\numberline {8.1.3.1}authstate}{18}
+\contentsline {paragraph}{\numberline {8.1.3.2}challenge}{19}
+\contentsline {paragraph}{\numberline {8.1.3.3}challvalidity}{19}
+\contentsline {subsection}{\numberline {8.2}auth.h File Reference}{19}
+\contentsline {subsubsection}{\numberline {8.2.1}Detailed Description}{21}
+\contentsline {subsubsection}{\numberline {8.2.2}Define Documentation}{21}
+\contentsline {paragraph}{\numberline {8.2.2.1}AUTH\_\discretionary {-}{}{}AC\_\discretionary {-}{}{}ADM}{21}
+\contentsline {paragraph}{\numberline {8.2.2.2}AUTH\_\discretionary {-}{}{}AC\_\discretionary {-}{}{}ALW}{21}
+\contentsline {paragraph}{\numberline {8.2.2.3}AUTH\_\discretionary {-}{}{}AC\_\discretionary {-}{}{}NEV}{21}
+\contentsline {paragraph}{\numberline {8.2.2.4}AUTH\_\discretionary {-}{}{}AC\_\discretionary {-}{}{}PAA}{21}
+\contentsline {paragraph}{\numberline {8.2.2.5}AUTH\_\discretionary {-}{}{}AC\_\discretionary {-}{}{}PIN}{21}
+\contentsline {paragraph}{\numberline {8.2.2.6}AUTH\_\discretionary {-}{}{}AC\_\discretionary {-}{}{}POA}{21}
+\contentsline {paragraph}{\numberline {8.2.2.7}AUTH\_\discretionary {-}{}{}FID\_\discretionary {-}{}{}EXTAUTH}{21}
+\contentsline {paragraph}{\numberline {8.2.2.8}AUTH\_\discretionary {-}{}{}FID\_\discretionary {-}{}{}INTAUTH}{21}
+\contentsline {paragraph}{\numberline {8.2.2.9}AUTH\_\discretionary {-}{}{}FID\_\discretionary {-}{}{}PINPUK}{22}
+\contentsline {paragraph}{\numberline {8.2.2.10}AUTH\_\discretionary {-}{}{}FLAG\_\discretionary {-}{}{}KEY}{22}
+\contentsline {paragraph}{\numberline {8.2.2.11}AUTH\_\discretionary {-}{}{}FLAG\_\discretionary {-}{}{}PIN}{22}
+\contentsline {paragraph}{\numberline {8.2.2.12}KEY\_\discretionary {-}{}{}MAX\_\discretionary {-}{}{}RETRIES}{22}
+\contentsline {paragraph}{\numberline {8.2.2.13}PIN\_\discretionary {-}{}{}MAX\_\discretionary {-}{}{}RETRIES}{22}
+\contentsline {paragraph}{\numberline {8.2.2.14}PIN\_\discretionary {-}{}{}TYPE\_\discretionary {-}{}{}EXT}{22}
+\contentsline {paragraph}{\numberline {8.2.2.15}PIN\_\discretionary {-}{}{}TYPE\_\discretionary {-}{}{}INT}{22}
+\contentsline {paragraph}{\numberline {8.2.2.16}PIN\_\discretionary {-}{}{}TYPE\_\discretionary {-}{}{}PIN}{22}
+\contentsline {paragraph}{\numberline {8.2.2.17}PIN\_\discretionary {-}{}{}TYPE\_\discretionary {-}{}{}PUK}{22}
+\contentsline {paragraph}{\numberline {8.2.2.18}PUK\_\discretionary {-}{}{}MAX\_\discretionary {-}{}{}RETRIES}{22}
+\contentsline {subsubsection}{\numberline {8.2.3}Function Documentation}{22}
+\contentsline {paragraph}{\numberline {8.2.3.1}auth\_\discretionary {-}{}{}checkAc}{22}
+\contentsline {paragraph}{\numberline {8.2.3.2}auth\_\discretionary {-}{}{}createVerifyCryptogram}{23}
+\contentsline {paragraph}{\numberline {8.2.3.3}auth\_\discretionary {-}{}{}getChallenge}{23}
+\contentsline {paragraph}{\numberline {8.2.3.4}auth\_\discretionary {-}{}{}getCheckPinLen}{23}
+\contentsline {paragraph}{\numberline {8.2.3.5}auth\_\discretionary {-}{}{}init}{24}
+\contentsline {paragraph}{\numberline {8.2.3.6}auth\_\discretionary {-}{}{}setPin}{24}
+\contentsline {paragraph}{\numberline {8.2.3.7}auth\_\discretionary {-}{}{}verifyPin}{25}
+\contentsline {subsubsection}{\numberline {8.2.4}Variable Documentation}{25}
+\contentsline {paragraph}{\numberline {8.2.4.1}challvalidity}{25}
+\contentsline {subsection}{\numberline {8.3}authtest.c File Reference}{25}
+\contentsline {subsubsection}{\numberline {8.3.1}Detailed Description}{26}
+\contentsline {subsubsection}{\numberline {8.3.2}Function Documentation}{26}
+\contentsline {paragraph}{\numberline {8.3.2.1}main}{26}
+\contentsline {subsubsection}{\numberline {8.3.3}Variable Documentation}{26}
+\contentsline {paragraph}{\numberline {8.3.3.1}authstate}{26}
+\contentsline {paragraph}{\numberline {8.3.3.2}challenge}{26}
+\contentsline {paragraph}{\numberline {8.3.3.3}challvalidity}{26}
+\contentsline {subsection}{\numberline {8.4}commands.c File Reference}{26}
+\contentsline {subsubsection}{\numberline {8.4.1}Detailed Description}{28}
+\contentsline {subsubsection}{\numberline {8.4.2}Define Documentation}{28}
+\contentsline {paragraph}{\numberline {8.4.2.1}pin1len}{28}
+\contentsline {paragraph}{\numberline {8.4.2.2}pinssize}{28}
+\contentsline {subsubsection}{\numberline {8.4.3}Function Documentation}{28}
+\contentsline {paragraph}{\numberline {8.4.3.1}cmd\_\discretionary {-}{}{}changeUnblockPIN}{28}
+\contentsline {paragraph}{\numberline {8.4.3.2}cmd\_\discretionary {-}{}{}create}{28}
+\contentsline {paragraph}{\numberline {8.4.3.3}cmd\_\discretionary {-}{}{}delete}{28}
+\contentsline {paragraph}{\numberline {8.4.3.4}cmd\_\discretionary {-}{}{}extAuth}{28}
+\contentsline {paragraph}{\numberline {8.4.3.5}cmd\_\discretionary {-}{}{}getChallenge}{28}
+\contentsline {paragraph}{\numberline {8.4.3.6}cmd\_\discretionary {-}{}{}getResponse}{28}
+\contentsline {paragraph}{\numberline {8.4.3.7}cmd\_\discretionary {-}{}{}intAuth}{29}
+\contentsline {paragraph}{\numberline {8.4.3.8}cmd\_\discretionary {-}{}{}read}{29}
+\contentsline {paragraph}{\numberline {8.4.3.9}cmd\_\discretionary {-}{}{}readBinary}{29}
+\contentsline {paragraph}{\numberline {8.4.3.10}cmd\_\discretionary {-}{}{}select}{29}
+\contentsline {paragraph}{\numberline {8.4.3.11}cmd\_\discretionary {-}{}{}updateBinary}{29}
+\contentsline {paragraph}{\numberline {8.4.3.12}cmd\_\discretionary {-}{}{}verifyKeyPIN}{29}
+\contentsline {paragraph}{\numberline {8.4.3.13}cmd\_\discretionary {-}{}{}write}{29}
+\contentsline {subsubsection}{\numberline {8.4.4}Variable Documentation}{29}
+\contentsline {paragraph}{\numberline {8.4.4.1}resplen}{29}
+\contentsline {paragraph}{\numberline {8.4.4.2}response}{30}
+\contentsline {subsection}{\numberline {8.5}commands.h File Reference}{30}
+\contentsline {subsubsection}{\numberline {8.5.1}Detailed Description}{32}
+\contentsline {subsubsection}{\numberline {8.5.2}Define Documentation}{32}
+\contentsline {paragraph}{\numberline {8.5.2.1}CLA\_\discretionary {-}{}{}PROP}{32}
+\contentsline {paragraph}{\numberline {8.5.2.2}INS\_\discretionary {-}{}{}CHANGE\_\discretionary {-}{}{}PIN}{32}
+\contentsline {paragraph}{\numberline {8.5.2.3}INS\_\discretionary {-}{}{}CREATE}{32}
+\contentsline {paragraph}{\numberline {8.5.2.4}INS\_\discretionary {-}{}{}DELETE}{32}
+\contentsline {paragraph}{\numberline {8.5.2.5}INS\_\discretionary {-}{}{}EXTERNAL\_\discretionary {-}{}{}AUTH}{32}
+\contentsline {paragraph}{\numberline {8.5.2.6}INS\_\discretionary {-}{}{}GET\_\discretionary {-}{}{}CHALLENGE}{32}
+\contentsline {paragraph}{\numberline {8.5.2.7}INS\_\discretionary {-}{}{}GET\_\discretionary {-}{}{}RESPONSE}{33}
+\contentsline {paragraph}{\numberline {8.5.2.8}INS\_\discretionary {-}{}{}INTERNAL\_\discretionary {-}{}{}AUTH}{33}
+\contentsline {paragraph}{\numberline {8.5.2.9}INS\_\discretionary {-}{}{}LED}{33}
+\contentsline {paragraph}{\numberline {8.5.2.10}INS\_\discretionary {-}{}{}READ}{33}
+\contentsline {paragraph}{\numberline {8.5.2.11}INS\_\discretionary {-}{}{}READ\_\discretionary {-}{}{}BINARY}{33}
+\contentsline {paragraph}{\numberline {8.5.2.12}INS\_\discretionary {-}{}{}SELECT}{33}
+\contentsline {paragraph}{\numberline {8.5.2.13}INS\_\discretionary {-}{}{}UNBLOCK\_\discretionary {-}{}{}PIN}{33}
+\contentsline {paragraph}{\numberline {8.5.2.14}INS\_\discretionary {-}{}{}UPDATE\_\discretionary {-}{}{}BINARY}{33}
+\contentsline {paragraph}{\numberline {8.5.2.15}INS\_\discretionary {-}{}{}VERIFY\_\discretionary {-}{}{}KEY}{33}
+\contentsline {paragraph}{\numberline {8.5.2.16}INS\_\discretionary {-}{}{}VERIFY\_\discretionary {-}{}{}PIN}{33}
+\contentsline {paragraph}{\numberline {8.5.2.17}INS\_\discretionary {-}{}{}WRITE}{33}
+\contentsline {subsubsection}{\numberline {8.5.3}Function Documentation}{33}
+\contentsline {paragraph}{\numberline {8.5.3.1}cmd\_\discretionary {-}{}{}changeUnblockPIN}{34}
+\contentsline {paragraph}{\numberline {8.5.3.2}cmd\_\discretionary {-}{}{}create}{34}
+\contentsline {paragraph}{\numberline {8.5.3.3}cmd\_\discretionary {-}{}{}delete}{34}
+\contentsline {paragraph}{\numberline {8.5.3.4}cmd\_\discretionary {-}{}{}extAuth}{34}
+\contentsline {paragraph}{\numberline {8.5.3.5}cmd\_\discretionary {-}{}{}getChallenge}{34}
+\contentsline {paragraph}{\numberline {8.5.3.6}cmd\_\discretionary {-}{}{}getResponse}{34}
+\contentsline {paragraph}{\numberline {8.5.3.7}cmd\_\discretionary {-}{}{}intAuth}{34}
+\contentsline {paragraph}{\numberline {8.5.3.8}cmd\_\discretionary {-}{}{}led}{34}
+\contentsline {paragraph}{\numberline {8.5.3.9}cmd\_\discretionary {-}{}{}read}{34}
+\contentsline {paragraph}{\numberline {8.5.3.10}cmd\_\discretionary {-}{}{}readBinary}{35}
+\contentsline {paragraph}{\numberline {8.5.3.11}cmd\_\discretionary {-}{}{}select}{35}
+\contentsline {paragraph}{\numberline {8.5.3.12}cmd\_\discretionary {-}{}{}updateBinary}{35}
+\contentsline {paragraph}{\numberline {8.5.3.13}cmd\_\discretionary {-}{}{}verifyKeyPIN}{35}
+\contentsline {paragraph}{\numberline {8.5.3.14}cmd\_\discretionary {-}{}{}write}{35}
+\contentsline {subsubsection}{\numberline {8.5.4}Variable Documentation}{35}
+\contentsline {paragraph}{\numberline {8.5.4.1}resplen}{35}
+\contentsline {subsection}{\numberline {8.6}config.h File Reference}{35}
+\contentsline {subsubsection}{\numberline {8.6.1}Detailed Description}{38}
+\contentsline {subsubsection}{\numberline {8.6.2}Define Documentation}{38}
+\contentsline {paragraph}{\numberline {8.6.2.1}ADM\_\discretionary {-}{}{}KEY\_\discretionary {-}{}{}LEN}{38}
+\contentsline {paragraph}{\numberline {8.6.2.2}ARCH}{38}
+\contentsline {paragraph}{\numberline {8.6.2.3}ATR\_\discretionary {-}{}{}ADDR}{38}
+\contentsline {paragraph}{\numberline {8.6.2.4}ATR\_\discretionary {-}{}{}LEN\_\discretionary {-}{}{}ADDR}{38}
+\contentsline {paragraph}{\numberline {8.6.2.5}ATR\_\discretionary {-}{}{}MAXLEN}{38}
+\contentsline {paragraph}{\numberline {8.6.2.6}CARD\_\discretionary {-}{}{}STATE\_\discretionary {-}{}{}ADDR}{38}
+\contentsline {paragraph}{\numberline {8.6.2.7}CHIP}{39}
+\contentsline {paragraph}{\numberline {8.6.2.8}CONF\_\discretionary {-}{}{}WITH\_\discretionary {-}{}{}CREATECMD}{39}
+\contentsline {paragraph}{\numberline {8.6.2.9}CONF\_\discretionary {-}{}{}WITH\_\discretionary {-}{}{}DECRYPT}{39}
+\contentsline {paragraph}{\numberline {8.6.2.10}CONF\_\discretionary {-}{}{}WITH\_\discretionary {-}{}{}DELETECMD}{39}
+\contentsline {paragraph}{\numberline {8.6.2.11}CONF\_\discretionary {-}{}{}WITH\_\discretionary {-}{}{}FILESYSTEM}{39}
+\contentsline {paragraph}{\numberline {8.6.2.12}CONF\_\discretionary {-}{}{}WITH\_\discretionary {-}{}{}FUNNY}{39}
+\contentsline {paragraph}{\numberline {8.6.2.13}CONF\_\discretionary {-}{}{}WITH\_\discretionary {-}{}{}I2CEEPROM}{39}
+\contentsline {paragraph}{\numberline {8.6.2.14}CONF\_\discretionary {-}{}{}WITH\_\discretionary {-}{}{}KEYAUTH}{39}
+\contentsline {paragraph}{\numberline {8.6.2.15}CONF\_\discretionary {-}{}{}WITH\_\discretionary {-}{}{}KEYCMDS}{39}
+\contentsline {paragraph}{\numberline {8.6.2.16}CONF\_\discretionary {-}{}{}WITH\_\discretionary {-}{}{}LOGGING}{39}
+\contentsline {paragraph}{\numberline {8.6.2.17}CONF\_\discretionary {-}{}{}WITH\_\discretionary {-}{}{}PINAUTH}{39}
+\contentsline {paragraph}{\numberline {8.6.2.18}CONF\_\discretionary {-}{}{}WITH\_\discretionary {-}{}{}PINCMDS}{39}
+\contentsline {paragraph}{\numberline {8.6.2.19}CONF\_\discretionary {-}{}{}WITH\_\discretionary {-}{}{}RETCODEMGR}{40}
+\contentsline {paragraph}{\numberline {8.6.2.20}CONF\_\discretionary {-}{}{}WITH\_\discretionary {-}{}{}TESTCMDS}{40}
+\contentsline {paragraph}{\numberline {8.6.2.21}CONF\_\discretionary {-}{}{}WITH\_\discretionary {-}{}{}TRANSACTIONS}{40}
+\contentsline {paragraph}{\numberline {8.6.2.22}CONF\_\discretionary {-}{}{}WITH\_\discretionary {-}{}{}TRNG}{40}
+\contentsline {paragraph}{\numberline {8.6.2.23}DATA\_\discretionary {-}{}{}END\_\discretionary {-}{}{}1}{40}
+\contentsline {paragraph}{\numberline {8.6.2.24}EEPROM\_\discretionary {-}{}{}SIZE}{40}
+\contentsline {paragraph}{\numberline {8.6.2.25}ENDIAN\_\discretionary {-}{}{}LITTLE}{40}
+\contentsline {paragraph}{\numberline {8.6.2.26}ESIZ}{40}
+\contentsline {paragraph}{\numberline {8.6.2.27}FS\_\discretionary {-}{}{}START\_\discretionary {-}{}{}PTR\_\discretionary {-}{}{}ADDR}{40}
+\contentsline {paragraph}{\numberline {8.6.2.28}INT\_\discretionary {-}{}{}KEY\_\discretionary {-}{}{}LEN}{40}
+\contentsline {paragraph}{\numberline {8.6.2.29}PIN\_\discretionary {-}{}{}LEN}{40}
+\contentsline {paragraph}{\numberline {8.6.2.30}PUK\_\discretionary {-}{}{}LEN}{40}
+\contentsline {paragraph}{\numberline {8.6.2.31}RAM\_\discretionary {-}{}{}SIZE}{41}
+\contentsline {paragraph}{\numberline {8.6.2.32}RAND\_\discretionary {-}{}{}STATE\_\discretionary {-}{}{}ADDR}{41}
+\contentsline {paragraph}{\numberline {8.6.2.33}RAND\_\discretionary {-}{}{}STATE\_\discretionary {-}{}{}LEN}{41}
+\contentsline {paragraph}{\numberline {8.6.2.34}SERNUM\_\discretionary {-}{}{}ADDR}{41}
+\contentsline {paragraph}{\numberline {8.6.2.35}SERNUM\_\discretionary {-}{}{}LEN}{41}
+\contentsline {paragraph}{\numberline {8.6.2.36}TRANSAC\_\discretionary {-}{}{}DATA\_\discretionary {-}{}{}ADDR}{41}
+\contentsline {paragraph}{\numberline {8.6.2.37}TRANSAC\_\discretionary {-}{}{}DATA\_\discretionary {-}{}{}LEN}{41}
+\contentsline {paragraph}{\numberline {8.6.2.38}TRANSAC\_\discretionary {-}{}{}STATE\_\discretionary {-}{}{}ADDR}{41}
+\contentsline {subsection}{\numberline {8.7}crypt.h File Reference}{41}
+\contentsline {subsubsection}{\numberline {8.7.1}Detailed Description}{42}
+\contentsline {subsubsection}{\numberline {8.7.2}Define Documentation}{42}
+\contentsline {paragraph}{\numberline {8.7.2.1}CRYPT\_\discretionary {-}{}{}ALGO\_\discretionary {-}{}{}NEWDESSK}{42}
+\contentsline {paragraph}{\numberline {8.7.2.2}CRYPT\_\discretionary {-}{}{}ALGO\_\discretionary {-}{}{}SKIPJACK}{42}
+\contentsline {paragraph}{\numberline {8.7.2.3}CRYPT\_\discretionary {-}{}{}ALGO\_\discretionary {-}{}{}TEA}{42}
+\contentsline {paragraph}{\numberline {8.7.2.4}CRYPT\_\discretionary {-}{}{}BLOCK\_\discretionary {-}{}{}LEN}{42}
+\contentsline {paragraph}{\numberline {8.7.2.5}crypt\_\discretionary {-}{}{}dec}{42}
+\contentsline {paragraph}{\numberline {8.7.2.6}crypt\_\discretionary {-}{}{}enc}{42}
+\contentsline {paragraph}{\numberline {8.7.2.7}CRYPT\_\discretionary {-}{}{}KEY\_\discretionary {-}{}{}LEN}{42}
+\contentsline {subsection}{\numberline {8.8}ctapi.c File Reference}{43}
+\contentsline {subsubsection}{\numberline {8.8.1}Detailed Description}{43}
+\contentsline {subsubsection}{\numberline {8.8.2}Function Documentation}{44}
+\contentsline {paragraph}{\numberline {8.8.2.1}CT\_\discretionary {-}{}{}close}{44}
+\contentsline {paragraph}{\numberline {8.8.2.2}CT\_\discretionary {-}{}{}data}{44}
+\contentsline {paragraph}{\numberline {8.8.2.3}CT\_\discretionary {-}{}{}forkIcc}{44}
+\contentsline {paragraph}{\numberline {8.8.2.4}CT\_\discretionary {-}{}{}iccCmd}{44}
+\contentsline {paragraph}{\numberline {8.8.2.5}CT\_\discretionary {-}{}{}ifdCmd}{44}
+\contentsline {paragraph}{\numberline {8.8.2.6}CT\_\discretionary {-}{}{}ifdCmdEepromFile}{44}
+\contentsline {paragraph}{\numberline {8.8.2.7}CT\_\discretionary {-}{}{}ifdCmdEjectICC}{44}
+\contentsline {paragraph}{\numberline {8.8.2.8}CT\_\discretionary {-}{}{}ifdCmdGetStatus}{44}
+\contentsline {paragraph}{\numberline {8.8.2.9}CT\_\discretionary {-}{}{}ifdCmdRequestICC}{45}
+\contentsline {paragraph}{\numberline {8.8.2.10}CT\_\discretionary {-}{}{}ifdCmdResetCT}{45}
+\contentsline {paragraph}{\numberline {8.8.2.11}CT\_\discretionary {-}{}{}init}{45}
+\contentsline {paragraph}{\numberline {8.8.2.12}CT\_\discretionary {-}{}{}stopIcc}{45}
+\contentsline {paragraph}{\numberline {8.8.2.13}CT\_\discretionary {-}{}{}t0}{45}
+\contentsline {subsubsection}{\numberline {8.8.3}Variable Documentation}{45}
+\contentsline {paragraph}{\numberline {8.8.3.1}atr}{45}
+\contentsline {paragraph}{\numberline {8.8.3.2}atrlen}{45}
+\contentsline {paragraph}{\numberline {8.8.3.3}cthandle}{45}
+\contentsline {paragraph}{\numberline {8.8.3.4}eepromFile}{45}
+\contentsline {paragraph}{\numberline {8.8.3.5}fd\_\discretionary {-}{}{}fromCard}{45}
+\contentsline {paragraph}{\numberline {8.8.3.6}fd\_\discretionary {-}{}{}toCard}{45}
+\contentsline {paragraph}{\numberline {8.8.3.7}fdEepromFile}{45}
+\contentsline {paragraph}{\numberline {8.8.3.8}loadEepromFile}{45}
+\contentsline {paragraph}{\numberline {8.8.3.9}pidVirtuaCard}{45}
+\contentsline {paragraph}{\numberline {8.8.3.10}saveEepromFile}{45}
+\contentsline {subsection}{\numberline {8.9}ctapi.h File Reference}{46}
+\contentsline {subsubsection}{\numberline {8.9.1}Detailed Description}{47}
+\contentsline {subsubsection}{\numberline {8.9.2}Define Documentation}{47}
+\contentsline {paragraph}{\numberline {8.9.2.1}CTAPI\_\discretionary {-}{}{}AD\_\discretionary {-}{}{}CT}{47}
+\contentsline {paragraph}{\numberline {8.9.2.2}CTAPI\_\discretionary {-}{}{}AD\_\discretionary {-}{}{}HOST}{47}
+\contentsline {paragraph}{\numberline {8.9.2.3}CTAPI\_\discretionary {-}{}{}AD\_\discretionary {-}{}{}ICC1}{47}
+\contentsline {paragraph}{\numberline {8.9.2.4}CTAPI\_\discretionary {-}{}{}CLA}{47}
+\contentsline {paragraph}{\numberline {8.9.2.5}CTAPI\_\discretionary {-}{}{}INS\_\discretionary {-}{}{}EEPROM}{47}
+\contentsline {paragraph}{\numberline {8.9.2.6}CTAPI\_\discretionary {-}{}{}INS\_\discretionary {-}{}{}EJECT\_\discretionary {-}{}{}ICC}{47}
+\contentsline {paragraph}{\numberline {8.9.2.7}CTAPI\_\discretionary {-}{}{}INS\_\discretionary {-}{}{}GET\_\discretionary {-}{}{}STATUS}{47}
+\contentsline {paragraph}{\numberline {8.9.2.8}CTAPI\_\discretionary {-}{}{}INS\_\discretionary {-}{}{}REQUEST\_\discretionary {-}{}{}ICC}{47}
+\contentsline {paragraph}{\numberline {8.9.2.9}CTAPI\_\discretionary {-}{}{}INS\_\discretionary {-}{}{}RESET\_\discretionary {-}{}{}CT}{47}
+\contentsline {paragraph}{\numberline {8.9.2.10}CTAPI\_\discretionary {-}{}{}PORT}{47}
+\contentsline {paragraph}{\numberline {8.9.2.11}CTAPI\_\discretionary {-}{}{}RV\_\discretionary {-}{}{}ERR\_\discretionary {-}{}{}CT}{47}
+\contentsline {paragraph}{\numberline {8.9.2.12}CTAPI\_\discretionary {-}{}{}RV\_\discretionary {-}{}{}ERR\_\discretionary {-}{}{}HOST}{47}
+\contentsline {paragraph}{\numberline {8.9.2.13}CTAPI\_\discretionary {-}{}{}RV\_\discretionary {-}{}{}ERR\_\discretionary {-}{}{}HTSI}{47}
+\contentsline {paragraph}{\numberline {8.9.2.14}CTAPI\_\discretionary {-}{}{}RV\_\discretionary {-}{}{}ERR\_\discretionary {-}{}{}INVALID}{47}
+\contentsline {paragraph}{\numberline {8.9.2.15}CTAPI\_\discretionary {-}{}{}RV\_\discretionary {-}{}{}ERR\_\discretionary {-}{}{}MEMORY}{47}
+\contentsline {paragraph}{\numberline {8.9.2.16}CTAPI\_\discretionary {-}{}{}RV\_\discretionary {-}{}{}ERR\_\discretionary {-}{}{}TRANS}{48}
+\contentsline {paragraph}{\numberline {8.9.2.17}CTAPI\_\discretionary {-}{}{}RV\_\discretionary {-}{}{}OK}{48}
+\contentsline {subsubsection}{\numberline {8.9.3}Typedef Documentation}{48}
+\contentsline {paragraph}{\numberline {8.9.3.1}IS16}{48}
+\contentsline {paragraph}{\numberline {8.9.3.2}IS32}{48}
+\contentsline {paragraph}{\numberline {8.9.3.3}IS8}{48}
+\contentsline {paragraph}{\numberline {8.9.3.4}IU16}{48}
+\contentsline {paragraph}{\numberline {8.9.3.5}IU32}{48}
+\contentsline {paragraph}{\numberline {8.9.3.6}IU8}{48}
+\contentsline {subsubsection}{\numberline {8.9.4}Function Documentation}{48}
+\contentsline {paragraph}{\numberline {8.9.4.1}CT\_\discretionary {-}{}{}close}{48}
+\contentsline {paragraph}{\numberline {8.9.4.2}CT\_\discretionary {-}{}{}data}{48}
+\contentsline {paragraph}{\numberline {8.9.4.3}CT\_\discretionary {-}{}{}forkIcc}{48}
+\contentsline {paragraph}{\numberline {8.9.4.4}CT\_\discretionary {-}{}{}iccCmd}{48}
+\contentsline {paragraph}{\numberline {8.9.4.5}CT\_\discretionary {-}{}{}ifdCmd}{48}
+\contentsline {paragraph}{\numberline {8.9.4.6}CT\_\discretionary {-}{}{}ifdCmdEepromFile}{48}
+\contentsline {paragraph}{\numberline {8.9.4.7}CT\_\discretionary {-}{}{}ifdCmdEjectICC}{49}
+\contentsline {paragraph}{\numberline {8.9.4.8}CT\_\discretionary {-}{}{}ifdCmdGetStatus}{49}
+\contentsline {paragraph}{\numberline {8.9.4.9}CT\_\discretionary {-}{}{}ifdCmdRequestICC}{49}
+\contentsline {paragraph}{\numberline {8.9.4.10}CT\_\discretionary {-}{}{}ifdCmdResetCT}{49}
+\contentsline {paragraph}{\numberline {8.9.4.11}CT\_\discretionary {-}{}{}init}{49}
+\contentsline {paragraph}{\numberline {8.9.4.12}CT\_\discretionary {-}{}{}stopIcc}{49}
+\contentsline {subsubsection}{\numberline {8.9.5}Variable Documentation}{49}
+\contentsline {paragraph}{\numberline {8.9.5.1}eepromFile}{49}
+\contentsline {paragraph}{\numberline {8.9.5.2}fd\_\discretionary {-}{}{}fromCard}{49}
+\contentsline {paragraph}{\numberline {8.9.5.3}fd\_\discretionary {-}{}{}toCard}{49}
+\contentsline {paragraph}{\numberline {8.9.5.4}fdEepromFile}{49}
+\contentsline {paragraph}{\numberline {8.9.5.5}loadEepromFile}{49}
+\contentsline {paragraph}{\numberline {8.9.5.6}saveEepromFile}{49}
+\contentsline {subsection}{\numberline {8.10}eeprom.h File Reference}{50}
+\contentsline {subsection}{\numberline {8.11}fs.c File Reference}{50}
+\contentsline {subsubsection}{\numberline {8.11.1}Detailed Description}{51}
+\contentsline {subsubsection}{\numberline {8.11.2}Function Documentation}{51}
+\contentsline {paragraph}{\numberline {8.11.2.1}fs\_\discretionary {-}{}{}create}{51}
+\contentsline {paragraph}{\numberline {8.11.2.2}fs\_\discretionary {-}{}{}delete}{51}
+\contentsline {paragraph}{\numberline {8.11.2.3}fs\_\discretionary {-}{}{}getData}{51}
+\contentsline {paragraph}{\numberline {8.11.2.4}fs\_\discretionary {-}{}{}getFPath}{52}
+\contentsline {paragraph}{\numberline {8.11.2.5}fs\_\discretionary {-}{}{}init}{52}
+\contentsline {paragraph}{\numberline {8.11.2.6}fs\_\discretionary {-}{}{}seek}{52}
+\contentsline {paragraph}{\numberline {8.11.2.7}fs\_\discretionary {-}{}{}seekEnd}{53}
+\contentsline {subsubsection}{\numberline {8.11.3}Variable Documentation}{53}
+\contentsline {paragraph}{\numberline {8.11.3.1}fssize}{53}
+\contentsline {paragraph}{\numberline {8.11.3.2}fsstart}{53}
+\contentsline {paragraph}{\numberline {8.11.3.3}selected}{53}
+\contentsline {subsection}{\numberline {8.12}fs.h File Reference}{53}
+\contentsline {subsubsection}{\numberline {8.12.1}Detailed Description}{54}
+\contentsline {subsubsection}{\numberline {8.12.2}Define Documentation}{55}
+\contentsline {paragraph}{\numberline {8.12.2.1}FS\_\discretionary {-}{}{}HEADER\_\discretionary {-}{}{}SIZE}{55}
+\contentsline {paragraph}{\numberline {8.12.2.2}FS\_\discretionary {-}{}{}TYPE\_\discretionary {-}{}{}DF}{55}
+\contentsline {paragraph}{\numberline {8.12.2.3}FS\_\discretionary {-}{}{}TYPE\_\discretionary {-}{}{}EF}{55}
+\contentsline {subsubsection}{\numberline {8.12.3}Typedef Documentation}{55}
+\contentsline {paragraph}{\numberline {8.12.3.1}S\_\discretionary {-}{}{}FINFO}{55}
+\contentsline {paragraph}{\numberline {8.12.3.2}S\_\discretionary {-}{}{}FPATH}{55}
+\contentsline {subsubsection}{\numberline {8.12.4}Function Documentation}{55}
+\contentsline {paragraph}{\numberline {8.12.4.1}fs\_\discretionary {-}{}{}create}{55}
+\contentsline {paragraph}{\numberline {8.12.4.2}fs\_\discretionary {-}{}{}delete}{56}
+\contentsline {paragraph}{\numberline {8.12.4.3}fs\_\discretionary {-}{}{}getData}{56}
+\contentsline {paragraph}{\numberline {8.12.4.4}fs\_\discretionary {-}{}{}getFPath}{56}
+\contentsline {paragraph}{\numberline {8.12.4.5}fs\_\discretionary {-}{}{}init}{57}
+\contentsline {paragraph}{\numberline {8.12.4.6}fs\_\discretionary {-}{}{}seek}{57}
+\contentsline {paragraph}{\numberline {8.12.4.7}fs\_\discretionary {-}{}{}seekEnd}{57}
+\contentsline {subsubsection}{\numberline {8.12.5}Variable Documentation}{58}
+\contentsline {paragraph}{\numberline {8.12.5.1}selected}{58}
+\contentsline {subsection}{\numberline {8.13}fstest.c File Reference}{58}
+\contentsline {subsubsection}{\numberline {8.13.1}Detailed Description}{58}
+\contentsline {subsubsection}{\numberline {8.13.2}Function Documentation}{58}
+\contentsline {paragraph}{\numberline {8.13.2.1}main}{58}
+\contentsline {subsubsection}{\numberline {8.13.3}Variable Documentation}{58}
+\contentsline {paragraph}{\numberline {8.13.3.1}authstate}{58}
+\contentsline {paragraph}{\numberline {8.13.3.2}fssize}{59}
+\contentsline {paragraph}{\numberline {8.13.3.3}fsstart}{59}
+\contentsline {subsection}{\numberline {8.14}fstream.c File Reference}{59}
+\contentsline {subsubsection}{\numberline {8.14.1}Detailed Description}{59}
+\contentsline {subsubsection}{\numberline {8.14.2}Function Documentation}{59}
+\contentsline {paragraph}{\numberline {8.14.2.1}fstream\_\discretionary {-}{}{}read}{59}
+\contentsline {paragraph}{\numberline {8.14.2.2}fstream\_\discretionary {-}{}{}test}{60}
+\contentsline {paragraph}{\numberline {8.14.2.3}fstream\_\discretionary {-}{}{}write}{60}
+\contentsline {subsection}{\numberline {8.15}fstream.h File Reference}{60}
+\contentsline {subsubsection}{\numberline {8.15.1}Detailed Description}{61}
+\contentsline {subsubsection}{\numberline {8.15.2}Typedef Documentation}{61}
+\contentsline {paragraph}{\numberline {8.15.2.1}S\_\discretionary {-}{}{}FSTREAM}{61}
+\contentsline {subsubsection}{\numberline {8.15.3}Function Documentation}{61}
+\contentsline {paragraph}{\numberline {8.15.3.1}fstream\_\discretionary {-}{}{}read}{61}
+\contentsline {paragraph}{\numberline {8.15.3.2}fstream\_\discretionary {-}{}{}test}{61}
+\contentsline {paragraph}{\numberline {8.15.3.3}fstream\_\discretionary {-}{}{}write}{62}
+\contentsline {subsection}{\numberline {8.16}hal-\/emu.c File Reference}{62}
+\contentsline {subsubsection}{\numberline {8.16.1}Detailed Description}{63}
+\contentsline {subsubsection}{\numberline {8.16.2}Define Documentation}{63}
+\contentsline {paragraph}{\numberline {8.16.2.1}PORT}{63}
+\contentsline {subsubsection}{\numberline {8.16.3}Function Documentation}{63}
+\contentsline {paragraph}{\numberline {8.16.3.1}hal\_\discretionary {-}{}{}destroy}{63}
+\contentsline {paragraph}{\numberline {8.16.3.2}hal\_\discretionary {-}{}{}eeprom\_\discretionary {-}{}{}read}{63}
+\contentsline {paragraph}{\numberline {8.16.3.3}hal\_\discretionary {-}{}{}eeprom\_\discretionary {-}{}{}write}{64}
+\contentsline {paragraph}{\numberline {8.16.3.4}hal\_\discretionary {-}{}{}init}{64}
+\contentsline {paragraph}{\numberline {8.16.3.5}hal\_\discretionary {-}{}{}io\_\discretionary {-}{}{}recByteT0}{64}
+\contentsline {paragraph}{\numberline {8.16.3.6}hal\_\discretionary {-}{}{}io\_\discretionary {-}{}{}sendByteT0}{64}
+\contentsline {paragraph}{\numberline {8.16.3.7}hal\_\discretionary {-}{}{}rnd\_\discretionary {-}{}{}getBlock}{64}
+\contentsline {subsubsection}{\numberline {8.16.4}Variable Documentation}{65}
+\contentsline {paragraph}{\numberline {8.16.4.1}eeprom}{65}
+\contentsline {paragraph}{\numberline {8.16.4.2}halsend}{65}
+\contentsline {subsection}{\numberline {8.17}hal.c File Reference}{65}
+\contentsline {subsubsection}{\numberline {8.17.1}Detailed Description}{66}
+\contentsline {subsubsection}{\numberline {8.17.2}Function Documentation}{66}
+\contentsline {paragraph}{\numberline {8.17.2.1}hal\_\discretionary {-}{}{}eeprom\_\discretionary {-}{}{}read}{66}
+\contentsline {paragraph}{\numberline {8.17.2.2}hal\_\discretionary {-}{}{}eeprom\_\discretionary {-}{}{}write}{66}
+\contentsline {paragraph}{\numberline {8.17.2.3}hal\_\discretionary {-}{}{}init}{66}
+\contentsline {paragraph}{\numberline {8.17.2.4}hal\_\discretionary {-}{}{}io\_\discretionary {-}{}{}recByteT0}{67}
+\contentsline {paragraph}{\numberline {8.17.2.5}hal\_\discretionary {-}{}{}io\_\discretionary {-}{}{}sendByteT0}{67}
+\contentsline {paragraph}{\numberline {8.17.2.6}hal\_\discretionary {-}{}{}rnd\_\discretionary {-}{}{}getBlock}{67}
+\contentsline {paragraph}{\numberline {8.17.2.7}recbytet0}{67}
+\contentsline {paragraph}{\numberline {8.17.2.8}sendbytet0}{67}
+\contentsline {paragraph}{\numberline {8.17.2.9}xeread}{67}
+\contentsline {paragraph}{\numberline {8.17.2.10}xewrt}{67}
+\contentsline {subsection}{\numberline {8.18}hal.h File Reference}{67}
+\contentsline {subsubsection}{\numberline {8.18.1}Detailed Description}{68}
+\contentsline {subsubsection}{\numberline {8.18.2}Function Documentation}{68}
+\contentsline {paragraph}{\numberline {8.18.2.1}hal\_\discretionary {-}{}{}eeprom\_\discretionary {-}{}{}read}{68}
+\contentsline {paragraph}{\numberline {8.18.2.2}hal\_\discretionary {-}{}{}eeprom\_\discretionary {-}{}{}write}{69}
+\contentsline {paragraph}{\numberline {8.18.2.3}hal\_\discretionary {-}{}{}init}{69}
+\contentsline {paragraph}{\numberline {8.18.2.4}hal\_\discretionary {-}{}{}io\_\discretionary {-}{}{}recByteT0}{69}
+\contentsline {paragraph}{\numberline {8.18.2.5}hal\_\discretionary {-}{}{}io\_\discretionary {-}{}{}sendByteT0}{69}
+\contentsline {paragraph}{\numberline {8.18.2.6}hal\_\discretionary {-}{}{}led}{70}
+\contentsline {paragraph}{\numberline {8.18.2.7}hal\_\discretionary {-}{}{}rnd\_\discretionary {-}{}{}addEntropy}{70}
+\contentsline {paragraph}{\numberline {8.18.2.8}hal\_\discretionary {-}{}{}rnd\_\discretionary {-}{}{}getBlock}{70}
+\contentsline {subsection}{\numberline {8.19}io.h File Reference}{71}
+\contentsline {subsubsection}{\numberline {8.19.1}Detailed Description}{71}
+\contentsline {subsection}{\numberline {8.20}log.c File Reference}{71}
+\contentsline {subsubsection}{\numberline {8.20.1}Detailed Description}{71}
+\contentsline {subsubsection}{\numberline {8.20.2}Function Documentation}{71}
+\contentsline {paragraph}{\numberline {8.20.2.1}log\_\discretionary {-}{}{}add}{71}
+\contentsline {paragraph}{\numberline {8.20.2.2}log\_\discretionary {-}{}{}init}{71}
+\contentsline {subsubsection}{\numberline {8.20.3}Variable Documentation}{71}
+\contentsline {paragraph}{\numberline {8.20.3.1}dst}{71}
+\contentsline {paragraph}{\numberline {8.20.3.2}log\_\discretionary {-}{}{}enable}{71}
+\contentsline {subsection}{\numberline {8.21}log.h File Reference}{72}
+\contentsline {subsubsection}{\numberline {8.21.1}Detailed Description}{72}
+\contentsline {subsubsection}{\numberline {8.21.2}Define Documentation}{72}
+\contentsline {paragraph}{\numberline {8.21.2.1}log\_\discretionary {-}{}{}add}{72}
+\contentsline {paragraph}{\numberline {8.21.2.2}log\_\discretionary {-}{}{}init}{73}
+\contentsline {paragraph}{\numberline {8.21.2.3}LOG\_\discretionary {-}{}{}START}{73}
+\contentsline {paragraph}{\numberline {8.21.2.4}LOG\_\discretionary {-}{}{}TAG\_\discretionary {-}{}{}EEREAD\_\discretionary {-}{}{}DST}{73}
+\contentsline {paragraph}{\numberline {8.21.2.5}LOG\_\discretionary {-}{}{}TAG\_\discretionary {-}{}{}EEREAD\_\discretionary {-}{}{}LEN}{73}
+\contentsline {paragraph}{\numberline {8.21.2.6}LOG\_\discretionary {-}{}{}TAG\_\discretionary {-}{}{}EEREAD\_\discretionary {-}{}{}SRC}{73}
+\contentsline {paragraph}{\numberline {8.21.2.7}LOG\_\discretionary {-}{}{}TAG\_\discretionary {-}{}{}EEWRITE\_\discretionary {-}{}{}DST}{73}
+\contentsline {paragraph}{\numberline {8.21.2.8}LOG\_\discretionary {-}{}{}TAG\_\discretionary {-}{}{}EEWRITE\_\discretionary {-}{}{}LEN}{73}
+\contentsline {paragraph}{\numberline {8.21.2.9}LOG\_\discretionary {-}{}{}TAG\_\discretionary {-}{}{}EEWRITE\_\discretionary {-}{}{}SRC}{73}
+\contentsline {paragraph}{\numberline {8.21.2.10}LOG\_\discretionary {-}{}{}TAG\_\discretionary {-}{}{}FSCREATE}{73}
+\contentsline {paragraph}{\numberline {8.21.2.11}LOG\_\discretionary {-}{}{}TAG\_\discretionary {-}{}{}JOKER}{73}
+\contentsline {paragraph}{\numberline {8.21.2.12}LOG\_\discretionary {-}{}{}TAG\_\discretionary {-}{}{}RANDOM}{73}
+\contentsline {subsubsection}{\numberline {8.21.3}Variable Documentation}{73}
+\contentsline {paragraph}{\numberline {8.21.3.1}log\_\discretionary {-}{}{}enable}{73}
+\contentsline {subsection}{\numberline {8.22}main.c File Reference}{73}
+\contentsline {subsubsection}{\numberline {8.22.1}Detailed Description}{73}
+\contentsline {subsubsection}{\numberline {8.22.2}Function Documentation}{73}
+\contentsline {paragraph}{\numberline {8.22.2.1}main}{73}
+\contentsline {subsection}{\numberline {8.23}main.h File Reference}{74}
+\contentsline {subsubsection}{\numberline {8.23.1}Detailed Description}{74}
+\contentsline {subsection}{\numberline {8.24}newdes-\/sk.c File Reference}{74}
+\contentsline {subsection}{\numberline {8.25}newdes-\/sk.h File Reference}{74}
+\contentsline {subsubsection}{\numberline {8.25.1}Detailed Description}{74}
+\contentsline {subsubsection}{\numberline {8.25.2}Define Documentation}{74}
+\contentsline {paragraph}{\numberline {8.25.2.1}NEWDESSK\_\discretionary {-}{}{}BLOCK\_\discretionary {-}{}{}LEN}{74}
+\contentsline {paragraph}{\numberline {8.25.2.2}NEWDESSK\_\discretionary {-}{}{}KEY\_\discretionary {-}{}{}LEN}{74}
+\contentsline {subsubsection}{\numberline {8.25.3}Function Documentation}{74}
+\contentsline {paragraph}{\numberline {8.25.3.1}newdessk\_\discretionary {-}{}{}dec}{75}
+\contentsline {paragraph}{\numberline {8.25.3.2}newdessk\_\discretionary {-}{}{}enc}{75}
+\contentsline {subsection}{\numberline {8.26}pgmspace.h File Reference}{75}
+\contentsline {subsubsection}{\numberline {8.26.1}Detailed Description}{77}
+\contentsline {subsubsection}{\numberline {8.26.2}Define Documentation}{77}
+\contentsline {paragraph}{\numberline {8.26.2.1}\_\discretionary {-}{}{}\_\discretionary {-}{}{}ATTR\_\discretionary {-}{}{}CONST\_\discretionary {-}{}{}\_\discretionary {-}{}{}}{77}
+\contentsline {paragraph}{\numberline {8.26.2.2}\_\discretionary {-}{}{}\_\discretionary {-}{}{}ATTR\_\discretionary {-}{}{}PROGMEM\_\discretionary {-}{}{}\_\discretionary {-}{}{}}{77}
+\contentsline {paragraph}{\numberline {8.26.2.3}\_\discretionary {-}{}{}\_\discretionary {-}{}{}ATTR\_\discretionary {-}{}{}PURE\_\discretionary {-}{}{}\_\discretionary {-}{}{}}{77}
+\contentsline {paragraph}{\numberline {8.26.2.4}\_\discretionary {-}{}{}\_\discretionary {-}{}{}LPM}{77}
+\contentsline {paragraph}{\numberline {8.26.2.5}\_\discretionary {-}{}{}\_\discretionary {-}{}{}LPM\_\discretionary {-}{}{}classic\_\discretionary {-}{}{}\_\discretionary {-}{}{}}{77}
+\contentsline {paragraph}{\numberline {8.26.2.6}\_\discretionary {-}{}{}\_\discretionary {-}{}{}LPM\_\discretionary {-}{}{}dword}{77}
+\contentsline {paragraph}{\numberline {8.26.2.7}\_\discretionary {-}{}{}\_\discretionary {-}{}{}LPM\_\discretionary {-}{}{}dword\_\discretionary {-}{}{}classic\_\discretionary {-}{}{}\_\discretionary {-}{}{}}{77}
+\contentsline {paragraph}{\numberline {8.26.2.8}\_\discretionary {-}{}{}\_\discretionary {-}{}{}LPM\_\discretionary {-}{}{}dword\_\discretionary {-}{}{}enhanced\_\discretionary {-}{}{}\_\discretionary {-}{}{}}{78}
+\contentsline {paragraph}{\numberline {8.26.2.9}\_\discretionary {-}{}{}\_\discretionary {-}{}{}LPM\_\discretionary {-}{}{}enhanced\_\discretionary {-}{}{}\_\discretionary {-}{}{}}{78}
+\contentsline {paragraph}{\numberline {8.26.2.10}\_\discretionary {-}{}{}\_\discretionary {-}{}{}LPM\_\discretionary {-}{}{}float}{78}
+\contentsline {paragraph}{\numberline {8.26.2.11}\_\discretionary {-}{}{}\_\discretionary {-}{}{}LPM\_\discretionary {-}{}{}float\_\discretionary {-}{}{}classic\_\discretionary {-}{}{}\_\discretionary {-}{}{}}{78}
+\contentsline {paragraph}{\numberline {8.26.2.12}\_\discretionary {-}{}{}\_\discretionary {-}{}{}LPM\_\discretionary {-}{}{}float\_\discretionary {-}{}{}enhanced\_\discretionary {-}{}{}\_\discretionary {-}{}{}}{78}
+\contentsline {paragraph}{\numberline {8.26.2.13}\_\discretionary {-}{}{}\_\discretionary {-}{}{}LPM\_\discretionary {-}{}{}word}{79}
+\contentsline {paragraph}{\numberline {8.26.2.14}\_\discretionary {-}{}{}\_\discretionary {-}{}{}LPM\_\discretionary {-}{}{}word\_\discretionary {-}{}{}classic\_\discretionary {-}{}{}\_\discretionary {-}{}{}}{79}
+\contentsline {paragraph}{\numberline {8.26.2.15}\_\discretionary {-}{}{}\_\discretionary {-}{}{}LPM\_\discretionary {-}{}{}word\_\discretionary {-}{}{}enhanced\_\discretionary {-}{}{}\_\discretionary {-}{}{}}{79}
+\contentsline {paragraph}{\numberline {8.26.2.16}\_\discretionary {-}{}{}\_\discretionary {-}{}{}need\_\discretionary {-}{}{}size\_\discretionary {-}{}{}t}{79}
+\contentsline {paragraph}{\numberline {8.26.2.17}pgm\_\discretionary {-}{}{}get\_\discretionary {-}{}{}far\_\discretionary {-}{}{}address}{79}
+\contentsline {paragraph}{\numberline {8.26.2.18}PGM\_\discretionary {-}{}{}P}{80}
+\contentsline {paragraph}{\numberline {8.26.2.19}PGM\_\discretionary {-}{}{}VOID\_\discretionary {-}{}{}P}{80}
+\contentsline {paragraph}{\numberline {8.26.2.20}PSTR}{80}
+\contentsline {subsubsection}{\numberline {8.26.3}Function Documentation}{80}
+\contentsline {paragraph}{\numberline {8.26.3.1}\_\discretionary {-}{}{}\_\discretionary {-}{}{}attribute\_\discretionary {-}{}{}\_\discretionary {-}{}{}}{80}
+\contentsline {paragraph}{\numberline {8.26.3.2}\_\discretionary {-}{}{}\_\discretionary {-}{}{}strlen\_\discretionary {-}{}{}P}{80}
+\contentsline {paragraph}{\numberline {8.26.3.3}memccpy\_\discretionary {-}{}{}P}{80}
+\contentsline {paragraph}{\numberline {8.26.3.4}memchr\_\discretionary {-}{}{}P}{80}
+\contentsline {paragraph}{\numberline {8.26.3.5}memcmp\_\discretionary {-}{}{}P}{80}
+\contentsline {paragraph}{\numberline {8.26.3.6}memcmp\_\discretionary {-}{}{}PF}{80}
+\contentsline {paragraph}{\numberline {8.26.3.7}memcpy\_\discretionary {-}{}{}P}{80}
+\contentsline {paragraph}{\numberline {8.26.3.8}memcpy\_\discretionary {-}{}{}PF}{80}
+\contentsline {paragraph}{\numberline {8.26.3.9}memmem\_\discretionary {-}{}{}P}{80}
+\contentsline {paragraph}{\numberline {8.26.3.10}memrchr\_\discretionary {-}{}{}P}{80}
+\contentsline {paragraph}{\numberline {8.26.3.11}strcasecmp\_\discretionary {-}{}{}P}{80}
+\contentsline {paragraph}{\numberline {8.26.3.12}strcasecmp\_\discretionary {-}{}{}PF}{80}
+\contentsline {paragraph}{\numberline {8.26.3.13}strcasestr\_\discretionary {-}{}{}P}{80}
+\contentsline {paragraph}{\numberline {8.26.3.14}strcat\_\discretionary {-}{}{}P}{80}
+\contentsline {paragraph}{\numberline {8.26.3.15}strcat\_\discretionary {-}{}{}PF}{80}
+\contentsline {paragraph}{\numberline {8.26.3.16}strchr\_\discretionary {-}{}{}P}{80}
+\contentsline {paragraph}{\numberline {8.26.3.17}strchrnul\_\discretionary {-}{}{}P}{80}
+\contentsline {paragraph}{\numberline {8.26.3.18}strcmp\_\discretionary {-}{}{}P}{80}
+\contentsline {paragraph}{\numberline {8.26.3.19}strcmp\_\discretionary {-}{}{}PF}{80}
+\contentsline {paragraph}{\numberline {8.26.3.20}strcpy\_\discretionary {-}{}{}P}{80}
+\contentsline {paragraph}{\numberline {8.26.3.21}strcpy\_\discretionary {-}{}{}PF}{80}
+\contentsline {paragraph}{\numberline {8.26.3.22}strcspn\_\discretionary {-}{}{}P}{80}
+\contentsline {paragraph}{\numberline {8.26.3.23}strlcat\_\discretionary {-}{}{}P}{80}
+\contentsline {paragraph}{\numberline {8.26.3.24}strlcat\_\discretionary {-}{}{}PF}{81}
+\contentsline {paragraph}{\numberline {8.26.3.25}strlcpy\_\discretionary {-}{}{}P}{81}
+\contentsline {paragraph}{\numberline {8.26.3.26}strlcpy\_\discretionary {-}{}{}PF}{81}
+\contentsline {paragraph}{\numberline {8.26.3.27}strlen\_\discretionary {-}{}{}P}{81}
+\contentsline {paragraph}{\numberline {8.26.3.28}strlen\_\discretionary {-}{}{}PF}{81}
+\contentsline {paragraph}{\numberline {8.26.3.29}strncasecmp\_\discretionary {-}{}{}P}{81}
+\contentsline {paragraph}{\numberline {8.26.3.30}strncasecmp\_\discretionary {-}{}{}PF}{81}
+\contentsline {paragraph}{\numberline {8.26.3.31}strncat\_\discretionary {-}{}{}P}{81}
+\contentsline {paragraph}{\numberline {8.26.3.32}strncat\_\discretionary {-}{}{}PF}{81}
+\contentsline {paragraph}{\numberline {8.26.3.33}strncmp\_\discretionary {-}{}{}P}{81}
+\contentsline {paragraph}{\numberline {8.26.3.34}strncmp\_\discretionary {-}{}{}PF}{81}
+\contentsline {paragraph}{\numberline {8.26.3.35}strncpy\_\discretionary {-}{}{}P}{81}
+\contentsline {paragraph}{\numberline {8.26.3.36}strncpy\_\discretionary {-}{}{}PF}{81}
+\contentsline {paragraph}{\numberline {8.26.3.37}strnlen\_\discretionary {-}{}{}P}{81}
+\contentsline {paragraph}{\numberline {8.26.3.38}strnlen\_\discretionary {-}{}{}PF}{81}
+\contentsline {paragraph}{\numberline {8.26.3.39}strpbrk\_\discretionary {-}{}{}P}{81}
+\contentsline {paragraph}{\numberline {8.26.3.40}strrchr\_\discretionary {-}{}{}P}{81}
+\contentsline {paragraph}{\numberline {8.26.3.41}strsep\_\discretionary {-}{}{}P}{81}
+\contentsline {paragraph}{\numberline {8.26.3.42}strspn\_\discretionary {-}{}{}P}{81}
+\contentsline {paragraph}{\numberline {8.26.3.43}strstr\_\discretionary {-}{}{}P}{81}
+\contentsline {paragraph}{\numberline {8.26.3.44}strstr\_\discretionary {-}{}{}PF}{81}
+\contentsline {paragraph}{\numberline {8.26.3.45}strtok\_\discretionary {-}{}{}P}{81}
+\contentsline {paragraph}{\numberline {8.26.3.46}strtok\_\discretionary {-}{}{}rP}{81}
+\contentsline {subsection}{\numberline {8.27}skipjack.c File Reference}{81}
+\contentsline {subsubsection}{\numberline {8.27.1}Detailed Description}{81}
+\contentsline {subsection}{\numberline {8.28}skipjack.h File Reference}{81}
+\contentsline {subsubsection}{\numberline {8.28.1}Detailed Description}{82}
+\contentsline {subsubsection}{\numberline {8.28.2}Define Documentation}{82}
+\contentsline {paragraph}{\numberline {8.28.2.1}SKIPJACK\_\discretionary {-}{}{}BLOCK\_\discretionary {-}{}{}LEN}{82}
+\contentsline {paragraph}{\numberline {8.28.2.2}SKIPJACK\_\discretionary {-}{}{}KEY\_\discretionary {-}{}{}LEN}{82}
+\contentsline {subsubsection}{\numberline {8.28.3}Function Documentation}{82}
+\contentsline {paragraph}{\numberline {8.28.3.1}skipjack\_\discretionary {-}{}{}dec}{82}
+\contentsline {paragraph}{\numberline {8.28.3.2}skipjack\_\discretionary {-}{}{}enc}{82}
+\contentsline {subsection}{\numberline {8.29}sw.c File Reference}{82}
+\contentsline {subsubsection}{\numberline {8.29.1}Detailed Description}{83}
+\contentsline {subsubsection}{\numberline {8.29.2}Function Documentation}{83}
+\contentsline {paragraph}{\numberline {8.29.2.1}sw\_\discretionary {-}{}{}set}{83}
+\contentsline {subsubsection}{\numberline {8.29.3}Variable Documentation}{83}
+\contentsline {paragraph}{\numberline {8.29.3.1}sw}{83}
+\contentsline {subsection}{\numberline {8.30}sw.h File Reference}{83}
+\contentsline {subsubsection}{\numberline {8.30.1}Detailed Description}{84}
+\contentsline {subsubsection}{\numberline {8.30.2}Enumeration Type Documentation}{84}
+\contentsline {paragraph}{\numberline {8.30.2.1}SW}{84}
+\contentsline {subsubsection}{\numberline {8.30.3}Function Documentation}{85}
+\contentsline {paragraph}{\numberline {8.30.3.1}sw\_\discretionary {-}{}{}set}{85}
+\contentsline {subsubsection}{\numberline {8.30.4}Variable Documentation}{85}
+\contentsline {paragraph}{\numberline {8.30.4.1}sw}{85}
+\contentsline {subsection}{\numberline {8.31}t0.c File Reference}{85}
+\contentsline {subsubsection}{\numberline {8.31.1}Detailed Description}{86}
+\contentsline {subsubsection}{\numberline {8.31.2}Function Documentation}{86}
+\contentsline {paragraph}{\numberline {8.31.2.1}t0\_\discretionary {-}{}{}recBlock}{86}
+\contentsline {paragraph}{\numberline {8.31.2.2}t0\_\discretionary {-}{}{}sendAck}{86}
+\contentsline {paragraph}{\numberline {8.31.2.3}t0\_\discretionary {-}{}{}sendCAck}{86}
+\contentsline {paragraph}{\numberline {8.31.2.4}t0\_\discretionary {-}{}{}sendSw}{86}
+\contentsline {paragraph}{\numberline {8.31.2.5}t0\_\discretionary {-}{}{}sendWord}{86}
+\contentsline {paragraph}{\numberline {8.31.2.6}t0\_\discretionary {-}{}{}testP1P2}{87}
+\contentsline {paragraph}{\numberline {8.31.2.7}t0\_\discretionary {-}{}{}testP3}{87}
+\contentsline {subsubsection}{\numberline {8.31.3}Variable Documentation}{87}
+\contentsline {paragraph}{\numberline {8.31.3.1}header}{87}
+\contentsline {subsection}{\numberline {8.32}t0.h File Reference}{87}
+\contentsline {subsubsection}{\numberline {8.32.1}Detailed Description}{88}
+\contentsline {subsubsection}{\numberline {8.32.2}Function Documentation}{88}
+\contentsline {paragraph}{\numberline {8.32.2.1}t0\_\discretionary {-}{}{}recBlock}{88}
+\contentsline {paragraph}{\numberline {8.32.2.2}t0\_\discretionary {-}{}{}sendAck}{88}
+\contentsline {paragraph}{\numberline {8.32.2.3}t0\_\discretionary {-}{}{}sendCAck}{89}
+\contentsline {paragraph}{\numberline {8.32.2.4}t0\_\discretionary {-}{}{}sendSw}{89}
+\contentsline {paragraph}{\numberline {8.32.2.5}t0\_\discretionary {-}{}{}sendWord}{89}
+\contentsline {paragraph}{\numberline {8.32.2.6}t0\_\discretionary {-}{}{}testP1P2}{89}
+\contentsline {paragraph}{\numberline {8.32.2.7}t0\_\discretionary {-}{}{}testP3}{89}
+\contentsline {subsubsection}{\numberline {8.32.3}Variable Documentation}{90}
+\contentsline {paragraph}{\numberline {8.32.3.1}header}{90}
+\contentsline {subsection}{\numberline {8.33}tea.c File Reference}{90}
+\contentsline {subsubsection}{\numberline {8.33.1}Detailed Description}{90}
+\contentsline {subsubsection}{\numberline {8.33.2}Define Documentation}{90}
+\contentsline {paragraph}{\numberline {8.33.2.1}hton\_\discretionary {-}{}{}ul}{90}
+\contentsline {paragraph}{\numberline {8.33.2.2}TEA\_\discretionary {-}{}{}SMALL}{90}
+\contentsline {subsubsection}{\numberline {8.33.3}Function Documentation}{90}
+\contentsline {paragraph}{\numberline {8.33.3.1}tea\_\discretionary {-}{}{}dec}{90}
+\contentsline {paragraph}{\numberline {8.33.3.2}tea\_\discretionary {-}{}{}enc}{91}
+\contentsline {paragraph}{\numberline {8.33.3.3}tea\_\discretionary {-}{}{}func}{91}
+\contentsline {subsection}{\numberline {8.34}tea.h File Reference}{91}
+\contentsline {subsubsection}{\numberline {8.34.1}Detailed Description}{91}
+\contentsline {subsubsection}{\numberline {8.34.2}Define Documentation}{91}
+\contentsline {paragraph}{\numberline {8.34.2.1}DELTA}{91}
+\contentsline {paragraph}{\numberline {8.34.2.2}ROUNDS}{92}
+\contentsline {paragraph}{\numberline {8.34.2.3}TEA\_\discretionary {-}{}{}BLOCK\_\discretionary {-}{}{}LEN}{92}
+\contentsline {paragraph}{\numberline {8.34.2.4}TEA\_\discretionary {-}{}{}KEY\_\discretionary {-}{}{}LEN}{92}
+\contentsline {subsubsection}{\numberline {8.34.3}Function Documentation}{92}
+\contentsline {paragraph}{\numberline {8.34.3.1}tea\_\discretionary {-}{}{}dec}{92}
+\contentsline {paragraph}{\numberline {8.34.3.2}tea\_\discretionary {-}{}{}enc}{92}
+\contentsline {subsection}{\numberline {8.35}tools.c File Reference}{92}
+\contentsline {subsubsection}{\numberline {8.35.1}Detailed Description}{92}
+\contentsline {subsubsection}{\numberline {8.35.2}Function Documentation}{92}
+\contentsline {paragraph}{\numberline {8.35.2.1}hton\_\discretionary {-}{}{}us}{93}
+\contentsline {subsection}{\numberline {8.36}tools.h File Reference}{93}
+\contentsline {subsubsection}{\numberline {8.36.1}Detailed Description}{93}
+\contentsline {subsubsection}{\numberline {8.36.2}Define Documentation}{93}
+\contentsline {paragraph}{\numberline {8.36.2.1}max}{93}
+\contentsline {paragraph}{\numberline {8.36.2.2}min}{93}
+\contentsline {paragraph}{\numberline {8.36.2.3}swap\_\discretionary {-}{}{}ul}{93}
+\contentsline {paragraph}{\numberline {8.36.2.4}swap\_\discretionary {-}{}{}us}{93}
+\contentsline {subsubsection}{\numberline {8.36.3}Function Documentation}{94}
+\contentsline {paragraph}{\numberline {8.36.3.1}hton\_\discretionary {-}{}{}ul}{94}
+\contentsline {paragraph}{\numberline {8.36.3.2}hton\_\discretionary {-}{}{}us}{94}
+\contentsline {subsection}{\numberline {8.37}transaction.c File Reference}{94}
+\contentsline {subsubsection}{\numberline {8.37.1}Detailed Description}{94}
+\contentsline {subsubsection}{\numberline {8.37.2}Function Documentation}{94}
+\contentsline {paragraph}{\numberline {8.37.2.1}ta\_\discretionary {-}{}{}commit}{94}
+\contentsline {paragraph}{\numberline {8.37.2.2}ta\_\discretionary {-}{}{}setdata}{95}
+\contentsline {subsection}{\numberline {8.38}transaction.h File Reference}{95}
+\contentsline {subsubsection}{\numberline {8.38.1}Detailed Description}{95}
+\contentsline {subsubsection}{\numberline {8.38.2}Define Documentation}{96}
+\contentsline {paragraph}{\numberline {8.38.2.1}TRANSAC\_\discretionary {-}{}{}STATE\_\discretionary {-}{}{}CLEAN}{96}
+\contentsline {paragraph}{\numberline {8.38.2.2}TRANSAC\_\discretionary {-}{}{}STATE\_\discretionary {-}{}{}DATA}{96}
+\contentsline {subsubsection}{\numberline {8.38.3}Function Documentation}{96}
+\contentsline {paragraph}{\numberline {8.38.3.1}ta\_\discretionary {-}{}{}commit}{96}
+\contentsline {paragraph}{\numberline {8.38.3.2}ta\_\discretionary {-}{}{}rollback}{96}
+\contentsline {paragraph}{\numberline {8.38.3.3}ta\_\discretionary {-}{}{}setdata}{96}
+\contentsline {subsection}{\numberline {8.39}types.h File Reference}{97}
+\contentsline {subsubsection}{\numberline {8.39.1}Detailed Description}{97}
+\contentsline {subsubsection}{\numberline {8.39.2}Define Documentation}{97}
+\contentsline {paragraph}{\numberline {8.39.2.1}CODE}{97}
+\contentsline {paragraph}{\numberline {8.39.2.2}FALSE}{97}
+\contentsline {paragraph}{\numberline {8.39.2.3}PRG\_\discretionary {-}{}{}RDB}{97}
+\contentsline {paragraph}{\numberline {8.39.2.4}TRUE}{97}
+\contentsline {subsubsection}{\numberline {8.39.3}Typedef Documentation}{97}
+\contentsline {paragraph}{\numberline {8.39.3.1}bool}{98}
+\contentsline {paragraph}{\numberline {8.39.3.2}iu16}{98}
+\contentsline {paragraph}{\numberline {8.39.3.3}iu32}{98}
+\contentsline {paragraph}{\numberline {8.39.3.4}iu8}{98}

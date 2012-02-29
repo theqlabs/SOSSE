@@ -1,0 +1,114 @@
+\subsection{tea.h File Reference}
+\label{tea_8h}\index{tea.h@{tea.h}}
+
+
+TEA declarations.  
+
+
+{\ttfamily \#include $<$types.h$>$}\par
+\subsubsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf TEA\_\-KEY\_\-LEN}~16
+\begin{DoxyCompactList}\small\item\em TEA key size. \item\end{DoxyCompactList}\item 
+\#define {\bf TEA\_\-BLOCK\_\-LEN}~8
+\begin{DoxyCompactList}\small\item\em TEA block length. \item\end{DoxyCompactList}\item 
+\#define {\bf DELTA}~0x9E3779B9
+\begin{DoxyCompactList}\small\item\em Magic value. (Golden number $\ast$ 2$^\wedge$31). \item\end{DoxyCompactList}\item 
+\#define {\bf ROUNDS}~32
+\begin{DoxyCompactList}\small\item\em Number of rounds. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf tea\_\-enc} ({\bf iu32} $\ast$v, {\bf iu32} $\ast$k)
+\begin{DoxyCompactList}\small\item\em TEA encryption function. \item\end{DoxyCompactList}\item 
+void {\bf tea\_\-dec} ({\bf iu32} $\ast$v, {\bf iu32} $\ast$k)
+\begin{DoxyCompactList}\small\item\em TEA decryption function. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+TEA declarations. Documentation for TEA is available at {\tt http://www.cl.cam.ac.uk/ftp/users/djw3/tea.ps.}
+
+\begin{DoxyParagraph}{Id:}
+\doxyref{tea.h}{p.}{tea_8h},v 1.5 2002/12/22 15:42:55 m Exp 
+\end{DoxyParagraph}
+
+
+\subsubsection{Define Documentation}
+\index{tea.h@{tea.h}!DELTA@{DELTA}}
+\index{DELTA@{DELTA}!tea.h@{tea.h}}
+\paragraph[{DELTA}]{\setlength{\rightskip}{0pt plus 5cm}\#define DELTA~0x9E3779B9}\hfill\label{tea_8h_a3fd2b1bcd7ddcf506237987ad780f495}
+
+
+Magic value. (Golden number $\ast$ 2$^\wedge$31). 
+
+
+
+Referenced by tea\_\-dec().
+
+\index{tea.h@{tea.h}!ROUNDS@{ROUNDS}}
+\index{ROUNDS@{ROUNDS}!tea.h@{tea.h}}
+\paragraph[{ROUNDS}]{\setlength{\rightskip}{0pt plus 5cm}\#define ROUNDS~32}\hfill\label{tea_8h_a69479655ab94c875413d38689002ff98}
+
+
+Number of rounds. 
+
+\index{tea.h@{tea.h}!TEA\_\-BLOCK\_\-LEN@{TEA\_\-BLOCK\_\-LEN}}
+\index{TEA\_\-BLOCK\_\-LEN@{TEA\_\-BLOCK\_\-LEN}!tea.h@{tea.h}}
+\paragraph[{TEA\_\-BLOCK\_\-LEN}]{\setlength{\rightskip}{0pt plus 5cm}\#define TEA\_\-BLOCK\_\-LEN~8}\hfill\label{tea_8h_a42fe1c2852561ea40a1380fc426d9c81}
+
+
+TEA block length. 
+
+\index{tea.h@{tea.h}!TEA\_\-KEY\_\-LEN@{TEA\_\-KEY\_\-LEN}}
+\index{TEA\_\-KEY\_\-LEN@{TEA\_\-KEY\_\-LEN}!tea.h@{tea.h}}
+\paragraph[{TEA\_\-KEY\_\-LEN}]{\setlength{\rightskip}{0pt plus 5cm}\#define TEA\_\-KEY\_\-LEN~16}\hfill\label{tea_8h_ac52845e68e2ba28492bfe7713ecd4446}
+
+
+TEA key size. 
+
+
+
+\subsubsection{Function Documentation}
+\index{tea.h@{tea.h}!tea\_\-dec@{tea\_\-dec}}
+\index{tea\_\-dec@{tea\_\-dec}!tea.h@{tea.h}}
+\paragraph[{tea\_\-dec}]{\setlength{\rightskip}{0pt plus 5cm}void tea\_\-dec (
+\begin{DoxyParamCaption}
+\item[{{\bf iu32} $\ast$}]{ v, }
+\item[{{\bf iu32} $\ast$}]{ k}
+\end{DoxyParamCaption}
+)}\hfill\label{tea_8h_a1cd09c6d04d02c89bf0fddb0b6cb519c}
+
+
+TEA decryption function. 
+
+This function decrypts {\itshape v\/} with {\itshape k\/} and returns the decrypted data in {\itshape v\/}.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em v}]Array of two long values containing the data block. \item[{\em k}]Array of four long values containing the key. \end{DoxyParams}
+
+
+References DELTA, hton\_\-ul, and tea\_\-func().
+
+\index{tea.h@{tea.h}!tea\_\-enc@{tea\_\-enc}}
+\index{tea\_\-enc@{tea\_\-enc}!tea.h@{tea.h}}
+\paragraph[{tea\_\-enc}]{\setlength{\rightskip}{0pt plus 5cm}void tea\_\-enc (
+\begin{DoxyParamCaption}
+\item[{{\bf iu32} $\ast$}]{ v, }
+\item[{{\bf iu32} $\ast$}]{ k}
+\end{DoxyParamCaption}
+)}\hfill\label{tea_8h_aaf7981a928cc6a0ce5165eaf70009a11}
+
+
+TEA encryption function. 
+
+This function encrypts {\itshape v\/} with {\itshape k\/} and returns the encrypted data in {\itshape v\/}.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em v}]Array of two long values containing the data block. \item[{\em k}]Array of four long values containing the key. \end{DoxyParams}
+
+
+References hton\_\-ul, and tea\_\-func().
+

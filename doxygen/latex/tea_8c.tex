@@ -1,0 +1,108 @@
+\subsection{tea.c File Reference}
+\label{tea_8c}\index{tea.c@{tea.c}}
+
+
+TEA functions.  
+
+
+{\ttfamily \#include $<$config.h$>$}\par
+{\ttfamily \#include $<$tea.h$>$}\par
+{\ttfamily \#include $<$tools.h$>$}\par
+\subsubsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf TEA\_\-SMALL}
+\item 
+\#define {\bf hton\_\-ul}(x, y)
+\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf iu32} {\bf tea\_\-func} ({\bf iu32} $\ast$in, {\bf iu32} $\ast$sum, {\bf iu32} $\ast$k)
+\item 
+void {\bf tea\_\-enc} ({\bf iu32} $\ast$v, {\bf iu32} $\ast$k)
+\begin{DoxyCompactList}\small\item\em TEA encryption function. \item\end{DoxyCompactList}\item 
+void {\bf tea\_\-dec} ({\bf iu32} $\ast$v, {\bf iu32} $\ast$k)
+\begin{DoxyCompactList}\small\item\em TEA decryption function. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+TEA functions. \begin{DoxyParagraph}{Id:}
+\doxyref{tea.c}{p.}{tea_8c},v 1.6 2003/04/02 23:57:54 m Exp 
+\end{DoxyParagraph}
+
+
+\subsubsection{Define Documentation}
+\index{tea.c@{tea.c}!hton\_\-ul@{hton\_\-ul}}
+\index{hton\_\-ul@{hton\_\-ul}!tea.c@{tea.c}}
+\paragraph[{hton\_\-ul}]{\setlength{\rightskip}{0pt plus 5cm}\#define hton\_\-ul(
+\begin{DoxyParamCaption}
+\item[{}]{x, }
+\item[{}]{y}
+\end{DoxyParamCaption}
+)}\hfill\label{tea_8c_ac0de559b1de7df84709f253b5276a71a}
+
+
+Referenced by tea\_\-dec(), and tea\_\-enc().
+
+\index{tea.c@{tea.c}!TEA\_\-SMALL@{TEA\_\-SMALL}}
+\index{TEA\_\-SMALL@{TEA\_\-SMALL}!tea.c@{tea.c}}
+\paragraph[{TEA\_\-SMALL}]{\setlength{\rightskip}{0pt plus 5cm}\#define TEA\_\-SMALL}\hfill\label{tea_8c_acc11a6fe68ea2492d21b88fb5f61e6c4}
+
+
+\subsubsection{Function Documentation}
+\index{tea.c@{tea.c}!tea\_\-dec@{tea\_\-dec}}
+\index{tea\_\-dec@{tea\_\-dec}!tea.c@{tea.c}}
+\paragraph[{tea\_\-dec}]{\setlength{\rightskip}{0pt plus 5cm}void tea\_\-dec (
+\begin{DoxyParamCaption}
+\item[{{\bf iu32} $\ast$}]{ v, }
+\item[{{\bf iu32} $\ast$}]{ k}
+\end{DoxyParamCaption}
+)}\hfill\label{tea_8c_a1cd09c6d04d02c89bf0fddb0b6cb519c}
+
+
+TEA decryption function. 
+
+This function decrypts {\itshape v\/} with {\itshape k\/} and returns the decrypted data in {\itshape v\/}.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em v}]Array of two long values containing the data block. \item[{\em k}]Array of four long values containing the key. \end{DoxyParams}
+
+
+References DELTA, hton\_\-ul, and tea\_\-func().
+
+\index{tea.c@{tea.c}!tea\_\-enc@{tea\_\-enc}}
+\index{tea\_\-enc@{tea\_\-enc}!tea.c@{tea.c}}
+\paragraph[{tea\_\-enc}]{\setlength{\rightskip}{0pt plus 5cm}void tea\_\-enc (
+\begin{DoxyParamCaption}
+\item[{{\bf iu32} $\ast$}]{ v, }
+\item[{{\bf iu32} $\ast$}]{ k}
+\end{DoxyParamCaption}
+)}\hfill\label{tea_8c_aaf7981a928cc6a0ce5165eaf70009a11}
+
+
+TEA encryption function. 
+
+This function encrypts {\itshape v\/} with {\itshape k\/} and returns the encrypted data in {\itshape v\/}.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em v}]Array of two long values containing the data block. \item[{\em k}]Array of four long values containing the key. \end{DoxyParams}
+
+
+References hton\_\-ul, and tea\_\-func().
+
+\index{tea.c@{tea.c}!tea\_\-func@{tea\_\-func}}
+\index{tea\_\-func@{tea\_\-func}!tea.c@{tea.c}}
+\paragraph[{tea\_\-func}]{\setlength{\rightskip}{0pt plus 5cm}{\bf iu32} tea\_\-func (
+\begin{DoxyParamCaption}
+\item[{{\bf iu32} $\ast$}]{ in, }
+\item[{{\bf iu32} $\ast$}]{ sum, }
+\item[{{\bf iu32} $\ast$}]{ k}
+\end{DoxyParamCaption}
+)}\hfill\label{tea_8c_a66d024df327c9f63b991754cccfa507b}
+
+
+Referenced by tea\_\-dec(), and tea\_\-enc().
+

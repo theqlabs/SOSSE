@@ -1,0 +1,355 @@
+\subsection{commands.c File Reference}
+\label{commands_8c}\index{commands.c@{commands.c}}
+
+
+Commands.  
+
+
+{\ttfamily \#include $<$auth.h$>$}\par
+{\ttfamily \#include $<$hal.h$>$}\par
+{\ttfamily \#include $<$commands.h$>$}\par
+{\ttfamily \#include $<$config.h$>$}\par
+{\ttfamily \#include $<$crypt.h$>$}\par
+{\ttfamily \#include $<$fs.h$>$}\par
+{\ttfamily \#include $<$log.h$>$}\par
+{\ttfamily \#include $<$stddef.h$>$}\par
+{\ttfamily \#include $<$string.h$>$}\par
+{\ttfamily \#include $<$sw.h$>$}\par
+{\ttfamily \#include $<$t0.h$>$}\par
+{\ttfamily \#include $<$tools.h$>$}\par
+{\ttfamily \#include $<$types.h$>$}\par
+\subsubsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf pinssize}~(PIN\_\-LEN+PIN\_\-LEN)
+\item 
+\#define {\bf pin1len}~PIN\_\-LEN
+\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf cmd\_\-write} (void)
+\begin{DoxyCompactList}\small\item\em Write EEPROM. (Test command). \item\end{DoxyCompactList}\item 
+void {\bf cmd\_\-read} (void)
+\begin{DoxyCompactList}\small\item\em Read EEPROM. (Test command). \item\end{DoxyCompactList}\item 
+void {\bf cmd\_\-changeUnblockPIN} (void)
+\begin{DoxyCompactList}\small\item\em Change or Unblock PIN. \item\end{DoxyCompactList}\item 
+void {\bf cmd\_\-create} (void)
+\begin{DoxyCompactList}\small\item\em Create File. \item\end{DoxyCompactList}\item 
+void {\bf cmd\_\-delete} (void)
+\begin{DoxyCompactList}\small\item\em Delete File. \item\end{DoxyCompactList}\item 
+void {\bf cmd\_\-extAuth} (void)
+\begin{DoxyCompactList}\small\item\em External Authentication. \item\end{DoxyCompactList}\item 
+void {\bf cmd\_\-getChallenge} (void)
+\begin{DoxyCompactList}\small\item\em Get Challenge. \item\end{DoxyCompactList}\item 
+void {\bf cmd\_\-getResponse} (void)
+\begin{DoxyCompactList}\small\item\em Get Response. \item\end{DoxyCompactList}\item 
+void {\bf cmd\_\-intAuth} (void)
+\begin{DoxyCompactList}\small\item\em Internal Authentication. \item\end{DoxyCompactList}\item 
+void {\bf cmd\_\-readBinary} (void)
+\begin{DoxyCompactList}\small\item\em Read Binary. \item\end{DoxyCompactList}\item 
+void {\bf cmd\_\-select} (void)
+\begin{DoxyCompactList}\small\item\em Select File. \item\end{DoxyCompactList}\item 
+void {\bf cmd\_\-updateBinary} (void)
+\begin{DoxyCompactList}\small\item\em Update Binary. \item\end{DoxyCompactList}\item 
+void {\bf cmd\_\-verifyKeyPIN} (void)
+\begin{DoxyCompactList}\small\item\em Verify Key/Verify PIN. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+{\bf iu8} {\bf resplen}
+\begin{DoxyCompactList}\small\item\em Valid data in response array. Invalid if zero. \item\end{DoxyCompactList}\item 
+{\bf iu8} {\bf response} [8]
+\begin{DoxyCompactList}\small\item\em Data returned by Get Response command. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Commands. The documentation of the commands is on the main page of the doxygen documentation.
+
+\begin{DoxyParagraph}{Id:}
+\doxyref{commands.c}{p.}{commands_8c},v 1.27 2003/03/30 12:42:21 m Exp 
+\end{DoxyParagraph}
+
+
+\subsubsection{Define Documentation}
+\index{commands.c@{commands.c}!pin1len@{pin1len}}
+\index{pin1len@{pin1len}!commands.c@{commands.c}}
+\paragraph[{pin1len}]{\setlength{\rightskip}{0pt plus 5cm}\#define pin1len~PIN\_\-LEN}\hfill\label{commands_8c_a393f9f89ceaa14111c80ffbb885554da}
+\index{commands.c@{commands.c}!pinssize@{pinssize}}
+\index{pinssize@{pinssize}!commands.c@{commands.c}}
+\paragraph[{pinssize}]{\setlength{\rightskip}{0pt plus 5cm}\#define pinssize~(PIN\_\-LEN+PIN\_\-LEN)}\hfill\label{commands_8c_ab87daf0e7a0fb01566f60b776204bee5}
+
+
+\subsubsection{Function Documentation}
+\index{commands.c@{commands.c}!cmd\_\-changeUnblockPIN@{cmd\_\-changeUnblockPIN}}
+\index{cmd\_\-changeUnblockPIN@{cmd\_\-changeUnblockPIN}!commands.c@{commands.c}}
+\paragraph[{cmd\_\-changeUnblockPIN}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-changeUnblockPIN (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8c_aece92ed730ad9d4e7ccb4cd08555c0b7}
+
+
+Change or Unblock PIN. 
+
+
+
+References auth\_\-setPin(), auth\_\-verifyPin(), INS\_\-UNBLOCK\_\-PIN, max, PIN\_\-LEN, PIN\_\-TYPE\_\-PIN, PUK\_\-LEN, SW\_\-OK, sw\_\-set(), t0\_\-recBlock(), t0\_\-sendAck(), t0\_\-testP1P2(), and t0\_\-testP3().
+
+
+
+Referenced by main().
+
+\index{commands.c@{commands.c}!cmd\_\-create@{cmd\_\-create}}
+\index{cmd\_\-create@{cmd\_\-create}!commands.c@{commands.c}}
+\paragraph[{cmd\_\-create}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-create (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8c_a3c4d6ec9b132006edab635f42f6b1143}
+
+
+Create File. 
+
+
+
+References s\_\-finfo::ac, auth\_\-checkAc(), fs\_\-create(), fs\_\-getData(), FS\_\-TYPE\_\-DF, hton\_\-us(), selected, SW\_\-NOT\_\-ALLOWED, SW\_\-OK, sw\_\-set(), t0\_\-recBlock(), t0\_\-sendAck(), t0\_\-testP1P2(), t0\_\-testP3(), and s\_\-finfo::type.
+
+
+
+Referenced by main().
+
+\index{commands.c@{commands.c}!cmd\_\-delete@{cmd\_\-delete}}
+\index{cmd\_\-delete@{cmd\_\-delete}!commands.c@{commands.c}}
+\paragraph[{cmd\_\-delete}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-delete (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8c_ab5e91199098e25652dd3dbc7aea27683}
+
+
+Delete File. 
+
+
+
+References s\_\-finfo::ac, auth\_\-checkAc(), fs\_\-delete(), fs\_\-getData(), FS\_\-TYPE\_\-DF, hal\_\-io\_\-recByteT0(), selected, SW\_\-NOT\_\-ALLOWED, SW\_\-OK, sw\_\-set(), t0\_\-sendAck(), t0\_\-testP1P2(), t0\_\-testP3(), and s\_\-finfo::type.
+
+
+
+Referenced by main().
+
+\index{commands.c@{commands.c}!cmd\_\-extAuth@{cmd\_\-extAuth}}
+\index{cmd\_\-extAuth@{cmd\_\-extAuth}!commands.c@{commands.c}}
+\paragraph[{cmd\_\-extAuth}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-extAuth (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8c_a6479b741d6f5b343e356290db8153021}
+
+
+External Authentication. 
+
+
+
+References auth\_\-createVerifyCryptogram(), CRYPT\_\-BLOCK\_\-LEN, FALSE, SW\_\-OK, sw\_\-set(), t0\_\-recBlock(), t0\_\-sendAck(), t0\_\-testP1P2(), and t0\_\-testP3().
+
+
+
+Referenced by main().
+
+\index{commands.c@{commands.c}!cmd\_\-getChallenge@{cmd\_\-getChallenge}}
+\index{cmd\_\-getChallenge@{cmd\_\-getChallenge}!commands.c@{commands.c}}
+\paragraph[{cmd\_\-getChallenge}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-getChallenge (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8c_a6feeac5b3883560af0faec05f1a090b2}
+
+
+Get Challenge. 
+
+
+
+References auth\_\-getChallenge(), CRYPT\_\-BLOCK\_\-LEN, hal\_\-io\_\-sendByteT0(), SW\_\-OK, sw\_\-set(), t0\_\-sendAck(), t0\_\-testP1P2(), and t0\_\-testP3().
+
+
+
+Referenced by main().
+
+\index{commands.c@{commands.c}!cmd\_\-getResponse@{cmd\_\-getResponse}}
+\index{cmd\_\-getResponse@{cmd\_\-getResponse}!commands.c@{commands.c}}
+\paragraph[{cmd\_\-getResponse}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-getResponse (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8c_a7002865ca7ee8fef5c52493a90809e48}
+
+
+Get Response. 
+
+
+
+References hal\_\-io\_\-sendByteT0(), resplen, response, SW\_\-OK, sw\_\-set(), SW\_\-WRONG\_\-CONDITION, SW\_\-WRONG\_\-LE, t0\_\-sendAck(), t0\_\-testP1P2(), and t0\_\-testP3().
+
+
+
+Referenced by main().
+
+\index{commands.c@{commands.c}!cmd\_\-intAuth@{cmd\_\-intAuth}}
+\index{cmd\_\-intAuth@{cmd\_\-intAuth}!commands.c@{commands.c}}
+\paragraph[{cmd\_\-intAuth}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-intAuth (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8c_ad18d7d2bb0f030accf5e0456b2927411}
+
+
+Internal Authentication. 
+
+
+
+References auth\_\-createVerifyCryptogram(), CRYPT\_\-BLOCK\_\-LEN, resplen, response, SW\_\-AVAILABLE, sw\_\-set(), t0\_\-recBlock(), t0\_\-sendAck(), t0\_\-testP1P2(), t0\_\-testP3(), and TRUE.
+
+
+
+Referenced by main().
+
+\index{commands.c@{commands.c}!cmd\_\-read@{cmd\_\-read}}
+\index{cmd\_\-read@{cmd\_\-read}!commands.c@{commands.c}}
+\paragraph[{cmd\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-read (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8c_a18edf53f42c45ade3a6a886e5db0df5c}
+
+
+Read EEPROM. (Test command). 
+
+
+
+References hal\_\-eeprom\_\-read(), hal\_\-io\_\-sendByteT0(), header, max, SW\_\-OK, sw\_\-set(), and t0\_\-sendAck().
+
+
+
+Referenced by main().
+
+\index{commands.c@{commands.c}!cmd\_\-readBinary@{cmd\_\-readBinary}}
+\index{cmd\_\-readBinary@{cmd\_\-readBinary}!commands.c@{commands.c}}
+\paragraph[{cmd\_\-readBinary}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-readBinary (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8c_a892cbb2f7983a3bca95719fa78397eb4}
+
+
+Read Binary. 
+
+
+
+References s\_\-finfo::ac, auth\_\-checkAc(), fs\_\-getData(), FS\_\-TYPE\_\-EF, fstream\_\-read(), fstream\_\-test(), hal\_\-io\_\-sendByteT0(), max, s\_\-fstream::pos, selected, s\_\-fstream::size, SW\_\-NOT\_\-ALLOWED, SW\_\-OK, sw\_\-set(), SW\_\-WRONG\_\-REFERENCE, t0\_\-sendAck(), and s\_\-finfo::type.
+
+
+
+Referenced by main().
+
+\index{commands.c@{commands.c}!cmd\_\-select@{cmd\_\-select}}
+\index{cmd\_\-select@{cmd\_\-select}!commands.c@{commands.c}}
+\paragraph[{cmd\_\-select}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-select (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8c_a338c589b70e1e97960452b9f7b124c46}
+
+
+Select File. 
+
+
+
+References s\_\-finfo::fid, fs\_\-getFPath(), hal\_\-io\_\-recByteT0(), hton\_\-us(), resplen, response, selected, s\_\-finfo::size, SW\_\-AVAILABLE, sw\_\-set(), t0\_\-sendAck(), t0\_\-testP1P2(), and t0\_\-testP3().
+
+
+
+Referenced by main().
+
+\index{commands.c@{commands.c}!cmd\_\-updateBinary@{cmd\_\-updateBinary}}
+\index{cmd\_\-updateBinary@{cmd\_\-updateBinary}!commands.c@{commands.c}}
+\paragraph[{cmd\_\-updateBinary}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-updateBinary (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8c_aa4f0817c641ea482d8bbd9a62d4a56b5}
+
+
+Update Binary. 
+
+
+
+References s\_\-finfo::ac, auth\_\-checkAc(), fs\_\-getData(), FS\_\-TYPE\_\-EF, fstream\_\-test(), fstream\_\-write(), hal\_\-io\_\-recByteT0(), s\_\-fstream::pos, selected, s\_\-fstream::size, SW\_\-NOT\_\-ALLOWED, SW\_\-OK, sw\_\-set(), SW\_\-WRONG\_\-LEN, SW\_\-WRONG\_\-REFERENCE, t0\_\-sendCAck(), t0\_\-testP3(), and s\_\-finfo::type.
+
+
+
+Referenced by main().
+
+\index{commands.c@{commands.c}!cmd\_\-verifyKeyPIN@{cmd\_\-verifyKeyPIN}}
+\index{cmd\_\-verifyKeyPIN@{cmd\_\-verifyKeyPIN}!commands.c@{commands.c}}
+\paragraph[{cmd\_\-verifyKeyPIN}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-verifyKeyPIN (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8c_a8483dd469cbec8917e02d57f1059ef9c}
+
+
+Verify Key/Verify PIN. 
+
+This function is a combined implementation of Verify Key and Verify PIN. This is done to save code size. 
+
+References ADM\_\-KEY\_\-LEN, auth\_\-verifyPin(), INS\_\-VERIFY\_\-KEY, PIN\_\-LEN, SW\_\-OK, sw\_\-set(), t0\_\-recBlock(), t0\_\-sendAck(), t0\_\-testP1P2(), and t0\_\-testP3().
+
+
+
+Referenced by main().
+
+\index{commands.c@{commands.c}!cmd\_\-write@{cmd\_\-write}}
+\index{cmd\_\-write@{cmd\_\-write}!commands.c@{commands.c}}
+\paragraph[{cmd\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-write (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8c_a6bf9e78c68d51c4b10b884a13fc32aa4}
+
+
+Write EEPROM. (Test command). 
+
+
+
+References hal\_\-eeprom\_\-write(), hal\_\-io\_\-recByteT0(), header, SW\_\-OK, sw\_\-set(), SW\_\-WRONG\_\-LEN, t0\_\-sendCAck(), and t0\_\-testP3().
+
+
+
+Referenced by main().
+
+
+
+\subsubsection{Variable Documentation}
+\index{commands.c@{commands.c}!resplen@{resplen}}
+\index{resplen@{resplen}!commands.c@{commands.c}}
+\paragraph[{resplen}]{\setlength{\rightskip}{0pt plus 5cm}{\bf iu8} {\bf resplen}}\hfill\label{commands_8c_afb1c04452b9c94821029fc854326f6be}
+
+
+Valid data in response array. Invalid if zero. 
+
+
+
+Referenced by cmd\_\-getResponse(), cmd\_\-intAuth(), cmd\_\-select(), and main().
+
+\index{commands.c@{commands.c}!response@{response}}
+\index{response@{response}!commands.c@{commands.c}}
+\paragraph[{response}]{\setlength{\rightskip}{0pt plus 5cm}{\bf iu8} {\bf response}[8]}\hfill\label{commands_8c_a0c7b4be43b0611ed017299d85d8fdf71}
+
+
+Data returned by Get Response command. 
+
+The size of this array is the max. of sizeof(S\_\-FINFO) and CRYPT\_\-BLOCK\_\-LEN. 
+
+Referenced by cmd\_\-getResponse(), cmd\_\-intAuth(), and cmd\_\-select().
+

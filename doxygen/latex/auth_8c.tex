@@ -1,0 +1,307 @@
+\subsection{auth.c File Reference}
+\label{auth_8c}\index{auth.c@{auth.c}}
+
+
+Authentication functions.  
+
+
+{\ttfamily \#include $<$config.h$>$}\par
+{\ttfamily \#include $<$auth.h$>$}\par
+{\ttfamily \#include $<$crypt.h$>$}\par
+{\ttfamily \#include $<$fs.h$>$}\par
+{\ttfamily \#include $<$fstream.h$>$}\par
+{\ttfamily \#include $<$hal.h$>$}\par
+{\ttfamily \#include $<$string.h$>$}\par
+{\ttfamily \#include $<$sw.h$>$}\par
+{\ttfamily \#include $<$tools.h$>$}\par
+{\ttfamily \#include $<$transaction.h$>$}\par
+{\ttfamily \#include $<$types.h$>$}\par
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf bool} {\bf auth\_\-init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize authentication variables. \item\end{DoxyCompactList}\item 
+{\bf bool} {\bf auth\_\-checkAc} ({\bf iu8} ac)
+\begin{DoxyCompactList}\small\item\em Check fullfillment of access condition. \item\end{DoxyCompactList}\item 
+{\bf bool} {\bf auth\_\-getCheckPinLen} ({\bf iu8} pintype, {\bf iu8} pinlen, {\bf iu16} $\ast$addr, {\bf iu8} $\ast$len, {\bf iu16} $\ast$rcaddr, {\bf iu8} $\ast$maxret)
+\begin{DoxyCompactList}\small\item\em Verifies length of PIN and returns addresses of PIN in EEPROM. \item\end{DoxyCompactList}\item 
+{\bf bool} {\bf auth\_\-setPin} ({\bf iu8} pintype, {\bf iu8} $\ast$pin, {\bf iu8} pinlen)
+\begin{DoxyCompactList}\small\item\em Write PIN, PUK, External Authentication key or Internal Authentication key. \item\end{DoxyCompactList}\item 
+{\bf bool} {\bf auth\_\-verifyPin} ({\bf iu8} pintype, {\bf iu8} $\ast$pin, {\bf iu8} pinlen)
+\begin{DoxyCompactList}\small\item\em Verifies PIN, PUK or External Authentication key and sets flags in authstate. \item\end{DoxyCompactList}\item 
+{\bf bool} {\bf auth\_\-getChallenge} ({\bf iu8} $\ast${\bf dst}, {\bf iu8} rndlen)
+\begin{DoxyCompactList}\small\item\em Returns 8 byte challenge for External Authentication. \item\end{DoxyCompactList}\item 
+{\bf bool} {\bf auth\_\-createVerifyCryptogram} ({\bf iu8} $\ast$cry, {\bf iu8} crylen, {\bf bool} create, {\bf bool} enc)
+\begin{DoxyCompactList}\small\item\em Encrypt or decrypt challenge or verify cryptogram. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+{\bf iu8} {\bf challenge} [CRYPT\_\-BLOCK\_\-LEN]
+\begin{DoxyCompactList}\small\item\em Value of the last with Get Challenge fetched random challenge. \item\end{DoxyCompactList}\item 
+{\bf iu8} {\bf challvalidity}
+\begin{DoxyCompactList}\small\item\em Validity of challenge. \item\end{DoxyCompactList}\item 
+{\bf iu8} {\bf authstate}
+\begin{DoxyCompactList}\small\item\em Variable indicating current authentication state. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Authentication functions. \begin{DoxyParagraph}{Id:}
+\doxyref{auth.c}{p.}{auth_8c},v 1.21 2003/03/30 19:43:15 m Exp 
+\end{DoxyParagraph}
+
+
+\subsubsection{Function Documentation}
+\index{auth.c@{auth.c}!auth\_\-checkAc@{auth\_\-checkAc}}
+\index{auth\_\-checkAc@{auth\_\-checkAc}!auth.c@{auth.c}}
+\paragraph[{auth\_\-checkAc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} auth\_\-checkAc (
+\begin{DoxyParamCaption}
+\item[{{\bf iu8}}]{ ac}
+\end{DoxyParamCaption}
+)}\hfill\label{auth_8c_ac9b9b2622243783169e7ae66af6f0ae0}
+
+
+Check fullfillment of access condition. 
+
+This function checks, if the current setting of authstate fullfills the condition specified with {\itshape ac\/}.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em ac}]A nibble specifying an access condition.\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em TRUE}]on success. \item[{\em FALSE}]on failure. Error code given in sw. \end{DoxyRetVals}
+
+
+References AUTH\_\-AC\_\-ADM, AUTH\_\-AC\_\-ALW, AUTH\_\-AC\_\-NEV, AUTH\_\-AC\_\-PAA, AUTH\_\-AC\_\-PIN, AUTH\_\-AC\_\-POA, AUTH\_\-FLAG\_\-KEY, AUTH\_\-FLAG\_\-PIN, authstate, SW\_\-ACCESS\_\-DENIED, and sw\_\-set().
+
+
+
+Referenced by auth\_\-createVerifyCryptogram(), cmd\_\-create(), cmd\_\-delete(), cmd\_\-readBinary(), cmd\_\-updateBinary(), and main().
+
+\index{auth.c@{auth.c}!auth\_\-createVerifyCryptogram@{auth\_\-createVerifyCryptogram}}
+\index{auth\_\-createVerifyCryptogram@{auth\_\-createVerifyCryptogram}!auth.c@{auth.c}}
+\paragraph[{auth\_\-createVerifyCryptogram}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} auth\_\-createVerifyCryptogram (
+\begin{DoxyParamCaption}
+\item[{{\bf iu8} $\ast$}]{ cry, }
+\item[{{\bf iu8}}]{ crylen, }
+\item[{{\bf bool}}]{ create, }
+\item[{{\bf bool}}]{ enc}
+\end{DoxyParamCaption}
+)}\hfill\label{auth_8c_a317f35613a5f25da955d5ec69a8671c7}
+
+
+Encrypt or decrypt challenge or verify cryptogram. 
+
+To include the decryption process CONF\_\-WITH\_\-DECRYPT must be set to 1.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em cry}]Pointer to byte array, which supplies challenge and which is used to return the encrypted or decrypted challenge or a cryptogram. \item[{\em crylen}]Length of challenge or cryptogram. \item[{\em create}]If set to TRUE, a challenge is processed, else a cryptogram is verified. \item[{\em enc}]If CONF\_\-WITH\_\-DECRYPT is not set to 1, this has no effect. Otherwise, if TRUE encrypt the challenge, else decrypt it. If {\itshape create\/} is FALSE, this parameter is ignored.\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em TRUE}]on success. \item[{\em FALSE}]on failure. Error code given in sw. \end{DoxyRetVals}
+
+
+References ADM\_\-KEY\_\-LEN, AUTH\_\-AC\_\-POA, auth\_\-checkAc(), auth\_\-getCheckPinLen(), authstate, challenge, challvalidity, CRYPT\_\-BLOCK\_\-LEN, crypt\_\-dec, crypt\_\-enc, hal\_\-eeprom\_\-read(), hal\_\-eeprom\_\-write(), PIN\_\-TYPE\_\-EXT, PIN\_\-TYPE\_\-INT, SW\_\-AUTH\_\-BLOCKED, SW\_\-COUNTER, sw\_\-set(), SW\_\-WRONG\_\-CONDITION, SW\_\-WRONG\_\-LEN, ta\_\-commit(), and ta\_\-setdata().
+
+
+
+Referenced by cmd\_\-extAuth(), cmd\_\-intAuth(), and main().
+
+\index{auth.c@{auth.c}!auth\_\-getChallenge@{auth\_\-getChallenge}}
+\index{auth\_\-getChallenge@{auth\_\-getChallenge}!auth.c@{auth.c}}
+\paragraph[{auth\_\-getChallenge}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} auth\_\-getChallenge (
+\begin{DoxyParamCaption}
+\item[{{\bf iu8} $\ast$}]{ dst, }
+\item[{{\bf iu8}}]{ rndlen}
+\end{DoxyParamCaption}
+)}\hfill\label{auth_8c_a946f4f893b73a4170f27f9c8a181e9bb}
+
+
+Returns 8 byte challenge for External Authentication. 
+
+The challenge is also written to the challenge array and challvalidity is set to 2.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em dst}]Destination byte array. \item[{\em rndlen}]Length of requested data. This must be 8.\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em TRUE}]on success. \item[{\em FALSE}]on failure. Error code given in sw. \end{DoxyRetVals}
+
+
+References challenge, challvalidity, CRYPT\_\-BLOCK\_\-LEN, hal\_\-rnd\_\-getBlock(), sw\_\-set(), and SW\_\-WRONG\_\-LEN.
+
+
+
+Referenced by cmd\_\-getChallenge().
+
+\index{auth.c@{auth.c}!auth\_\-getCheckPinLen@{auth\_\-getCheckPinLen}}
+\index{auth\_\-getCheckPinLen@{auth\_\-getCheckPinLen}!auth.c@{auth.c}}
+\paragraph[{auth\_\-getCheckPinLen}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} auth\_\-getCheckPinLen (
+\begin{DoxyParamCaption}
+\item[{{\bf iu8}}]{ pintype, }
+\item[{{\bf iu8}}]{ pinlen, }
+\item[{{\bf iu16} $\ast$}]{ addr, }
+\item[{{\bf iu8} $\ast$}]{ len, }
+\item[{{\bf iu16} $\ast$}]{ rcaddr, }
+\item[{{\bf iu8} $\ast$}]{ maxret}
+\end{DoxyParamCaption}
+)}\hfill\label{auth_8c_a57b022e6fdb6bbdd9c479d3a6b9fb6c0}
+
+
+Verifies length of PIN and returns addresses of PIN in EEPROM. 
+
+This functions does depending on {\itshape pintype\/}:
+
+
+\begin{DoxyItemize}
+\item Check the length of the PIN or key. 
+\item Return the address of the PIN or key in EEPROM. 
+\item Return the length of the PIN or key in EEPROM. 
+\item Return the address of the retry counter in EEPROM. 
+\item Return the default max. value for the retry counter. 
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em pintype}]PIN type. One of the PIN\_\-TYPE defines. \item[{\em pinlen}]Length of supplied PIN or key. \item[{\em addr}]Returns the address of the PIN or key in EEPROM. \item[{\em len}]Returns the length ofthe PIN or key in EEPROM. \item[{\em rcaddr}]Returns the address of the retry counter for the PIN or key. \item[{\em maxret}]Returns the default max. value for the retry counter.\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em TRUE}]on success. \item[{\em FALSE}]on failure. Error code given in sw. \end{DoxyRetVals}
+
+
+References ADM\_\-KEY\_\-LEN, s\_\-fpath::df, s\_\-fpath::ef, fs\_\-getData(), FS\_\-TYPE\_\-EF, INT\_\-KEY\_\-LEN, PIN\_\-LEN, PIN\_\-TYPE\_\-EXT, PIN\_\-TYPE\_\-INT, PIN\_\-TYPE\_\-PIN, PIN\_\-TYPE\_\-PUK, PUK\_\-LEN, s\_\-fstream::size, s\_\-fstream::start, sw, SW\_\-FILE\_\-NOT\_\-FOUND, SW\_\-OTHER, SW\_\-REF\_\-DATA\_\-NOT\_\-FOUND, sw\_\-set(), SW\_\-WRONG\_\-LEN, and s\_\-finfo::type.
+
+
+
+Referenced by auth\_\-createVerifyCryptogram(), auth\_\-setPin(), and auth\_\-verifyPin().
+
+\index{auth.c@{auth.c}!auth\_\-init@{auth\_\-init}}
+\index{auth\_\-init@{auth\_\-init}!auth.c@{auth.c}}
+\paragraph[{auth\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} auth\_\-init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{auth_8c_a98aca8fb3854ee1499ce6540ae5b893f}
+
+
+Initialize authentication variables. 
+
+This function resets authstate and challvalidity. It must be called after reset.
+
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em TRUE}]on success. \item[{\em FALSE}]on failure. Error code given in sw. \end{DoxyRetVals}
+
+
+References authstate, and challvalidity.
+
+
+
+Referenced by main().
+
+\index{auth.c@{auth.c}!auth\_\-setPin@{auth\_\-setPin}}
+\index{auth\_\-setPin@{auth\_\-setPin}!auth.c@{auth.c}}
+\paragraph[{auth\_\-setPin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} auth\_\-setPin (
+\begin{DoxyParamCaption}
+\item[{{\bf iu8}}]{ pintype, }
+\item[{{\bf iu8} $\ast$}]{ pin, }
+\item[{{\bf iu8}}]{ pinlen}
+\end{DoxyParamCaption}
+)}\hfill\label{auth_8c_af345ee6ff731358a899c18c49bb43505}
+
+
+Write PIN, PUK, External Authentication key or Internal Authentication key. 
+
+The process is secured by transactions.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em pintype}]Type of the PIN/Key. May be one of the PIN\_\-TYPE\_\-$\ast$ defines. \item[{\em pin}]Pointer to byte array containing PIN/Key. \item[{\em pinlen}]Length of PIN/Key.\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em TRUE}]on success. \item[{\em FALSE}]on failure. Error code given in sw. \end{DoxyRetVals}
+
+
+References auth\_\-getCheckPinLen(), hal\_\-eeprom\_\-write(), ta\_\-commit(), and ta\_\-setdata().
+
+
+
+Referenced by cmd\_\-changeUnblockPIN(), and main().
+
+\index{auth.c@{auth.c}!auth\_\-verifyPin@{auth\_\-verifyPin}}
+\index{auth\_\-verifyPin@{auth\_\-verifyPin}!auth.c@{auth.c}}
+\paragraph[{auth\_\-verifyPin}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} auth\_\-verifyPin (
+\begin{DoxyParamCaption}
+\item[{{\bf iu8}}]{ pintype, }
+\item[{{\bf iu8} $\ast$}]{ pin, }
+\item[{{\bf iu8}}]{ pinlen}
+\end{DoxyParamCaption}
+)}\hfill\label{auth_8c_acc47f8e744b936363d64dc20e818ac09}
+
+
+Verifies PIN, PUK or External Authentication key and sets flags in authstate. 
+
+The update of the retry counter is secured by transactions.
+
+{\itshape Warning: Currently the retry counter is not handled in a secure way. For more information see e.g. Rankl/Effing.\/}
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em pintype}]Type of the PIN/Key. May be one of the PIN\_\-TYPE\_\-$\ast$ defines. \item[{\em pin}]Pointer to byte array containing PIN/Key. \item[{\em pinlen}]Length of PIN/Key.\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em TRUE}]on success. \item[{\em FALSE}]on failure. Error code given in sw. \end{DoxyRetVals}
+
+
+References auth\_\-getCheckPinLen(), authstate, hal\_\-eeprom\_\-read(), hal\_\-eeprom\_\-write(), PIN\_\-TYPE\_\-EXT, PIN\_\-TYPE\_\-PIN, SW\_\-AUTH\_\-BLOCKED, SW\_\-COUNTER, sw\_\-set(), ta\_\-commit(), and ta\_\-setdata().
+
+
+
+Referenced by cmd\_\-changeUnblockPIN(), cmd\_\-verifyKeyPIN(), and main().
+
+
+
+\subsubsection{Variable Documentation}
+\index{auth.c@{auth.c}!authstate@{authstate}}
+\index{authstate@{authstate}!auth.c@{auth.c}}
+\paragraph[{authstate}]{\setlength{\rightskip}{0pt plus 5cm}{\bf iu8} {\bf authstate}}\hfill\label{auth_8c_ac023311503326e98022248d8e937b837}
+
+
+Variable indicating current authentication state. 
+
+Single bit flags indicate, which authorization process has been successful. The flag is cleared, at the reset of the card and after unsuccessful authorization processes.
+
+Valid flags are:
+
+
+\begin{DoxyItemize}
+\item AUTH\_\-FLAG\_\-PIN
+\item AUTH\_\-FLAG\_\-KEY 
+\end{DoxyItemize}
+
+Referenced by auth\_\-checkAc(), auth\_\-createVerifyCryptogram(), auth\_\-init(), auth\_\-verifyPin(), and main().
+
+\index{auth.c@{auth.c}!challenge@{challenge}}
+\index{challenge@{challenge}!auth.c@{auth.c}}
+\paragraph[{challenge}]{\setlength{\rightskip}{0pt plus 5cm}{\bf iu8} {\bf challenge}[CRYPT\_\-BLOCK\_\-LEN]}\hfill\label{auth_8c_a2ee8f81f054acabfbfc54e48cbcd069a}
+
+
+Value of the last with Get Challenge fetched random challenge. 
+
+
+
+Referenced by auth\_\-createVerifyCryptogram(), auth\_\-getChallenge(), and main().
+
+\index{auth.c@{auth.c}!challvalidity@{challvalidity}}
+\index{challvalidity@{challvalidity}!auth.c@{auth.c}}
+\paragraph[{challvalidity}]{\setlength{\rightskip}{0pt plus 5cm}{\bf iu8} {\bf challvalidity}}\hfill\label{auth_8c_add47c1a71dba136bb77c433df3b0914b}
+
+
+Validity of challenge. 
+
+The initial value if challvalidity is 2. This is decremented at the start of the command loop, so that it is 1 at the command following a Get Challenge. 
+
+Referenced by auth\_\-createVerifyCryptogram(), auth\_\-getChallenge(), auth\_\-init(), and main().
+

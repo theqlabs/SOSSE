@@ -1,0 +1,278 @@
+\subsection{fs.c File Reference}
+\label{fs_8c}\index{fs.c@{fs.c}}
+
+
+File system.  
+
+
+{\ttfamily \#include $<$config.h$>$}\par
+{\ttfamily \#include $<$sw.h$>$}\par
+{\ttfamily \#include $<$fs.h$>$}\par
+{\ttfamily \#include $<$hal.h$>$}\par
+{\ttfamily \#include $<$log.h$>$}\par
+{\ttfamily \#include $<$string.h$>$}\par
+{\ttfamily \#include $<$transaction.h$>$}\par
+{\ttfamily \#include $<$types.h$>$}\par
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf bool} {\bf fs\_\-init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize file system variables. \item\end{DoxyCompactList}\item 
+{\bf bool} {\bf fs\_\-seek} ({\bf iu16} fid, {\bf S\_\-FSTREAM} $\ast$fs, {\bf S\_\-FINFO} $\ast$fi, {\bf iu8} type)
+\begin{DoxyCompactList}\small\item\em Look for a file in a stream. \item\end{DoxyCompactList}\item 
+{\bf bool} {\bf fs\_\-seekEnd} ({\bf S\_\-FSTREAM} $\ast$fs)
+\begin{DoxyCompactList}\small\item\em Look for the end of files in the stream. \item\end{DoxyCompactList}\item 
+{\bf bool} {\bf fs\_\-getData} ({\bf S\_\-FPATH} $\ast$fp, {\bf S\_\-FSTREAM} $\ast$fs, {\bf S\_\-FINFO} $\ast$fi)
+\begin{DoxyCompactList}\small\item\em Get stream and info for a file specified as a path. \item\end{DoxyCompactList}\item 
+{\bf bool} {\bf fs\_\-getFPath} ({\bf iu16} fid, {\bf S\_\-FPATH} $\ast$fp, {\bf S\_\-FSTREAM} $\ast$fs, {\bf S\_\-FINFO} $\ast$fi)
+\begin{DoxyCompactList}\small\item\em Get path, stream and info for a file specified as a FID. \item\end{DoxyCompactList}\item 
+{\bf bool} {\bf fs\_\-delete} ({\bf iu16} fid)
+\begin{DoxyCompactList}\small\item\em Delete file specified as fid. \item\end{DoxyCompactList}\item 
+{\bf bool} {\bf fs\_\-create} ({\bf S\_\-FINFO} $\ast$fi)
+\begin{DoxyCompactList}\small\item\em The function creates a file. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+{\bf iu16} {\bf fsstart}
+\begin{DoxyCompactList}\small\item\em Start address of the MF file header. \item\end{DoxyCompactList}\item 
+{\bf iu16} {\bf fssize}
+\begin{DoxyCompactList}\small\item\em Size of the content area of the MF. \item\end{DoxyCompactList}\item 
+{\bf S\_\-FPATH} {\bf selected}
+\begin{DoxyCompactList}\small\item\em Path specified of the currently selected file. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+File system. \begin{DoxyParagraph}{Id:}
+\doxyref{fs.c}{p.}{fs_8c},v 1.23 2002/12/22 15:42:55 m Exp 
+\end{DoxyParagraph}
+
+
+\subsubsection{Function Documentation}
+\index{fs.c@{fs.c}!fs\_\-create@{fs\_\-create}}
+\index{fs\_\-create@{fs\_\-create}!fs.c@{fs.c}}
+\paragraph[{fs\_\-create}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} fs\_\-create (
+\begin{DoxyParamCaption}
+\item[{{\bf S\_\-FINFO} $\ast$}]{ fi}
+\end{DoxyParamCaption}
+)}\hfill\label{fs_8c_af3cd0f092dc20a811aefb18cda7b0260}
+
+
+The function creates a file. 
+
+The functions creates a file with the data in {\itshape fi\/}. The current file must be a MF or DF. In case the current file is a DF, the file, which should be created, can't be a DF.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em fi}]Pointer to S\_\-FINFO, which contains the data of the file to create.\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em TRUE}]on success. \item[{\em FALSE}]on failure. Error code given in sw. \end{DoxyRetVals}
+
+
+References s\_\-fpath::df, s\_\-fpath::ef, FALSE, s\_\-finfo::fid, fs\_\-getData(), fs\_\-seek(), fs\_\-seekEnd(), FS\_\-TYPE\_\-DF, FS\_\-TYPE\_\-EF, fssize, fsstart, fstream\_\-write(), s\_\-fstream::pos, s\_\-fstream::size, s\_\-finfo::size, s\_\-fstream::start, SW\_\-FILE\_\-EXISTS, SW\_\-FILE\_\-TO\_\-SHORT, sw\_\-set(), SW\_\-WRONG\_\-DATA, ta\_\-commit(), ta\_\-setdata(), and s\_\-finfo::type.
+
+
+
+Referenced by cmd\_\-create(), and main().
+
+\index{fs.c@{fs.c}!fs\_\-delete@{fs\_\-delete}}
+\index{fs\_\-delete@{fs\_\-delete}!fs.c@{fs.c}}
+\paragraph[{fs\_\-delete}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} fs\_\-delete (
+\begin{DoxyParamCaption}
+\item[{{\bf iu16}}]{ fid}
+\end{DoxyParamCaption}
+)}\hfill\label{fs_8c_a5b9133c311ff42d94c92599c2a9d9d96}
+
+
+Delete file specified as fid. 
+
+The function looks for the fid in the current file, which must be a MF or DF. The file, which should be deleted must be the last one in the current MF or DF.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em fid}]ID of the file to delete.\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em TRUE}]on success. \item[{\em FALSE}]on failure. Error code given in sw. \end{DoxyRetVals}
+
+
+References s\_\-fpath::df, s\_\-fpath::ef, FALSE, fs\_\-getData(), FS\_\-HEADER\_\-SIZE, fstream\_\-read(), fstream\_\-write(), s\_\-fstream::pos, s\_\-finfo::size, s\_\-fstream::size, s\_\-fstream::start, SW\_\-INCOMPATIBLE\_\-FILE, SW\_\-NOT\_\-ALLOWED, sw\_\-set(), ta\_\-commit(), and ta\_\-setdata().
+
+
+
+Referenced by cmd\_\-delete(), and main().
+
+\index{fs.c@{fs.c}!fs\_\-getData@{fs\_\-getData}}
+\index{fs\_\-getData@{fs\_\-getData}!fs.c@{fs.c}}
+\paragraph[{fs\_\-getData}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} fs\_\-getData (
+\begin{DoxyParamCaption}
+\item[{{\bf S\_\-FPATH} $\ast$}]{ fp, }
+\item[{{\bf S\_\-FSTREAM} $\ast$}]{ fs, }
+\item[{{\bf S\_\-FINFO} $\ast$}]{ fi}
+\end{DoxyParamCaption}
+)}\hfill\label{fs_8c_a53716a136dbb532afc17ffc353b9d69c}
+
+
+Get stream and info for a file specified as a path. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em fp}]Pointer to S\_\-FPATH, which is used to supply the information about the file wanted. \item[{\em fs}]Pointer to S\_\-FSTREAM, which will be filled with data on success. \item[{\em fi}]Pointer to S\_\-FINFO, which will be filled with data on success.\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em TRUE}]on success. \item[{\em FALSE}]on failure. Error code given in sw. \end{DoxyRetVals}
+
+
+References s\_\-fpath::df, s\_\-fpath::ef, fs\_\-seek(), FS\_\-TYPE\_\-DF, FS\_\-TYPE\_\-EF, fssize, fsstart, fstream\_\-read(), s\_\-fstream::pos, s\_\-fstream::size, and s\_\-fstream::start.
+
+
+
+Referenced by auth\_\-getCheckPinLen(), cmd\_\-create(), cmd\_\-delete(), cmd\_\-readBinary(), cmd\_\-updateBinary(), fs\_\-create(), fs\_\-delete(), fs\_\-getFPath(), and main().
+
+\index{fs.c@{fs.c}!fs\_\-getFPath@{fs\_\-getFPath}}
+\index{fs\_\-getFPath@{fs\_\-getFPath}!fs.c@{fs.c}}
+\paragraph[{fs\_\-getFPath}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} fs\_\-getFPath (
+\begin{DoxyParamCaption}
+\item[{{\bf iu16}}]{ fid, }
+\item[{{\bf S\_\-FPATH} $\ast$}]{ fp, }
+\item[{{\bf S\_\-FSTREAM} $\ast$}]{ fs, }
+\item[{{\bf S\_\-FINFO} $\ast$}]{ fi}
+\end{DoxyParamCaption}
+)}\hfill\label{fs_8c_a69a59c2c985e21a61a4bbeb844ed900b}
+
+
+Get path, stream and info for a file specified as a FID. 
+
+The file is searched for in the order described in the SELECT FILE documentation on the main page.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em fid}]File ID to look for. \item[{\em fp}]Pointer to S\_\-FPATH, which will be filled with data on success. \item[{\em fs}]Pointer to S\_\-FSTREAM, which will be filled with data on success. This can be NULL when no data is wanted. \item[{\em fi}]Pointer to S\_\-FINFO, which will be filled with data on success. This can be NULL when no data is wanted.\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em TRUE}]on success. \item[{\em FALSE}]on failure. Error code given in sw. \end{DoxyRetVals}
+
+
+References s\_\-fpath::df, s\_\-fpath::ef, fs\_\-getData(), SW\_\-FILE\_\-NOT\_\-FOUND, sw\_\-set(), and SW\_\-WRONG\_\-DATA.
+
+
+
+Referenced by cmd\_\-select(), and main().
+
+\index{fs.c@{fs.c}!fs\_\-init@{fs\_\-init}}
+\index{fs\_\-init@{fs\_\-init}!fs.c@{fs.c}}
+\paragraph[{fs\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} fs\_\-init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{fs_8c_afb19e37469a751aa61de3dcd0c70b4b0}
+
+
+Initialize file system variables. 
+
+This looks e.g. for the start of the file system and it's size. It must be called after each reset.
+
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em TRUE}]on success. \item[{\em FALSE}]on failure. Error code given in sw. \end{DoxyRetVals}
+
+
+References FS\_\-START\_\-PTR\_\-ADDR, fssize, fsstart, and hal\_\-eeprom\_\-read().
+
+
+
+Referenced by main().
+
+\index{fs.c@{fs.c}!fs\_\-seek@{fs\_\-seek}}
+\index{fs\_\-seek@{fs\_\-seek}!fs.c@{fs.c}}
+\paragraph[{fs\_\-seek}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} fs\_\-seek (
+\begin{DoxyParamCaption}
+\item[{{\bf iu16}}]{ fid, }
+\item[{{\bf S\_\-FSTREAM} $\ast$}]{ fs, }
+\item[{{\bf S\_\-FINFO} $\ast$}]{ fi, }
+\item[{{\bf iu8}}]{ type}
+\end{DoxyParamCaption}
+)}\hfill\label{fs_8c_a4d8d9be27ddc2dcba0f38f8e27f470d7}
+
+
+Look for a file in a stream. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em fid}]File ID to look for. \item[{\em fs}]Pointer to S\_\-FSTREAM, where the FID is searched for. It returns on success a stream on the file found. \item[{\em fi}]Pointer to S\_\-FINFO, which will be filled with data on success. \item[{\em type}]Type of file wanted.\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em TRUE}]on success. \item[{\em FALSE}]on failure. Error code given in sw.\end{DoxyRetVals}
+\begin{Desc}
+\item[{\bf Todo}]There is probably a potential for simplification, when the file type is not handled so rigid. \end{Desc}
+
+
+References fssize, fsstart, fstream\_\-read(), s\_\-fstream::pos, s\_\-fstream::size, s\_\-fstream::start, SW\_\-FILE\_\-NOT\_\-FOUND, and sw\_\-set().
+
+
+
+Referenced by fs\_\-create(), and fs\_\-getData().
+
+\index{fs.c@{fs.c}!fs\_\-seekEnd@{fs\_\-seekEnd}}
+\index{fs\_\-seekEnd@{fs\_\-seekEnd}!fs.c@{fs.c}}
+\paragraph[{fs\_\-seekEnd}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} fs\_\-seekEnd (
+\begin{DoxyParamCaption}
+\item[{{\bf S\_\-FSTREAM} $\ast$}]{ fs}
+\end{DoxyParamCaption}
+)}\hfill\label{fs_8c_a17c9e75dcbad83e1e24dfc89286fbc2b}
+
+
+Look for the end of files in the stream. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em fs}]Pointer to S\_\-FSTREAM, which supplies a directory stream and which will be used to return the end position on success.\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em TRUE}]on success. \item[{\em FALSE}]on failure. Error code given in sw. \end{DoxyRetVals}
+
+
+References fstream\_\-read(), and s\_\-fstream::pos.
+
+
+
+Referenced by fs\_\-create().
+
+
+
+\subsubsection{Variable Documentation}
+\index{fs.c@{fs.c}!fssize@{fssize}}
+\index{fssize@{fssize}!fs.c@{fs.c}}
+\paragraph[{fssize}]{\setlength{\rightskip}{0pt plus 5cm}{\bf iu16} {\bf fssize}}\hfill\label{fs_8c_a70ebcad91d36b8f6fc7f2f3ba5d292a6}
+
+
+Size of the content area of the MF. 
+
+
+
+Referenced by fs\_\-create(), fs\_\-getData(), fs\_\-init(), fs\_\-seek(), and main().
+
+\index{fs.c@{fs.c}!fsstart@{fsstart}}
+\index{fsstart@{fsstart}!fs.c@{fs.c}}
+\paragraph[{fsstart}]{\setlength{\rightskip}{0pt plus 5cm}{\bf iu16} {\bf fsstart}}\hfill\label{fs_8c_a3120fb23f27b2aed57412777711a2ce6}
+
+
+Start address of the MF file header. 
+
+
+
+Referenced by fs\_\-create(), fs\_\-getData(), fs\_\-init(), fs\_\-seek(), and main().
+
+\index{fs.c@{fs.c}!selected@{selected}}
+\index{selected@{selected}!fs.c@{fs.c}}
+\paragraph[{selected}]{\setlength{\rightskip}{0pt plus 5cm}{\bf S\_\-FPATH} {\bf selected}}\hfill\label{fs_8c_afa513b91ca575d59f5d6c481a521ab17}
+
+
+Path specified of the currently selected file. 
+
+\begin{Desc}
+\item[{\bf Todo}]Saving here a S\_\-FINFO and/or S\_\-FSTREAM of the selected file might reduce the code size. \end{Desc}
+
+
+Referenced by cmd\_\-create(), cmd\_\-delete(), cmd\_\-readBinary(), cmd\_\-select(), cmd\_\-updateBinary(), and main().
+

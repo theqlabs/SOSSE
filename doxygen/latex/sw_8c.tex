@@ -1,0 +1,60 @@
+\subsection{sw.c File Reference}
+\label{sw_8c}\index{sw.c@{sw.c}}
+
+
+Errno functions.  
+
+
+{\ttfamily \#include $<$config.h$>$}\par
+{\ttfamily \#include $<$sw.h$>$}\par
+{\ttfamily \#include $<$types.h$>$}\par
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf sw\_\-set} ({\bf iu16} value)
+\begin{DoxyCompactList}\small\item\em Function for setting sw. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+{\bf iu16} {\bf sw}
+\begin{DoxyCompactList}\small\item\em Status word returned by functions. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Errno functions. \begin{DoxyParagraph}{Id:}
+\doxyref{sw.c}{p.}{sw_8c},v 1.1 2002/12/22 15:42:55 m Exp 
+\end{DoxyParagraph}
+
+
+\subsubsection{Function Documentation}
+\index{sw.c@{sw.c}!sw\_\-set@{sw\_\-set}}
+\index{sw\_\-set@{sw\_\-set}!sw.c@{sw.c}}
+\paragraph[{sw\_\-set}]{\setlength{\rightskip}{0pt plus 5cm}void sw\_\-set (
+\begin{DoxyParamCaption}
+\item[{{\bf iu16}}]{ value}
+\end{DoxyParamCaption}
+)}\hfill\label{sw_8c_a06244878ad482424dc04d05cfdc81b7b}
+
+
+Function for setting sw. 
+
+This function reduces the code size on the AVR architecture. 
+
+Referenced by auth\_\-checkAc(), auth\_\-createVerifyCryptogram(), auth\_\-getChallenge(), auth\_\-getCheckPinLen(), auth\_\-verifyPin(), cmd\_\-changeUnblockPIN(), cmd\_\-create(), cmd\_\-delete(), cmd\_\-extAuth(), cmd\_\-getChallenge(), cmd\_\-getResponse(), cmd\_\-intAuth(), cmd\_\-read(), cmd\_\-readBinary(), cmd\_\-select(), cmd\_\-updateBinary(), cmd\_\-verifyKeyPIN(), cmd\_\-write(), fs\_\-create(), fs\_\-delete(), fs\_\-getFPath(), fs\_\-seek(), fstream\_\-test(), hal\_\-eeprom\_\-read(), hal\_\-eeprom\_\-write(), t0\_\-testP1P2(), t0\_\-testP3(), ta\_\-commit(), and ta\_\-setdata().
+
+
+
+\subsubsection{Variable Documentation}
+\index{sw.c@{sw.c}!sw@{sw}}
+\index{sw@{sw}!sw.c@{sw.c}}
+\paragraph[{sw}]{\setlength{\rightskip}{0pt plus 5cm}{\bf iu16} {\bf sw}}\hfill\label{sw_8c_a814d554b939d5196ce21afb6562e0a05}
+
+
+Status word returned by functions. 
+
+The state of sw is undefined, on return value TRUE.
+
+The content of this variable is returned at the end of the command interpreter loop. Functions falled from the command interpreter loop should set it to SW\_\-OK if they return without error. 
+
+Referenced by auth\_\-getCheckPinLen(), main(), and t0\_\-sendSw().
+

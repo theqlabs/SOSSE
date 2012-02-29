@@ -1,0 +1,123 @@
+\subsection{tools.h File Reference}
+\label{tools_8h}\index{tools.h@{tools.h}}
+
+
+Tool declarations.  
+
+
+{\ttfamily \#include $<$config.h$>$}\par
+{\ttfamily \#include $<$types.h$>$}\par
+\subsubsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf swap\_\-us}(us)~(((us\&0x00FF)$<$$<$8)$|$((us\&0xFF00)$>$$>$8))
+\begin{DoxyCompactList}\small\item\em Byte swap single short. \item\end{DoxyCompactList}\item 
+\#define {\bf swap\_\-ul}(ul)~(((ul\&0x000000FF)$<$$<$24)$|$((ul\&0x0000FF00)$<$$<$8)$|$((ul\&0x00FF0000)$>$$>$8)$|$((ul\&0xFF000000)$>$$>$24))
+\begin{DoxyCompactList}\small\item\em Byte swap single long. \item\end{DoxyCompactList}\item 
+\#define {\bf min}(a, b)~((a)$<$(b)?(a):(b))
+\item 
+\#define {\bf max}(a, b)~((a)$>$(b)?(a):(b))
+\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf hton\_\-us} ({\bf iu16} $\ast$us, {\bf iu8} num)
+\begin{DoxyCompactList}\small\item\em Byte swap multiple shorts. \item\end{DoxyCompactList}\item 
+void {\bf hton\_\-ul} ({\bf iu32} $\ast$ul, {\bf iu8} num)
+\begin{DoxyCompactList}\small\item\em Byte swap multiple longs. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Tool declarations. \begin{DoxyParagraph}{Id:}
+\doxyref{tools.h}{p.}{tools_8h},v 1.11 2002/12/22 15:42:56 m Exp 
+\end{DoxyParagraph}
+
+
+\subsubsection{Define Documentation}
+\index{tools.h@{tools.h}!max@{max}}
+\index{max@{max}!tools.h@{tools.h}}
+\paragraph[{max}]{\setlength{\rightskip}{0pt plus 5cm}\#define max(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~((a)$>$(b)?(a):(b))}\hfill\label{tools_8h_affe776513b24d84b39af8ab0930fef7f}
+Return maximum value 
+
+Referenced by cmd\_\-changeUnblockPIN(), cmd\_\-read(), and cmd\_\-readBinary().
+
+\index{tools.h@{tools.h}!min@{min}}
+\index{min@{min}!tools.h@{tools.h}}
+\paragraph[{min}]{\setlength{\rightskip}{0pt plus 5cm}\#define min(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{b}
+\end{DoxyParamCaption}
+)~((a)$<$(b)?(a):(b))}\hfill\label{tools_8h_ac6afabdc09a49a433ee19d8a9486056d}
+Return minimum value \index{tools.h@{tools.h}!swap\_\-ul@{swap\_\-ul}}
+\index{swap\_\-ul@{swap\_\-ul}!tools.h@{tools.h}}
+\paragraph[{swap\_\-ul}]{\setlength{\rightskip}{0pt plus 5cm}\#define swap\_\-ul(
+\begin{DoxyParamCaption}
+\item[{}]{ul}
+\end{DoxyParamCaption}
+)~(((ul\&0x000000FF)$<$$<$24)$|$((ul\&0x0000FF00)$<$$<$8)$|$((ul\&0x00FF0000)$>$$>$8)$|$((ul\&0xFF000000)$>$$>$24))}\hfill\label{tools_8h_a7d4ae55324da2e40ff7ddd19799c09f6}
+
+
+Byte swap single long. 
+
+\index{tools.h@{tools.h}!swap\_\-us@{swap\_\-us}}
+\index{swap\_\-us@{swap\_\-us}!tools.h@{tools.h}}
+\paragraph[{swap\_\-us}]{\setlength{\rightskip}{0pt plus 5cm}\#define swap\_\-us(
+\begin{DoxyParamCaption}
+\item[{}]{us}
+\end{DoxyParamCaption}
+)~(((us\&0x00FF)$<$$<$8)$|$((us\&0xFF00)$>$$>$8))}\hfill\label{tools_8h_a0e93a14e5e2e0f46131a360584d4a835}
+
+
+Byte swap single short. 
+
+
+
+Referenced by hton\_\-us().
+
+
+
+\subsubsection{Function Documentation}
+\index{tools.h@{tools.h}!hton\_\-ul@{hton\_\-ul}}
+\index{hton\_\-ul@{hton\_\-ul}!tools.h@{tools.h}}
+\paragraph[{hton\_\-ul}]{\setlength{\rightskip}{0pt plus 5cm}void hton\_\-ul (
+\begin{DoxyParamCaption}
+\item[{{\bf iu32} $\ast$}]{ ul, }
+\item[{{\bf iu8}}]{ num}
+\end{DoxyParamCaption}
+)}\hfill\label{tools_8h_ab737d39a74d409dfdc617f659b30d115}
+
+
+Byte swap multiple longs. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em ul}]Pointer to an array of longs. \item[{\em num}]Number of longs to process. \end{DoxyParams}
+\index{tools.h@{tools.h}!hton\_\-us@{hton\_\-us}}
+\index{hton\_\-us@{hton\_\-us}!tools.h@{tools.h}}
+\paragraph[{hton\_\-us}]{\setlength{\rightskip}{0pt plus 5cm}void hton\_\-us (
+\begin{DoxyParamCaption}
+\item[{{\bf iu16} $\ast$}]{ us, }
+\item[{{\bf iu8}}]{ num}
+\end{DoxyParamCaption}
+)}\hfill\label{tools_8h_a1a709f10a7e0ccbbae163a7144629806}
+
+
+Byte swap multiple shorts. 
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em us}]Pointer to an array of shorts. \item[{\em num}]Number of shorts to process. \end{DoxyParams}
+
+
+References swap\_\-us.
+
+
+
+Referenced by cmd\_\-create(), and cmd\_\-select().
+

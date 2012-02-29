@@ -1,0 +1,557 @@
+\subsection{commands.h File Reference}
+\label{commands_8h}\index{commands.h@{commands.h}}
+
+
+Command declarations.  
+
+
+\subsubsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf CLA\_\-PROP}~0x80
+\begin{DoxyCompactList}\small\item\em CLA byte: Proprietary. \item\end{DoxyCompactList}\item 
+\#define {\bf INS\_\-WRITE}~0x02
+\begin{DoxyCompactList}\small\item\em INS byte: Write EEPROM. \item\end{DoxyCompactList}\item 
+\#define {\bf INS\_\-READ}~0x04
+\begin{DoxyCompactList}\small\item\em INS byte: Read EEPROM. \item\end{DoxyCompactList}\item 
+\#define {\bf INS\_\-LED}~0x06
+\begin{DoxyCompactList}\small\item\em INS byte: LED Effects. \item\end{DoxyCompactList}\item 
+\#define {\bf INS\_\-CHANGE\_\-PIN}~0x24
+\begin{DoxyCompactList}\small\item\em INS byte: Change PIN. \item\end{DoxyCompactList}\item 
+\#define {\bf INS\_\-CREATE}~0xE0
+\begin{DoxyCompactList}\small\item\em INS byte: Create File. \item\end{DoxyCompactList}\item 
+\#define {\bf INS\_\-DELETE}~0xE4
+\begin{DoxyCompactList}\small\item\em INS byte: Delete File. \item\end{DoxyCompactList}\item 
+\#define {\bf INS\_\-EXTERNAL\_\-AUTH}~0x82
+\begin{DoxyCompactList}\small\item\em INS byte: External Authentication. \item\end{DoxyCompactList}\item 
+\#define {\bf INS\_\-GET\_\-CHALLENGE}~0x84
+\begin{DoxyCompactList}\small\item\em INS byte: Get Challenge. \item\end{DoxyCompactList}\item 
+\#define {\bf INS\_\-GET\_\-RESPONSE}~0xC0
+\begin{DoxyCompactList}\small\item\em INS byte: Get Response. \item\end{DoxyCompactList}\item 
+\#define {\bf INS\_\-INTERNAL\_\-AUTH}~0x88
+\begin{DoxyCompactList}\small\item\em INS byte: Internal Authentication. \item\end{DoxyCompactList}\item 
+\#define {\bf INS\_\-READ\_\-BINARY}~0xB0
+\begin{DoxyCompactList}\small\item\em INS byte: Read Binary. \item\end{DoxyCompactList}\item 
+\#define {\bf INS\_\-SELECT}~0xA4
+\begin{DoxyCompactList}\small\item\em INS byte: Select File. \item\end{DoxyCompactList}\item 
+\#define {\bf INS\_\-UNBLOCK\_\-PIN}~0x2C
+\begin{DoxyCompactList}\small\item\em INS byte: Unblock PIN. \item\end{DoxyCompactList}\item 
+\#define {\bf INS\_\-UPDATE\_\-BINARY}~0xD6
+\begin{DoxyCompactList}\small\item\em INS byte: Update Binary. \item\end{DoxyCompactList}\item 
+\#define {\bf INS\_\-VERIFY\_\-KEY}~0x2A
+\begin{DoxyCompactList}\small\item\em INS byte: Verify Key. \item\end{DoxyCompactList}\item 
+\#define {\bf INS\_\-VERIFY\_\-PIN}~0x20
+\begin{DoxyCompactList}\small\item\em INS byte: Verify PIN. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void {\bf cmd\_\-write} (void)
+\begin{DoxyCompactList}\small\item\em Write EEPROM. (Test command). \item\end{DoxyCompactList}\item 
+void {\bf cmd\_\-read} (void)
+\begin{DoxyCompactList}\small\item\em Read EEPROM. (Test command). \item\end{DoxyCompactList}\item 
+void {\bf cmd\_\-led} (void)
+\begin{DoxyCompactList}\small\item\em LED Effects. \item\end{DoxyCompactList}\item 
+void {\bf cmd\_\-changeUnblockPIN} (void)
+\begin{DoxyCompactList}\small\item\em Change or Unblock PIN. \item\end{DoxyCompactList}\item 
+void {\bf cmd\_\-create} (void)
+\begin{DoxyCompactList}\small\item\em Create File. \item\end{DoxyCompactList}\item 
+void {\bf cmd\_\-delete} (void)
+\begin{DoxyCompactList}\small\item\em Delete File. \item\end{DoxyCompactList}\item 
+void {\bf cmd\_\-extAuth} (void)
+\begin{DoxyCompactList}\small\item\em External Authentication. \item\end{DoxyCompactList}\item 
+void {\bf cmd\_\-getChallenge} (void)
+\begin{DoxyCompactList}\small\item\em Get Challenge. \item\end{DoxyCompactList}\item 
+void {\bf cmd\_\-getResponse} (void)
+\begin{DoxyCompactList}\small\item\em Get Response. \item\end{DoxyCompactList}\item 
+void {\bf cmd\_\-intAuth} (void)
+\begin{DoxyCompactList}\small\item\em Internal Authentication. \item\end{DoxyCompactList}\item 
+void {\bf cmd\_\-readBinary} (void)
+\begin{DoxyCompactList}\small\item\em Read Binary. \item\end{DoxyCompactList}\item 
+void {\bf cmd\_\-select} (void)
+\begin{DoxyCompactList}\small\item\em Select File. \item\end{DoxyCompactList}\item 
+void {\bf cmd\_\-updateBinary} (void)
+\begin{DoxyCompactList}\small\item\em Update Binary. \item\end{DoxyCompactList}\item 
+void {\bf cmd\_\-verifyKeyPIN} (void)
+\begin{DoxyCompactList}\small\item\em Verify Key/Verify PIN. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+{\bf iu8} {\bf resplen}
+\begin{DoxyCompactList}\small\item\em Valid data in response array. Invalid if zero. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Command declarations. The documentation of the commands is on the main page of the doxygen documentation.
+
+\begin{DoxyParagraph}{Id:}
+\doxyref{commands.h}{p.}{commands_8h},v 1.15 2002/12/22 15:42:55 m Exp 
+\end{DoxyParagraph}
+
+
+\subsubsection{Define Documentation}
+\index{commands.h@{commands.h}!CLA\_\-PROP@{CLA\_\-PROP}}
+\index{CLA\_\-PROP@{CLA\_\-PROP}!commands.h@{commands.h}}
+\paragraph[{CLA\_\-PROP}]{\setlength{\rightskip}{0pt plus 5cm}\#define CLA\_\-PROP~0x80}\hfill\label{commands_8h_a2d55f37426841e15553978604ebd8276}
+
+
+CLA byte: Proprietary. 
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!INS\_\-CHANGE\_\-PIN@{INS\_\-CHANGE\_\-PIN}}
+\index{INS\_\-CHANGE\_\-PIN@{INS\_\-CHANGE\_\-PIN}!commands.h@{commands.h}}
+\paragraph[{INS\_\-CHANGE\_\-PIN}]{\setlength{\rightskip}{0pt plus 5cm}\#define INS\_\-CHANGE\_\-PIN~0x24}\hfill\label{commands_8h_a552ff23181a3d48412c2f22915b8e090}
+
+
+INS byte: Change PIN. 
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!INS\_\-CREATE@{INS\_\-CREATE}}
+\index{INS\_\-CREATE@{INS\_\-CREATE}!commands.h@{commands.h}}
+\paragraph[{INS\_\-CREATE}]{\setlength{\rightskip}{0pt plus 5cm}\#define INS\_\-CREATE~0xE0}\hfill\label{commands_8h_a79634e482db218a7af4b10e1c65ffc16}
+
+
+INS byte: Create File. 
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!INS\_\-DELETE@{INS\_\-DELETE}}
+\index{INS\_\-DELETE@{INS\_\-DELETE}!commands.h@{commands.h}}
+\paragraph[{INS\_\-DELETE}]{\setlength{\rightskip}{0pt plus 5cm}\#define INS\_\-DELETE~0xE4}\hfill\label{commands_8h_ac662f809d6a4765a3902968207081433}
+
+
+INS byte: Delete File. 
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!INS\_\-EXTERNAL\_\-AUTH@{INS\_\-EXTERNAL\_\-AUTH}}
+\index{INS\_\-EXTERNAL\_\-AUTH@{INS\_\-EXTERNAL\_\-AUTH}!commands.h@{commands.h}}
+\paragraph[{INS\_\-EXTERNAL\_\-AUTH}]{\setlength{\rightskip}{0pt plus 5cm}\#define INS\_\-EXTERNAL\_\-AUTH~0x82}\hfill\label{commands_8h_a19739bea0713af68ec29b93df998b327}
+
+
+INS byte: External Authentication. 
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!INS\_\-GET\_\-CHALLENGE@{INS\_\-GET\_\-CHALLENGE}}
+\index{INS\_\-GET\_\-CHALLENGE@{INS\_\-GET\_\-CHALLENGE}!commands.h@{commands.h}}
+\paragraph[{INS\_\-GET\_\-CHALLENGE}]{\setlength{\rightskip}{0pt plus 5cm}\#define INS\_\-GET\_\-CHALLENGE~0x84}\hfill\label{commands_8h_a35a091081cf0842ca576a014111349dd}
+
+
+INS byte: Get Challenge. 
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!INS\_\-GET\_\-RESPONSE@{INS\_\-GET\_\-RESPONSE}}
+\index{INS\_\-GET\_\-RESPONSE@{INS\_\-GET\_\-RESPONSE}!commands.h@{commands.h}}
+\paragraph[{INS\_\-GET\_\-RESPONSE}]{\setlength{\rightskip}{0pt plus 5cm}\#define INS\_\-GET\_\-RESPONSE~0xC0}\hfill\label{commands_8h_a0409c5ab8555b3f157f6c7d4bd950023}
+
+
+INS byte: Get Response. 
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!INS\_\-INTERNAL\_\-AUTH@{INS\_\-INTERNAL\_\-AUTH}}
+\index{INS\_\-INTERNAL\_\-AUTH@{INS\_\-INTERNAL\_\-AUTH}!commands.h@{commands.h}}
+\paragraph[{INS\_\-INTERNAL\_\-AUTH}]{\setlength{\rightskip}{0pt plus 5cm}\#define INS\_\-INTERNAL\_\-AUTH~0x88}\hfill\label{commands_8h_aca1912031e7b996c7890446abbca405f}
+
+
+INS byte: Internal Authentication. 
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!INS\_\-LED@{INS\_\-LED}}
+\index{INS\_\-LED@{INS\_\-LED}!commands.h@{commands.h}}
+\paragraph[{INS\_\-LED}]{\setlength{\rightskip}{0pt plus 5cm}\#define INS\_\-LED~0x06}\hfill\label{commands_8h_a8332023793371475ec58155bc839cbc8}
+
+
+INS byte: LED Effects. 
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!INS\_\-READ@{INS\_\-READ}}
+\index{INS\_\-READ@{INS\_\-READ}!commands.h@{commands.h}}
+\paragraph[{INS\_\-READ}]{\setlength{\rightskip}{0pt plus 5cm}\#define INS\_\-READ~0x04}\hfill\label{commands_8h_a5f92713c8e0f858af4a2ecc4d4ad3ac6}
+
+
+INS byte: Read EEPROM. 
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!INS\_\-READ\_\-BINARY@{INS\_\-READ\_\-BINARY}}
+\index{INS\_\-READ\_\-BINARY@{INS\_\-READ\_\-BINARY}!commands.h@{commands.h}}
+\paragraph[{INS\_\-READ\_\-BINARY}]{\setlength{\rightskip}{0pt plus 5cm}\#define INS\_\-READ\_\-BINARY~0xB0}\hfill\label{commands_8h_a87b08ebf06462622377ab14b70472102}
+
+
+INS byte: Read Binary. 
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!INS\_\-SELECT@{INS\_\-SELECT}}
+\index{INS\_\-SELECT@{INS\_\-SELECT}!commands.h@{commands.h}}
+\paragraph[{INS\_\-SELECT}]{\setlength{\rightskip}{0pt plus 5cm}\#define INS\_\-SELECT~0xA4}\hfill\label{commands_8h_aef01811fe4398a2410cb8a841f623bd3}
+
+
+INS byte: Select File. 
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!INS\_\-UNBLOCK\_\-PIN@{INS\_\-UNBLOCK\_\-PIN}}
+\index{INS\_\-UNBLOCK\_\-PIN@{INS\_\-UNBLOCK\_\-PIN}!commands.h@{commands.h}}
+\paragraph[{INS\_\-UNBLOCK\_\-PIN}]{\setlength{\rightskip}{0pt plus 5cm}\#define INS\_\-UNBLOCK\_\-PIN~0x2C}\hfill\label{commands_8h_aaf88efe9f5fa4131077e1933a1fbdb8f}
+
+
+INS byte: Unblock PIN. 
+
+
+
+Referenced by cmd\_\-changeUnblockPIN(), and main().
+
+\index{commands.h@{commands.h}!INS\_\-UPDATE\_\-BINARY@{INS\_\-UPDATE\_\-BINARY}}
+\index{INS\_\-UPDATE\_\-BINARY@{INS\_\-UPDATE\_\-BINARY}!commands.h@{commands.h}}
+\paragraph[{INS\_\-UPDATE\_\-BINARY}]{\setlength{\rightskip}{0pt plus 5cm}\#define INS\_\-UPDATE\_\-BINARY~0xD6}\hfill\label{commands_8h_a7738515b7ae95fc786fe586dd1d6800f}
+
+
+INS byte: Update Binary. 
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!INS\_\-VERIFY\_\-KEY@{INS\_\-VERIFY\_\-KEY}}
+\index{INS\_\-VERIFY\_\-KEY@{INS\_\-VERIFY\_\-KEY}!commands.h@{commands.h}}
+\paragraph[{INS\_\-VERIFY\_\-KEY}]{\setlength{\rightskip}{0pt plus 5cm}\#define INS\_\-VERIFY\_\-KEY~0x2A}\hfill\label{commands_8h_a0b21e21ccc1be6a72c0ca2351e598fc4}
+
+
+INS byte: Verify Key. 
+
+
+
+Referenced by cmd\_\-verifyKeyPIN(), and main().
+
+\index{commands.h@{commands.h}!INS\_\-VERIFY\_\-PIN@{INS\_\-VERIFY\_\-PIN}}
+\index{INS\_\-VERIFY\_\-PIN@{INS\_\-VERIFY\_\-PIN}!commands.h@{commands.h}}
+\paragraph[{INS\_\-VERIFY\_\-PIN}]{\setlength{\rightskip}{0pt plus 5cm}\#define INS\_\-VERIFY\_\-PIN~0x20}\hfill\label{commands_8h_ab3fd3dfa9c56438998e9252c405ecb7c}
+
+
+INS byte: Verify PIN. 
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!INS\_\-WRITE@{INS\_\-WRITE}}
+\index{INS\_\-WRITE@{INS\_\-WRITE}!commands.h@{commands.h}}
+\paragraph[{INS\_\-WRITE}]{\setlength{\rightskip}{0pt plus 5cm}\#define INS\_\-WRITE~0x02}\hfill\label{commands_8h_acafde0a50dc9db5df49502153b4f1fd6}
+
+
+INS byte: Write EEPROM. 
+
+
+
+Referenced by main().
+
+
+
+\subsubsection{Function Documentation}
+\index{commands.h@{commands.h}!cmd\_\-changeUnblockPIN@{cmd\_\-changeUnblockPIN}}
+\index{cmd\_\-changeUnblockPIN@{cmd\_\-changeUnblockPIN}!commands.h@{commands.h}}
+\paragraph[{cmd\_\-changeUnblockPIN}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-changeUnblockPIN (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8h_aece92ed730ad9d4e7ccb4cd08555c0b7}
+
+
+Change or Unblock PIN. 
+
+
+
+References auth\_\-setPin(), auth\_\-verifyPin(), INS\_\-UNBLOCK\_\-PIN, max, PIN\_\-LEN, PIN\_\-TYPE\_\-PIN, PUK\_\-LEN, SW\_\-OK, sw\_\-set(), t0\_\-recBlock(), t0\_\-sendAck(), t0\_\-testP1P2(), and t0\_\-testP3().
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!cmd\_\-create@{cmd\_\-create}}
+\index{cmd\_\-create@{cmd\_\-create}!commands.h@{commands.h}}
+\paragraph[{cmd\_\-create}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-create (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8h_a3c4d6ec9b132006edab635f42f6b1143}
+
+
+Create File. 
+
+
+
+References s\_\-finfo::ac, auth\_\-checkAc(), fs\_\-create(), fs\_\-getData(), FS\_\-TYPE\_\-DF, hton\_\-us(), selected, SW\_\-NOT\_\-ALLOWED, SW\_\-OK, sw\_\-set(), t0\_\-recBlock(), t0\_\-sendAck(), t0\_\-testP1P2(), t0\_\-testP3(), and s\_\-finfo::type.
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!cmd\_\-delete@{cmd\_\-delete}}
+\index{cmd\_\-delete@{cmd\_\-delete}!commands.h@{commands.h}}
+\paragraph[{cmd\_\-delete}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-delete (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8h_ab5e91199098e25652dd3dbc7aea27683}
+
+
+Delete File. 
+
+
+
+References s\_\-finfo::ac, auth\_\-checkAc(), fs\_\-delete(), fs\_\-getData(), FS\_\-TYPE\_\-DF, hal\_\-io\_\-recByteT0(), selected, SW\_\-NOT\_\-ALLOWED, SW\_\-OK, sw\_\-set(), t0\_\-sendAck(), t0\_\-testP1P2(), t0\_\-testP3(), and s\_\-finfo::type.
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!cmd\_\-extAuth@{cmd\_\-extAuth}}
+\index{cmd\_\-extAuth@{cmd\_\-extAuth}!commands.h@{commands.h}}
+\paragraph[{cmd\_\-extAuth}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-extAuth (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8h_a6479b741d6f5b343e356290db8153021}
+
+
+External Authentication. 
+
+
+
+References auth\_\-createVerifyCryptogram(), CRYPT\_\-BLOCK\_\-LEN, FALSE, SW\_\-OK, sw\_\-set(), t0\_\-recBlock(), t0\_\-sendAck(), t0\_\-testP1P2(), and t0\_\-testP3().
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!cmd\_\-getChallenge@{cmd\_\-getChallenge}}
+\index{cmd\_\-getChallenge@{cmd\_\-getChallenge}!commands.h@{commands.h}}
+\paragraph[{cmd\_\-getChallenge}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-getChallenge (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8h_a6feeac5b3883560af0faec05f1a090b2}
+
+
+Get Challenge. 
+
+
+
+References auth\_\-getChallenge(), CRYPT\_\-BLOCK\_\-LEN, hal\_\-io\_\-sendByteT0(), SW\_\-OK, sw\_\-set(), t0\_\-sendAck(), t0\_\-testP1P2(), and t0\_\-testP3().
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!cmd\_\-getResponse@{cmd\_\-getResponse}}
+\index{cmd\_\-getResponse@{cmd\_\-getResponse}!commands.h@{commands.h}}
+\paragraph[{cmd\_\-getResponse}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-getResponse (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8h_a7002865ca7ee8fef5c52493a90809e48}
+
+
+Get Response. 
+
+
+
+References hal\_\-io\_\-sendByteT0(), resplen, response, SW\_\-OK, sw\_\-set(), SW\_\-WRONG\_\-CONDITION, SW\_\-WRONG\_\-LE, t0\_\-sendAck(), t0\_\-testP1P2(), and t0\_\-testP3().
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!cmd\_\-intAuth@{cmd\_\-intAuth}}
+\index{cmd\_\-intAuth@{cmd\_\-intAuth}!commands.h@{commands.h}}
+\paragraph[{cmd\_\-intAuth}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-intAuth (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8h_ad18d7d2bb0f030accf5e0456b2927411}
+
+
+Internal Authentication. 
+
+
+
+References auth\_\-createVerifyCryptogram(), CRYPT\_\-BLOCK\_\-LEN, resplen, response, SW\_\-AVAILABLE, sw\_\-set(), t0\_\-recBlock(), t0\_\-sendAck(), t0\_\-testP1P2(), t0\_\-testP3(), and TRUE.
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!cmd\_\-led@{cmd\_\-led}}
+\index{cmd\_\-led@{cmd\_\-led}!commands.h@{commands.h}}
+\paragraph[{cmd\_\-led}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-led (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8h_a1def26040edfd6ccc2b26fa2cbb56e99}
+
+
+LED Effects. 
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!cmd\_\-read@{cmd\_\-read}}
+\index{cmd\_\-read@{cmd\_\-read}!commands.h@{commands.h}}
+\paragraph[{cmd\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-read (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8h_a18edf53f42c45ade3a6a886e5db0df5c}
+
+
+Read EEPROM. (Test command). 
+
+
+
+References hal\_\-eeprom\_\-read(), hal\_\-io\_\-sendByteT0(), header, max, SW\_\-OK, sw\_\-set(), and t0\_\-sendAck().
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!cmd\_\-readBinary@{cmd\_\-readBinary}}
+\index{cmd\_\-readBinary@{cmd\_\-readBinary}!commands.h@{commands.h}}
+\paragraph[{cmd\_\-readBinary}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-readBinary (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8h_a892cbb2f7983a3bca95719fa78397eb4}
+
+
+Read Binary. 
+
+
+
+References s\_\-finfo::ac, auth\_\-checkAc(), fs\_\-getData(), FS\_\-TYPE\_\-EF, fstream\_\-read(), fstream\_\-test(), hal\_\-io\_\-sendByteT0(), max, s\_\-fstream::pos, selected, s\_\-fstream::size, SW\_\-NOT\_\-ALLOWED, SW\_\-OK, sw\_\-set(), SW\_\-WRONG\_\-REFERENCE, t0\_\-sendAck(), and s\_\-finfo::type.
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!cmd\_\-select@{cmd\_\-select}}
+\index{cmd\_\-select@{cmd\_\-select}!commands.h@{commands.h}}
+\paragraph[{cmd\_\-select}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-select (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8h_a338c589b70e1e97960452b9f7b124c46}
+
+
+Select File. 
+
+
+
+References s\_\-finfo::fid, fs\_\-getFPath(), hal\_\-io\_\-recByteT0(), hton\_\-us(), resplen, response, selected, s\_\-finfo::size, SW\_\-AVAILABLE, sw\_\-set(), t0\_\-sendAck(), t0\_\-testP1P2(), and t0\_\-testP3().
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!cmd\_\-updateBinary@{cmd\_\-updateBinary}}
+\index{cmd\_\-updateBinary@{cmd\_\-updateBinary}!commands.h@{commands.h}}
+\paragraph[{cmd\_\-updateBinary}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-updateBinary (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8h_aa4f0817c641ea482d8bbd9a62d4a56b5}
+
+
+Update Binary. 
+
+
+
+References s\_\-finfo::ac, auth\_\-checkAc(), fs\_\-getData(), FS\_\-TYPE\_\-EF, fstream\_\-test(), fstream\_\-write(), hal\_\-io\_\-recByteT0(), s\_\-fstream::pos, selected, s\_\-fstream::size, SW\_\-NOT\_\-ALLOWED, SW\_\-OK, sw\_\-set(), SW\_\-WRONG\_\-LEN, SW\_\-WRONG\_\-REFERENCE, t0\_\-sendCAck(), t0\_\-testP3(), and s\_\-finfo::type.
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!cmd\_\-verifyKeyPIN@{cmd\_\-verifyKeyPIN}}
+\index{cmd\_\-verifyKeyPIN@{cmd\_\-verifyKeyPIN}!commands.h@{commands.h}}
+\paragraph[{cmd\_\-verifyKeyPIN}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-verifyKeyPIN (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8h_a8483dd469cbec8917e02d57f1059ef9c}
+
+
+Verify Key/Verify PIN. 
+
+This function is a combined implementation of Verify Key and Verify PIN. This is done to save code size. 
+
+References ADM\_\-KEY\_\-LEN, auth\_\-verifyPin(), INS\_\-VERIFY\_\-KEY, PIN\_\-LEN, SW\_\-OK, sw\_\-set(), t0\_\-recBlock(), t0\_\-sendAck(), t0\_\-testP1P2(), and t0\_\-testP3().
+
+
+
+Referenced by main().
+
+\index{commands.h@{commands.h}!cmd\_\-write@{cmd\_\-write}}
+\index{cmd\_\-write@{cmd\_\-write}!commands.h@{commands.h}}
+\paragraph[{cmd\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}void cmd\_\-write (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{commands_8h_a6bf9e78c68d51c4b10b884a13fc32aa4}
+
+
+Write EEPROM. (Test command). 
+
+
+
+References hal\_\-eeprom\_\-write(), hal\_\-io\_\-recByteT0(), header, SW\_\-OK, sw\_\-set(), SW\_\-WRONG\_\-LEN, t0\_\-sendCAck(), and t0\_\-testP3().
+
+
+
+Referenced by main().
+
+
+
+\subsubsection{Variable Documentation}
+\index{commands.h@{commands.h}!resplen@{resplen}}
+\index{resplen@{resplen}!commands.h@{commands.h}}
+\paragraph[{resplen}]{\setlength{\rightskip}{0pt plus 5cm}{\bf iu8} {\bf resplen}}\hfill\label{commands_8h_afb1c04452b9c94821029fc854326f6be}
+
+
+Valid data in response array. Invalid if zero. 
+
+
+
+Referenced by cmd\_\-getResponse(), cmd\_\-intAuth(), cmd\_\-select(), and main().
+

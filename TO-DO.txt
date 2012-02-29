@@ -1,6 +1,13 @@
+
 {BEGIN_TODO}
+
 [_] - Make an example application
-[_] - Update the Wiki to possibly include doxygen output
+[_] - Update the Wiki to include doxygen output
+
+</src/main.c>:
+[_] - hal_init() needs to be rewritten, outb() are deprecated and there is no error handling
+[_] - There are some other TODO tasks inside main.c, some don't make sense  
+
 {END_TODO}
 
 <February 25, 2012>
@@ -10,4 +17,5 @@
  + modifying tea-at90s8515.S lines 221 and 362, removed "breq _PC_+2" added "rjmp _PC_+2"
  + commented out "outb()" functions, which have been deprecated and replaced by direct port/pin assignments
  + modifying all instances of "eeprom_rb and eeprom_wb" for "eeprom_read_byte, eeprom_write_byte"
+
 

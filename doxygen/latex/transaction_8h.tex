@@ -1,0 +1,138 @@
+\subsection{transaction.h File Reference}
+\label{transaction_8h}\index{transaction.h@{transaction.h}}
+
+
+Transaction declarations.  
+
+
+{\ttfamily \#include $<$types.h$>$}\par
+\subsubsection*{Defines}
+\begin{DoxyCompactItemize}
+\item 
+\#define {\bf TRANSAC\_\-STATE\_\-CLEAN}~0x00
+\item 
+\#define {\bf TRANSAC\_\-STATE\_\-DATA}~0xA5
+\begin{DoxyCompactList}\small\item\em Transaction buffer contains data. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\bf bool} {\bf ta\_\-setdata} ({\bf iu8} $\ast$data, {\bf iu8} len, {\bf iu16} {\bf dst})
+\begin{DoxyCompactList}\small\item\em Begins a transaction and sets the data. \item\end{DoxyCompactList}\item 
+{\bf bool} {\bf ta\_\-commit} (void)
+\begin{DoxyCompactList}\small\item\em Commits the data in the transaction buffer. \item\end{DoxyCompactList}\item 
+{\bf bool} {\bf ta\_\-rollback} (void)
+\begin{DoxyCompactList}\small\item\em Do a rollback and discard the data in the transaction buffer. \item\end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsubsection{Detailed Description}
+Transaction declarations. \begin{DoxyNote}{Note}
+Is the current transaction implementation secure against tearing? IMO it should be nearly be. Let's consider following scenarios:
+\end{DoxyNote}
+1) Card is removed while writing the data for the transaction: This is no problem, because the state is still TRANSAC\_\-STATE\_\-CLEAN.
+
+2) Card is removed while writing the status byte: This is most likely no problem. If the state is anything other than TRANSAC\_\-STATE\_\-DATA, it is regarded as clean, which it is. The only problem is, when it accidently is TRANSAC\_\-STATE\_\-DATA, which is IMO very unlikely, because the erased state is totally different. But on the other side, if the card tearing occured shortly after the state update, the state really is TRANSAC\_\-STATE\_\-DATA.
+
+3) Card is removed while doing a commit and writing the data therein: This is no problem, because after the next reset the commit is tried again.
+
+4) Card is removed after a commit, while reseting the status byte: This is no problem, because most likely the new state is interpreted as TRANSAC\_\-STATE\_\-CLEAN, which it is, and if the new state is really TRANSAC\_\-STATE\_\-DATA, it is just a second time written.
+
+5) Card is removed while writing status byte in a rollback: This might be a problem, because the rollback might file, when the unlikely event occures, that the state is TRANSAC\_\-STATE\_\-DATA. But this can also happen, if the card is removed before the rollback, because the state is there already TRANSAC\_\-STATE\_\-DATA.
+
+\begin{DoxyParagraph}{Id:}
+\doxyref{transaction.h}{p.}{transaction_8h},v 1.9 2002/12/22 15:42:56 m Exp 
+\end{DoxyParagraph}
+
+
+\subsubsection{Define Documentation}
+\index{transaction.h@{transaction.h}!TRANSAC\_\-STATE\_\-CLEAN@{TRANSAC\_\-STATE\_\-CLEAN}}
+\index{TRANSAC\_\-STATE\_\-CLEAN@{TRANSAC\_\-STATE\_\-CLEAN}!transaction.h@{transaction.h}}
+\paragraph[{TRANSAC\_\-STATE\_\-CLEAN}]{\setlength{\rightskip}{0pt plus 5cm}\#define TRANSAC\_\-STATE\_\-CLEAN~0x00}\hfill\label{transaction_8h_aca24633392a9ecbc750ce1202abd45f0}
+Transaction buffer is clean. (Also all other values not being 0xA5 are interpreted as clean. 
+
+Referenced by ta\_\-commit().
+
+\index{transaction.h@{transaction.h}!TRANSAC\_\-STATE\_\-DATA@{TRANSAC\_\-STATE\_\-DATA}}
+\index{TRANSAC\_\-STATE\_\-DATA@{TRANSAC\_\-STATE\_\-DATA}!transaction.h@{transaction.h}}
+\paragraph[{TRANSAC\_\-STATE\_\-DATA}]{\setlength{\rightskip}{0pt plus 5cm}\#define TRANSAC\_\-STATE\_\-DATA~0xA5}\hfill\label{transaction_8h_a03d3caf4f4e69fb09b746c5d1053357e}
+
+
+Transaction buffer contains data. 
+
+
+
+Referenced by ta\_\-commit().
+
+
+
+\subsubsection{Function Documentation}
+\index{transaction.h@{transaction.h}!ta\_\-commit@{ta\_\-commit}}
+\index{ta\_\-commit@{ta\_\-commit}!transaction.h@{transaction.h}}
+\paragraph[{ta\_\-commit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} ta\_\-commit (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{transaction_8h_acacd724418635980cbe9ff7caab01e9c}
+
+
+Commits the data in the transaction buffer. 
+
+Data is written to the destination specified in \doxyref{ta\_\-setdata()}{p.}{transaction_8c_ae0ead4e9d2dc0e305973f13324a356aa}. The state is then set to clean.
+
+This function must be called after each reset to commit pending transactions.
+
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em TRUE}]on success. \item[{\em FALSE}]on failure. Error code given in sw. \end{DoxyRetVals}
+
+
+References hal\_\-eeprom\_\-read(), hal\_\-eeprom\_\-write(), SW\_\-OTHER, sw\_\-set(), TRANSAC\_\-DATA\_\-ADDR, TRANSAC\_\-DATA\_\-LEN, TRANSAC\_\-STATE\_\-ADDR, TRANSAC\_\-STATE\_\-CLEAN, and TRANSAC\_\-STATE\_\-DATA.
+
+
+
+Referenced by auth\_\-createVerifyCryptogram(), auth\_\-setPin(), auth\_\-verifyPin(), fs\_\-create(), fs\_\-delete(), and main().
+
+\index{transaction.h@{transaction.h}!ta\_\-rollback@{ta\_\-rollback}}
+\index{ta\_\-rollback@{ta\_\-rollback}!transaction.h@{transaction.h}}
+\paragraph[{ta\_\-rollback}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} ta\_\-rollback (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\hfill\label{transaction_8h_aa7051804d3c2320a9510087b4bf945c2}
+
+
+Do a rollback and discard the data in the transaction buffer. 
+
+The state is set to clean.
+
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em TRUE}]on success. \item[{\em FALSE}]on failure. Error code given in sw. \end{DoxyRetVals}
+\index{transaction.h@{transaction.h}!ta\_\-setdata@{ta\_\-setdata}}
+\index{ta\_\-setdata@{ta\_\-setdata}!transaction.h@{transaction.h}}
+\paragraph[{ta\_\-setdata}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} ta\_\-setdata (
+\begin{DoxyParamCaption}
+\item[{{\bf iu8} $\ast$}]{ data, }
+\item[{{\bf iu8}}]{ len, }
+\item[{{\bf iu16}}]{ dst}
+\end{DoxyParamCaption}
+)}\hfill\label{transaction_8h_ae0ead4e9d2dc0e305973f13324a356aa}
+
+
+Begins a transaction and sets the data. 
+
+{\itshape data/len\/} bytes are written to the transaction buffer. The destination address is also stored there. Then the state is set to TRANSAC\_\-STATE\_\-DATA.
+
+
+\begin{DoxyParams}{Parameters}
+\item[{\em data}]Pointer to the data to write into the transaction buffer. \item[{\em len}]Length of the data. (Max.: TRANSAC\_\-DATA\_\-LEN) \item[{\em dst}]Destination of the data in EEPROM.\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+\item[{\em TRUE}]on success. \item[{\em FALSE}]on failure. Error code given in sw. \end{DoxyRetVals}
+
+
+References hal\_\-eeprom\_\-write(), SW\_\-FILE\_\-TO\_\-SHORT, sw\_\-set(), TRANSAC\_\-DATA\_\-ADDR, TRANSAC\_\-DATA\_\-LEN, and TRANSAC\_\-STATE\_\-ADDR.
+
+
+
+Referenced by auth\_\-createVerifyCryptogram(), auth\_\-setPin(), auth\_\-verifyPin(), fs\_\-create(), and fs\_\-delete().
+
