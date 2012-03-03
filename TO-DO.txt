@@ -3,6 +3,7 @@
 
 [_] - Make an example application
 [_] - Update the Wiki to include doxygen output
+[_] - Commented out "auth_checkAc()" inside commands.c, errored when I compiled without AUTH support from config.h
 
 </src/main.c>:
 [_] - hal_init() needs to be rewritten, outb() are deprecated and there is no error handling

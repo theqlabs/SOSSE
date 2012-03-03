@@ -45,17 +45,15 @@ iu8 randbytes;
 
 void hal_init( void )
 {
-	/*
-	outb(0x80,ACSR);
-	outb(0xFF,DDRA);
-	outb(0xFF,DDRB);
-	outb(0xFF,DDRC);
-	outb(0xFF,DDRD);
-	outb(0xFF,PORTA);
-	outb(0xFF,PORTB);
-	outb(0xFF,PORTC);
-	outb(0xFF,PORTD);
-	*/
+	outb(ACSR,0x80);	// Analog Comparator and Control Status Register
+	outb(DDRA,0xFF);	// Data Direction Registers
+	outb(DDRB,0xFF);	// DDRB
+	outb(DDRC,0xFF);	// DDRC
+	outb(DDRD,0xFF);	// DDRD
+	outb(PORTA,0xFF);	// Port Assignments
+	outb(PORTB,0xFF);	// PORTB
+	outb(PORTC,0xFF);	// PORTC
+	outb(PORTD,0xFF);	// PORTD
 
 #if CONF_WITH_TRNG==1
 	/* Random number gathering */

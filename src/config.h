@@ -33,7 +33,7 @@
 	\todo
 	Make this define something happen.
 */
-#define CONF_WITH_FILESYSTEM	1
+#define CONF_WITH_FILESYSTEM	0	
 
 /*! \brief En-/disables transactions.
 */
@@ -47,38 +47,38 @@
 
 /*! \brief En-/disables DELETE.
 */
-#define CONF_WITH_DELETECMD		1
+#define CONF_WITH_DELETECMD		0
 
 /*! \brief En-/disables CREATE.
 */
-#define CONF_WITH_CREATECMD		1
+#define CONF_WITH_CREATECMD		0
 
 /*! \brief En-/disables PIN authentication functions.
 
 	If set to 1, functions to set and test PIN and PUK are included. This is a
 	requirement for CONF_WITH_PINCMDS.
 */
-#define CONF_WITH_PINAUTH		1
+#define CONF_WITH_PINAUTH		0
 
 /*! \brief En-/disables PIN commands.
 
 	If set to 1, commands CHANGE PIN and VERIFY PIN are included.
 */
-#define CONF_WITH_PINCMDS		1
+#define CONF_WITH_PINCMDS		0
 
 /*! \brief En-/disables key authentication functions.
 
 	If set to 1, functions impelementing calculations with challenges are
 	included. This is a requirement for CONF_WITH_KEY_CMDS.
 */
-#define CONF_WITH_KEYAUTH		1
+#define CONF_WITH_KEYAUTH		0
 
 /*! \brief En-/disables key related commands.
 
 	If set to 1, commands EXTERNAL KEYENTIFICATION, GET CHALLENGE,
 	INTERNAL KEYENTIFICATION and VERIFY KEY are included.
 */
-#define CONF_WITH_KEYCMDS		1
+#define CONF_WITH_KEYCMDS		0
 
 /*! \brief En-/disables support for the external I2C EEPROM.
 */
@@ -178,7 +178,7 @@
 //! EEPROM address of the serial number of the card.
 #define SERNUM_ADDR			(ATR_ADDR+ATR_MAXLEN)
 //! Length of the serial number.
-#define SERNUM_LEN			8
+#define SERNUM_LEN			4
 
 //! EEPROM address of the state of the PRNG.
 #define RAND_STATE_ADDR		(SERNUM_ADDR+SERNUM_LEN)

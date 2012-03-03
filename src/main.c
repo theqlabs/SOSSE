@@ -31,6 +31,7 @@
 #include <hal.h>
 #include <t0.h>
 #include <transaction.h>
+#include <gc_memo.h>		// GemPlus GemClub Memo - Testing commands/responses
 
 /*! \brief Main function containing command interpreter loop.
 
