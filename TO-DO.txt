@@ -2,13 +2,18 @@
 {BEGIN_TODO}
 
 [_] - Make an example application
-[_] - Update the Wiki to include doxygen output
+[x] - Update the Wiki to include doxygen output
 
 </src/main.c>:
-[_] - hal_init() needs to be rewritten, outb() are deprecated and there is no error handling
+[x] - hal_init() needs to be rewritten, outb() are deprecated and there is no error handling
 [_] - There are some other TODO tasks inside main.c, some don't make sense  
 
 {END_TODO}
+
+<March 3, 2012>
+- Uncommented outb() functions in hal.c, rewrote them properly outb(PORT,VALUE); - temporary fix, included <compat/deprecated.h>
+- Cleaned up eedata.S, reverted ATR back to default value and cleaned up MONTH,DAY,YEAR,CHIP,ESIZ values
+- Doxygen output was added, I'll find a nicer way to display it on the GitHub Wiki page for everyone to peruse
 
 <February 25, 2012>
 - Using sosse20030413 as my base install
@@ -17,5 +22,4 @@
  + modifying tea-at90s8515.S lines 221 and 362, removed "breq _PC_+2" added "rjmp _PC_+2"
  + commented out "outb()" functions, which have been deprecated and replaced by direct port/pin assignments
  + modifying all instances of "eeprom_rb and eeprom_wb" for "eeprom_read_byte, eeprom_write_byte"
-
 

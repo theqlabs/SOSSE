@@ -45,17 +45,15 @@ iu8 randbytes;
 
 void hal_init( void )
 {
-	/*
-	outb(0x80,ACSR);
-	outb(0xFF,DDRA);
-	outb(0xFF,DDRB);
-	outb(0xFF,DDRC);
-	outb(0xFF,DDRD);
-	outb(0xFF,PORTA);
-	outb(0xFF,PORTB);
-	outb(0xFF,PORTC);
-	outb(0xFF,PORTD);
-	*/
+	outb(ACSR,0x80);
+	outb(DDRA,0xFF);
+	outb(DDRB,0xFF);
+	outb(DDRC,0xFF);
+	outb(DDRD,0xFF);
+	outb(PORTA,0xFF);
+	outb(PORTB,0xFF);
+	outb(PORTC,0xFF);
+	outb(PORTD,0xFF);
 
 #if CONF_WITH_TRNG==1
 	/* Random number gathering */
