@@ -35,6 +35,8 @@ COLUMN 6 - Read,Update,Verify (Not sure why this is sent twice?) TODO
 COLUMN 7 - 4 Byte response from TARGET (EX: PPA CARD)
 COLUMN 8 - Response WORD (EX: 0x90 00 means successful transaction) 
 
+TODO - KIOSK sends 00 as the leading byte during a VERIFY COMMAND
+
 QUESTION: When is the CSN sent?
 ANSWER: In response to READ 1ST BYTE OF ISSUER AREA - 80BEA00104BE<4BYTECSN>
 
@@ -79,28 +81,26 @@ ANSWER: CSC 0 can NOT be read in User Mode, BUT it can be updated, provided it h
 #include <hal.h>
 
 // COMMAND: READ - This command is used to READ a single WORD (four bytes) from memory
-#define	R_CLA	0x80
-#define R_INS	0xBE
-#define R_P1	0xA0
-#define	R_P2	0x00	// Address of the WORD to be read
-#define	R_LE	0x04
+#define R_INS	0xBE	// Instruction Byte
+#define R_H3_04 0x04	// asking if header[3], which is P2, is 0x04
+#define R_H3_39 0x39
+#define R_H3_02 0x02
+#define R_H3_01 0x01	
+#define R_H3_05 0x05
+#define R_H3_10 0x10
+#define R_H3_08 0x08
+#define R_H3_0C 0x0C
+#define R_H3_0E	0x0E
 
 // COMMAND: UPDATE - This command is used to UPDATE a single WORD (four bytes) in memory. Automatically erases the WORD before writing the new value
-#define U_CLA	0x80
 #define U_INS	0xDE
-#define U_P1	0xA0
-#define	U_P2	0x00	// Address of the WORD to be updated
-#define	U_LC	0x04
 
 // COMMAND: VERIFY - This command is used to present (VERIFY) a card secret code (CSC)
-#define V_CLA	0x80
 #define	V_INS	0x20
-#define	V_P1	0xA0
-#define	V_P2	0x00	// Address of Ratification Counter for the CSC to be verified
+#define V_H3_39	0x39
 #define	V_P2_0	0x07	// CSC 0 is presented with a P2 value of 0x07
 #define	V_P2_1	0x39	// CSC 1 is presented with a P2 value of 0x39
 #define	V_P2_2	0x3B	// CSC 2 is presented with a P2 value of 0x3B
-#define	V_LC	0x04
 
 // Status Words are defined in <sw.h>
 
@@ -109,14 +109,74 @@ void cmd_gc_read( void ) {
 	t0_sendAck();
 
 	//b = hal_io_recByteT0();			
-	hal_io_sendByteT0( 0x00 );			
-	hal_io_sendByteT0( 0x00 );
-	hal_io_sendByteT0( 0x00 );
-	hal_io_sendByteT0( 0xBE );			
 
-	sw_set( SW_OK );
+	if (header[3] == R_H3_04) {
+		hal_io_sendByteT0( 0x00 );			
+		hal_io_sendByteT0( 0x00 );
+		hal_io_sendByteT0( 0x00 );
+		hal_io_sendByteT0( 0x80 );			
+	}
+
+
+	if (header[3] == R_H3_39) {
+		hal_io_sendByteT0( 0x00 );
+		hal_io_sendByteT0( 0x00 );
+		hal_io_sendByteT0( 0x00 );
+		hal_io_sendByteT0( 0x00 );
+	}
 	
-	return;	
+	if (header[3] == R_H3_02) {
+		hal_io_sendByteT0( 0x23 );
+		hal_io_sendByteT0( 0x00 );
+		hal_io_sendByteT0( 0x00 );
+		hal_io_sendByteT0( 0x00 );
+	}
+	
+	if (header[3] == R_H3_01) {
+		hal_io_sendByteT0( 0x19 );
+		hal_io_sendByteT0( 0x34 );
+		hal_io_sendByteT0( 0x44 );
+		hal_io_sendByteT0( 0x01 );
+	}
+	
+	if (header[3] == R_H3_05) {
+		hal_io_sendByteT0( 0x19 );
+		hal_io_sendByteT0( 0x00 );
+		hal_io_sendByteT0( 0x00 );
+		hal_io_sendByteT0( 0xBB );
+	}
+	
+	if (header[3] == R_H3_10) {
+		hal_io_sendByteT0( 0x4E );
+		hal_io_sendByteT0( 0x01 );
+		hal_io_sendByteT0( 0x00 );
+		hal_io_sendByteT0( 0x00 );
+	}
+	
+	if (header[3] == R_H3_08) {
+		hal_io_sendByteT0( 0x00 );
+		hal_io_sendByteT0( 0x00 );
+		hal_io_sendByteT0( 0x00 );
+		hal_io_sendByteT0( 0x00 );
+	}
+
+	if (header[3] == R_H3_0C) {
+		hal_io_sendByteT0( 0x8D );
+		hal_io_sendByteT0( 0x0E );
+		hal_io_sendByteT0( 0x00 );
+		hal_io_sendByteT0( 0x00 );
+	}
+	
+	if (header[3] == R_H3_0E) {
+		hal_io_sendByteT0( 0xE8 );
+		hal_io_sendByteT0( 0x93 );
+		hal_io_sendByteT0( 0x3F );
+		hal_io_sendByteT0( 0xA2 );
+	}
+	
+	sw_set( SW_OK );				// Set the SW to 90 00
+
+	return;						// return back to the main loop
 
 }
 
@@ -125,9 +185,9 @@ void cmd_gc_update( void ) {
 	t0_sendAck();
 
 	hal_io_sendByteT0( 0x00 );
-	hal_io_sendByteT0( 0x00 );
-	hal_io_sendByteT0( 0x00 );
-	hal_io_sendByteT0( 0xDE );
+	hal_io_sendByteT0( header[2] );
+	hal_io_sendByteT0( header[3] );
+	hal_io_sendByteT0( header[4] );
 
 	sw_set( SW_OK );
 
@@ -141,10 +201,9 @@ void cmd_gc_verify( void ) {
 	// Verify (20) Command
 	t0_sendAck();
 
-	hal_io_sendByteT0( 0x00 );
-	hal_io_sendByteT0( 0x00 );
-	hal_io_sendByteT0( 0x00 );
-	hal_io_sendByteT0( 0x20 );
+	if (header[3] == V_H3_39) {
+
+	}
 
 	sw_set( SW_OK );
 	

@@ -87,7 +87,7 @@ int main( void )
 
 	/* Command loop */
 	for(;;) {
-		for( i=0; i<5; i++ ) {
+		for( i=0; i<4; i++ ) {
 			header[i] = hal_io_recByteT0();
 		}
 
