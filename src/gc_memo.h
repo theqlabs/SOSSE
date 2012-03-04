@@ -76,6 +76,7 @@ ANSWER: CSC 0 can NOT be read in User Mode, BUT it can be updated, provided it h
 
 #include <types.h>
 #include <sw.h>
+#include <hal.h>
 
 // COMMAND: READ - This command is used to READ a single WORD (four bytes) from memory
 #define		R_CLA	0x80
@@ -102,6 +103,48 @@ ANSWER: CSC 0 can NOT be read in User Mode, BUT it can be updated, provided it h
 #define		V_LC	0x04
 
 // Status Words are defined in <sw.h>
+
+void cmd_gc_read( void ) { 
+
+	// Read (BE) Command
+	iu8 b, i;
+	//iu32 respData;
+
+	for (i=0; i<4; i++) {
+		b = hal_io_recByteT0();		// Receive next 3 Bytes
+		hal_io_sendByteT0( b );		// ECHO byte back
+	}
+
+	sw_set( SW_OK );			// Set SW to 90 00
+
+}
+
+void cmd_gc_write( void ) { 
+
+	// Write (DE) Command
+
+}
+
+
+void cmd_gc_verify( void ) { 
+
+	// Verify (20) Command
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

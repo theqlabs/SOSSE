@@ -1,22 +1,17 @@
 
-{BEGIN_TODO}
+[THIS IS MY RESEARCH BRANCH, NOT FOR PUBLIC USE!]
 
-[_] - Make an example application
-[_] - Update the Wiki to include doxygen output
-[_] - Commented out "auth_checkAc()" inside commands.c, errored when I compiled without AUTH support from config.h
+This TODO list probably does not correlate to <origin/master> TO-DO.txt, and for good reason. If
+you want to see changes to the source-code you should see the master branch file instead.
 
-</src/main.c>:
-[_] - hal_init() needs to be rewritten, outb() are deprecated and there is no error handling
-[_] - There are some other TODO tasks inside main.c, some don't make sense  
+{TODO Research}
+[_] - Figure out how to easily SEND and RECEIVE bytes, WHY IS THIS SO FUCKING HARD TO DO?
+[_] - Write code to correctly respond to PPA meter, make it stupid simple to start
+[_] - Create a function to change the SERNUM_ADDR (4-Byte) values during a single session (might have to force a RESET between)
+[_] - Designate EEPROM storage for my CSC1 "database" include corresponding CSN values (SERNUM_ADDR)
 
-{END_TODO}
-
-<February 25, 2012>
-- Using sosse20030413 as my base install
-- Made several modifications to make it compile in 'modern' avr-gcc-4.3 toolchain in Linux (Ubuntu 10.10)
-- Changes included:
- + modifying tea-at90s8515.S lines 221 and 362, removed "breq _PC_+2" added "rjmp _PC_+2"
- + commented out "outb()" functions, which have been deprecated and replaced by direct port/pin assignments
- + modifying all instances of "eeprom_rb and eeprom_wb" for "eeprom_read_byte, eeprom_write_byte"
+{TODO Source Code}
+[_] - Why is EEPROM reading out as all 0xFF's when I send test command (80 04 FF 00 FF) "read EEPROM 00-FF, length of FF"
+[_] - Why doesn't "make -f Makefile.emu" work -- looking for <sio/sio.h>
 
 
