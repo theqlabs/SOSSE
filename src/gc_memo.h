@@ -79,43 +79,46 @@ ANSWER: CSC 0 can NOT be read in User Mode, BUT it can be updated, provided it h
 #include <hal.h>
 
 // COMMAND: READ - This command is used to READ a single WORD (four bytes) from memory
-#define		R_CLA	0x80
-#define 	R_INS	0xBE
-#define 	R_P1	0xA0
-#define		R_P2	0x00	// Address of the WORD to be read
-#define		R_LE	0x04
+#define	R_CLA	0x80
+#define R_INS	0xBE
+#define R_P1	0xA0
+#define	R_P2	0x00	// Address of the WORD to be read
+#define	R_LE	0x04
 
 // COMMAND: UPDATE - This command is used to UPDATE a single WORD (four bytes) in memory. Automatically erases the WORD before writing the new value
-#define 	U_CLA	0x80
-#define 	U_INS	0xDE
-#define 	U_P1	0xA0
-#define		U_P2	0x00	// Address of the WORD to be updated
-#define		U_LC	0x04
+#define U_CLA	0x80
+#define U_INS	0xDE
+#define U_P1	0xA0
+#define	U_P2	0x00	// Address of the WORD to be updated
+#define	U_LC	0x04
 
 // COMMAND: VERIFY - This command is used to present (VERIFY) a card secret code (CSC)
-#define 	V_CLA	0x80
-#define		V_INS	0x20
-#define		V_P1	0xA0
-#define		V_P2	0x00	// Address of Ratification Counter for the CSC to be verified
-#define		V_P2_0	0x07	// CSC 0 is presented with a P2 value of 0x07
-#define		V_P2_1	0x39	// CSC 1 is presented with a P2 value of 0x39
-#define		V_P2_2	0x3B	// CSC 2 is presented with a P2 value of 0x3B
-#define		V_LC	0x04
+#define V_CLA	0x80
+#define	V_INS	0x20
+#define	V_P1	0xA0
+#define	V_P2	0x00	// Address of Ratification Counter for the CSC to be verified
+#define	V_P2_0	0x07	// CSC 0 is presented with a P2 value of 0x07
+#define	V_P2_1	0x39	// CSC 1 is presented with a P2 value of 0x39
+#define	V_P2_2	0x3B	// CSC 2 is presented with a P2 value of 0x3B
+#define	V_LC	0x04
 
 // Status Words are defined in <sw.h>
 
-void cmd_gc_read( void ) { 
+void cmd_gc_read( void ) {				// THIS ONE DOESNT WORK ATM 
 
-	// Read (BE) Command
 	iu8 b, i;
 	//iu32 respData;
 
-	for (i=0; i<4; i++) {
-		b = hal_io_recByteT0();		// Receive next 3 Bytes
-		hal_io_sendByteT0( b );		// ECHO byte back
-	}
+	t0_sendAck();
 
-	sw_set( SW_OK );			// Set SW to 90 00
+	//b = hal_io_recByteT0();			
+	hal_io_sendByteT0( 0x00 );			
+	hal_io_sendByteT0( 0x00 );
+	hal_io_sendByteT0( 0x00 );
+	hal_io_sendByteT0( 0x80 );			// Faking the PPA response, TEST
+
+	sw_set( SW_OK );				// Set to 90 00
+	return;	
 
 }
 

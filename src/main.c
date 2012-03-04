@@ -31,6 +31,7 @@
 #include <hal.h>
 #include <t0.h>
 #include <transaction.h>
+#include <gc_memo.h>
 
 /*! \brief Main function containing command interpreter loop.
 
@@ -170,6 +171,11 @@ int main( void )
 				cmd_verifyKeyPIN();
 				break;
 #endif /* CONF_WITH_PINCMDS==1 */
+
+			case R_INS:
+				cmd_gc_read();
+				break;
+
 			default:
 				t0_sendWord( SW_WRONG_INS );
 			}
