@@ -1,9 +1,27 @@
+/*
+	Simple Operating System for Smartcard Education
+	Copyright (C) 2002  Matthias Bruestle <m@mbsks.franken.de>
 
-//	RESEARCH VERSION - NOT FOR PUBLIC USE!
-//	If you have any problems, you can go fuck yourself
-//	written by: Q
+	This program is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation; either version 2 of the License, or
+	(at your option) any later version.
 
-// 	Brief main() contains command interpreter loop. At the end of the loop SW is sent, function never returns, why should it? 
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+
+	You should have received a copy of the GNU General Public License
+	along with this program; if not, write to the Free Software
+	Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+*/
+
+/* $Id: main.c,v 1.31 2002/12/24 13:33:11 m Exp $ */
+
+/*! @file
+	\brief main() function with command loop.
+*/
 
 #include <config.h>
 #include <auth.h>
@@ -13,21 +31,33 @@
 #include <hal.h>
 #include <t0.h>
 #include <transaction.h>
-#include <gc_memo.h>		// GemPlus GemClub Memo - Testing commands/responses
 
-int main( void ) {
+/*! \brief Main function containing command interpreter loop.
 
-	iu8 i, len, b;							// 1-Byte variables
-	hal_init();							// TODO - On Error?
-			
-	hal_io_sendByteT0( 0x3B );					// This isn't doing SHIT, commented out for now
-									// Implemented ATR sending from EEPROM already
-								 
+	At the end of the loop, sw is sent as the status word.
+
+	This function does never return.
+*/
+#if defined(CTAPI)
+void sosse_main( void )
+#else
+int main( void )
+#endif
+{
+	iu8 i, len, b;
+
+	/* TODO: On error? */
+	hal_init();
+
+	/* Send ATR */
+	/* TODO: Possible from EEPROM? */
+	hal_io_sendByteT0( 0x3B );
+
 #if CONF_WITH_LGGING==1
 	log_init();
 #endif
 
-	resplen = 0;							// response length? 
+	resplen = 0;
 
 #if CONF_WITH_TRANSACTIONS==1
 	/* Commit transactions not yet done. */
@@ -35,9 +65,15 @@ int main( void ) {
 	ta_commit();
 #endif /* CONF_WITH_TRANSACTIONS */
 
-	/* Initialize FS state in RAM. */				// Shouldn't this happen ONLY if CONF_WITH_FILESYSTEM is set to 1?
+	/* Initialize FS state in RAM. */
 	/* TODO: On error? */
 	fs_init();
+
+#if CONF_WITH_PINAUTH==1
+	/* Initialize authentication state. */
+	/* TODO: On error? */
+	auth_init();
+#endif /* CONF_WITH_PINAUTH==1 */
 
 	if( !(hal_eeprom_read( &len, ATR_LEN_ADDR, 1 ) &&
 		(len<=ATR_MAXLEN)) )
@@ -49,68 +85,104 @@ int main( void ) {
 	}
 
 	/* Command loop */
-	for(;;) {							// One of a number of infinite loops in this hell-hole
-		
+	for(;;) {
 		for( i=0; i<5; i++ ) {
 			header[i] = hal_io_recByteT0();
 		}
 
-		if( (header[0]&0xFC)==CLA_PROP ) {			// IF header[0] which is the FIRST BYTE EQUALS 0x80-0x83 (MASKS with 0xFC)
-			switch( header[1]&0xFE ) {			// switch looks at 2ND BYTE MASKS with 0xFE (doesn't care about last bit) and if matches, chooses CASE statement
+#if CONF_WITH_KEYAUTH==1
+		if( challvalidity ) challvalidity--;
+#endif /* CONF_WITH_KEYAUTH==1 */
 
+#if CONF_WITH_TRNG==1
+		hal_rnd_addEntropy();
+#endif
+
+		if( (header[0]&0xFC)==CLA_PROP ) {
+			switch( header[1]&0xFE ) {
 #if CONF_WITH_TESTCMDS==1
-
-			case INS_WRITE:					// this is looking for 02 INS byte
-				cmd_write();				// cmd_write() WRITES to EEPROM
-				break;					// breaks from switch/case statement
-
-			case INS_READ:					// this is looking for 04 INS byte
-				cmd_read();				// cmd_read() READS from EEPROM
-				break;					// break from switch/case
-#endif 									
-
+			case INS_WRITE:
+				cmd_write();
+				break;
+			case INS_READ:
+				cmd_read();
+				break;
+#endif /* CONF_WITH_TESTCMDS==1 */
+#if CONF_WITH_FUNNY==1
+			case INS_LED:
+				cmd_led();
+				break;
+#endif /* CONF_WITH_FUNNY==1 */
+#if CONF_WITH_PINCMDS==1
+			case INS_CHANGE_PIN:
+				cmd_changeUnblockPIN();
+				break;
+#endif /* CONF_WITH_PINCMDS==1 */
 #if CONF_WITH_CREATECMD==1
-
-			case INS_CREATE:				// this is looking for E0 INS byte
-				cmd_create();				// cmd_create() creates a file, see doxygen/index.html for details
-				break;					// break from switch/case
-#endif 									// CONF_WITH_CREATECMD==1
-
+			case INS_CREATE:
+				cmd_create();
+				break;
+#endif /* CONF_WITH_CREATECMD==1 */
 #if CONF_WITH_DELETECMD==1
-
-			case INS_DELETE:				// this is looking for E4 INS byte
-				cmd_delete();				// cmd_delete() looks for a FID and deletes, see doxygen/index.html for details
-				break;					// break from switch/case
-#endif									// CONF_WITH_DELETECMD==1
-
-			case INS_GET_RESPONSE:				// this is looking for C0 INS byte
-				cmd_getResponse();			// Fetches data from internal authentication and select
+			case INS_DELETE:
+				cmd_delete();
 				break;
-
-			case INS_READ_BINARY:				// this is looking for B0 INS byte
-				cmd_readBinary();			// Reads length bytes from offset of the currently selected EF (doxygen/index.html)
-				break;				
-			
-			case INS_SELECT:				// this is looking for A4 INS byte
-				cmd_select();				// it tries to select a specified file based on FID
+#endif /* CONF_WITH_DELETECMD==1 */
+#if CONF_WITH_KEYCMDS==1
+			case INS_EXTERNAL_AUTH:
+				cmd_extAuth();
 				break;
-			
-			case INS_UPDATE_BINARY:				// this is looking for D6 INS byte
-				cmd_updateBinary();			// write length bytes to Offset of the currently selected EF
+#endif /* CONF_WITH_KEYCMDS==1 */
+#if CONF_WITH_KEYCMDS==1
+			case INS_GET_CHALLENGE:
+				cmd_getChallenge();
 				break;
-
-			case R_INS:					// this is looking for BE (GemClub Memo)
-				cmd_gc_read();				// Take in P1,P2,P3 ? Where do I respond
+#endif /* CONF_WITH_KEYCMDS==1 */
+			case INS_GET_RESPONSE:
+				cmd_getResponse();
 				break;
-
-			default:					// If NONE of these case statements are triggered
-				t0_sendWord( SW_WRONG_INS );		// then it sends 6D 00 as the SW (Status Word)
+#if CONF_WITH_KEYCMDS==1
+			case INS_INTERNAL_AUTH:
+				cmd_intAuth();
+				break;
+#endif /* CONF_WITH_KEYCMDS==1 */
+			case INS_READ_BINARY:
+				cmd_readBinary();
+				break;
+			case INS_SELECT:
+				cmd_select();
+				break;
+#if CONF_WITH_PINCMDS==1
+			case INS_UNBLOCK_PIN:
+				cmd_changeUnblockPIN();
+				break;
+#endif /* CONF_WITH_PINCMDS==1 */
+			case INS_UPDATE_BINARY:
+				cmd_updateBinary();
+				break;
+#if CONF_WITH_KEYCMDS==1
+			case INS_VERIFY_KEY:
+				cmd_verifyKeyPIN();
+				break;
+#endif /* CONF_WITH_KEYCMDS==1 */
+#if CONF_WITH_PINCMDS==1
+			case INS_VERIFY_PIN:
+				cmd_verifyKeyPIN();
+				break;
+#endif /* CONF_WITH_PINCMDS==1 */
+			default:
+				t0_sendWord( SW_WRONG_INS );
 			}
-		}							// End bracket for the IF statement 
+		} else {
+			t0_sendWord( SW_WRONG_CLA );
+		}
 
-		else { t0_sendWord( SW_WRONG_CLA ); }			// If the header[0]==CLA_PROP does not match send SW_WRONG_CLA byte 6E 00
+#if CONF_WITH_TRNG==1
+		hal_rnd_addEntropy();
+#endif
 
-		t0_sendSw();						// Return the SW in sw <- variable? 
+		/* Return the SW in sw */
+		t0_sendSw();
 	}
 }
 
