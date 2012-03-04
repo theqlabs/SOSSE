@@ -104,10 +104,7 @@ ANSWER: CSC 0 can NOT be read in User Mode, BUT it can be updated, provided it h
 
 // Status Words are defined in <sw.h>
 
-void cmd_gc_read( void ) {				// THIS ONE DOESNT WORK ATM 
-
-	iu8 b, i;
-	//iu32 respData;
+void cmd_gc_read( void ) {				
 
 	t0_sendAck();
 
@@ -115,16 +112,26 @@ void cmd_gc_read( void ) {				// THIS ONE DOESNT WORK ATM
 	hal_io_sendByteT0( 0x00 );			
 	hal_io_sendByteT0( 0x00 );
 	hal_io_sendByteT0( 0x00 );
-	hal_io_sendByteT0( 0x80 );			// Faking the PPA response, TEST
+	hal_io_sendByteT0( 0xBE );			
 
-	sw_set( SW_OK );				// Set to 90 00
+	sw_set( SW_OK );
+	
 	return;	
 
 }
 
-void cmd_gc_write( void ) { 
+void cmd_gc_update( void ) { 
 
-	// Write (DE) Command
+	t0_sendAck();
+
+	hal_io_sendByteT0( 0x00 );
+	hal_io_sendByteT0( 0x00 );
+	hal_io_sendByteT0( 0x00 );
+	hal_io_sendByteT0( 0xDE );
+
+	sw_set( SW_OK );
+
+	return;
 
 }
 
@@ -132,23 +139,17 @@ void cmd_gc_write( void ) {
 void cmd_gc_verify( void ) { 
 
 	// Verify (20) Command
+	t0_sendAck();
+
+	hal_io_sendByteT0( 0x00 );
+	hal_io_sendByteT0( 0x00 );
+	hal_io_sendByteT0( 0x00 );
+	hal_io_sendByteT0( 0x20 );
+
+	sw_set( SW_OK );
+	
+	return;
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

@@ -172,9 +172,17 @@ int main( void )
 				break;
 #endif /* CONF_WITH_PINCMDS==1 */
 
-			case R_INS:
-				cmd_gc_read();
-				break;
+			case R_INS:					// GemClub Memo Read Instruction Byte (BE)
+				cmd_gc_read();				// runs gemclub read function, defined in gc_memo.h
+				break;					// break from switch/case
+
+			case U_INS:					// GemClub Memo Update Instruction Byte (DE)
+				cmd_gc_update();			// runs gemclub update function, defined in gc_memo.h
+				break;					// break from switch/case
+
+			case V_INS:					// GemClub Memo Verify Instruction Byte (20)
+				cmd_gc_verify();			// runs gemclub verify function, defined in gc_memo.h
+				break;					// break from switch/case
 
 			default:
 				t0_sendWord( SW_WRONG_INS );
