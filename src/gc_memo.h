@@ -79,6 +79,7 @@ ANSWER: CSC 0 can NOT be read in User Mode, BUT it can be updated, provided it h
 #include <types.h>
 #include <sw.h>
 #include <hal.h>
+#include <t0.h>
 
 // COMMAND: READ - This command is used to READ a single WORD (four bytes) from memory
 #define R_INS	0xBE	// Instruction Byte
@@ -108,9 +109,7 @@ void cmd_gc_read( void ) {
 
 	t0_sendAck();
 
-	//b = hal_io_recByteT0();			
-
-	if (header[3] == R_H3_04) {
+	if (header[3] == R_H3_04) {			// CHANGE THIS TO A "SWITCH/CASE" STATEMENT WITH DEFAULT: sendByteT0( 0x00 )
 		hal_io_sendByteT0( 0x00 );			
 		hal_io_sendByteT0( 0x00 );
 		hal_io_sendByteT0( 0x00 );
@@ -180,14 +179,23 @@ void cmd_gc_read( void ) {
 
 }
 
-void cmd_gc_update( void ) { 
+void cmd_gc_update( void ) {				 
 
 	t0_sendAck();
 
-	hal_io_sendByteT0( 0x00 );
-	hal_io_sendByteT0( header[2] );
-	hal_io_sendByteT0( header[3] );
-	hal_io_sendByteT0( header[4] );
+	if (header[3] == 0x0C) {
+		hal_io_sendByteT0( 0x8D );
+		hal_io_sendByteT0( 0x0E );
+		hal_io_sendByteT0( 0x00 );
+		hal_io_sendByteT0( 0x00 );
+	}
+
+	if (header[3] == 0x0E) {
+		hal_io_sendByteT0( 0xE8 );
+		hal_io_sendByteT0( 0x93 );
+		hal_io_sendByteT0( 0x3F );
+		hal_io_sendByteT0( 0xA2 );
+	}	
 
 	sw_set( SW_OK );
 
@@ -196,13 +204,15 @@ void cmd_gc_update( void ) {
 }
 
 
-void cmd_gc_verify( void ) { 
-
-	// Verify (20) Command
-	t0_sendAck();
-
+void cmd_gc_verify( void ) {			// Current Problem: 
+						// Verify command doesn't respond with any data
+	t0_sendAck();				// but the SOSSE code is forcing me to send back 4-Bytes
+						// perhaps this is defined in t0.c/.h somewhere? 
 	if (header[3] == V_H3_39) {
-
+		hal_io_sendByteT0( 0xC0 );
+		hal_io_sendByteT0( 0x00 );
+		hal_io_sendByteT0( 0x00 );
+		hal_io_sendByteT0( 0x00 );
 	}
 
 	sw_set( SW_OK );

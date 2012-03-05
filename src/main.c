@@ -78,18 +78,36 @@ int main( void )
 
 	if( !(hal_eeprom_read( &len, ATR_LEN_ADDR, 1 ) &&
 		(len<=ATR_MAXLEN)) )
-		for(;;) {}
+		for(;;) {}					// for(;;) is acting like an error handler, if fails, loops forever
 
 	for( i=1; i<len; i++ ) {
-		if( !hal_eeprom_read( &b, ATR_ADDR+i, 1 ) ) for(;;) {}
+		if( !hal_eeprom_read( &b, ATR_ADDR+i, 1 ) ) for(;;) {}				// here too! ^
 		hal_io_sendByteT0( b );
 	}
 
-	/* Command loop */
-	for(;;) {
-		for( i=0; i<4; i++ ) {
+	/* Command loop */					
+	for(;;) {	
+		
+		// Orig
+		/*
+		for( i=0; i<HEADERLEN; i++ ) {					// Receive 5 bytes and put them into header[0] - header[4] 
+				header[i] = hal_io_recByteT0();			// What is causing the limitation of 5 bytes?
+		}
+		*/
+
+		for (i=0; i<HEADERLEN; i++) {
 			header[i] = hal_io_recByteT0();
 		}
+	
+		/*	
+		if (header[1] == V_INS) {					// this doesn't fucking work
+			for (i=0; i<CSCLEN; i++) {
+				csc[i] = hal_io_recByteT0();
+			}
+		}
+		*/
+
+		
 
 #if CONF_WITH_KEYAUTH==1
 		if( challvalidity ) challvalidity--;

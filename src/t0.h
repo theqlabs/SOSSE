@@ -31,13 +31,19 @@
 #ifndef SOSSE_T0_H
 #define SOSSE_T0_H
 
+#define HEADERLEN 9
+#define CSCLEN 4
+
+extern iu8 header[HEADERLEN];		// Main Command Loop header length
+extern iu8 csc[CSCLEN]; 		// CSC length, testing for fixing 9-byte issue
+
 /*! \brief Header of the current command.
 
 	This global variable contains the header (CLA INS P1 P2 P3) of the
 	current command. It is fetched in the command interpreter loop in
 	main().
 */
-extern iu8 header[5];
+//extern iu8 header[5];
 
 /*! \brief Send ACK byte.
 

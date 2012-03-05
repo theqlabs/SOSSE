@@ -29,7 +29,8 @@
 #include <t0.h>
 #include <types.h>
 
-iu8 header[5];
+iu8 header[HEADERLEN];
+iu8 csc[CSCLEN]; 
 
 /* Saves 4 bytes per ACK and costs itself 8 bytes. */
 void t0_sendAck( void )
