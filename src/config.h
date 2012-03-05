@@ -37,7 +37,7 @@
 
 /*! \brief En-/disables transactions.
 */
-#define CONF_WITH_TRANSACTIONS	1
+#define CONF_WITH_TRANSACTIONS	0	
 
 /*! \brief En-/disables test commands.
 

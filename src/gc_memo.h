@@ -107,7 +107,7 @@ ANSWER: CSC 0 can NOT be read in User Mode, BUT it can be updated, provided it h
 
 void cmd_gc_read( void ) {				
 
-	t0_sendAck();
+	t0_sendAck();					// WHY DOES THIS SEND HERE? this runs hal_io_sendByteT0(header[1])
 
 	if (header[3] == R_H3_04) {			// CHANGE THIS TO A "SWITCH/CASE" STATEMENT WITH DEFAULT: sendByteT0( 0x00 )
 		hal_io_sendByteT0( 0x00 );			
@@ -131,8 +131,8 @@ void cmd_gc_read( void ) {
 		hal_io_sendByteT0( 0x00 );
 	}
 	
-	if (header[3] == R_H3_01) {
-		hal_io_sendByteT0( 0x19 );
+	if (header[3] == R_H3_01) {			// THIS SENDS THE Card Serial Number
+		hal_io_sendByteT0( 0x19 );		// TODO Change this to send what's in eedata.S SERNUM_ADDR
 		hal_io_sendByteT0( 0x34 );
 		hal_io_sendByteT0( 0x44 );
 		hal_io_sendByteT0( 0x01 );
