@@ -18,34 +18,23 @@ CFLAGS=-Wall -I. -Os -mcall-prologues
 ASFLAGS=-Wall -I.
 
 CSRC= \
-	auth.c \
 	hal.c \
-	commands.c \
-	fs.c \
-	fstream.c \
-	log.c \
 	main.c \
-	newdes-sk.c \
-	skipjack.c \
 	sw.c \
 	t0.c \
 	tools.c \
-	transaction.c
 
 SSRC= \
 	eepromi2c.S \
 	io.S \
-	tea-$(ARCH).S
 
 OBJ=$(CSRC:.c=.o) $(SSRC:.S=.o)
 
-SLOCFILES = auth.c auth.h commands.c commands.h config.h eepromi2c.S sw.c \
-	sw.h fs.c fs.h fstream.c fstream.h hal.c hal.h io.S main.c main.h t0.c \
-	t0.h tea-$(ARCH).S tea.h tools.c tools.h transaction.c transaction.h \
-	types.h newdes-sk.c newdes-sk.h skipjack.c skipjack.h
+SLOCFILES =  config.h eepromi2c.S sw.c \
+	sw.h hal.c hal.h io.S main.c main.h t0.c \
+	t0.h tools.c tools.h types.h \
 
-CALLTREEFILES = auth.c commands.c sw.c fs.c fstream.c hal.c main.c t0.c \
-	tea.c tools.c transaction.c newdes-sk.c skipjack.c
+CALLTREEFILES = sw.c hal.c main.c t0.c tools.c 
 
 all: sosse eedata
 

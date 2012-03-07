@@ -108,69 +108,68 @@ ANSWER: CSC 0 can NOT be read in User Mode, BUT it can be updated, provided it h
 void cmd_gc_read( void ) {				
 
 	t0_sendAck();					// WHY DOES THIS SEND HERE? this runs hal_io_sendByteT0(header[1])
-
-	if (header[3] == R_H3_04) {			// CHANGE THIS TO A "SWITCH/CASE" STATEMENT WITH DEFAULT: sendByteT0( 0x00 )
-		hal_io_sendByteT0( 0x00 );			
-		hal_io_sendByteT0( 0x00 );
-		hal_io_sendByteT0( 0x00 );
-		hal_io_sendByteT0( 0x80 );			
-	}
-
-
-	if (header[3] == R_H3_39) {
-		hal_io_sendByteT0( 0x00 );
-		hal_io_sendByteT0( 0x00 );
-		hal_io_sendByteT0( 0x00 );
-		hal_io_sendByteT0( 0x00 );
-	}
 	
-	if (header[3] == R_H3_02) {
-		hal_io_sendByteT0( 0x23 );
-		hal_io_sendByteT0( 0x00 );
-		hal_io_sendByteT0( 0x00 );
-		hal_io_sendByteT0( 0x00 );
-	}
-	
-	if (header[3] == R_H3_01) {			// THIS SENDS THE Card Serial Number
-		hal_io_sendByteT0( 0x19 );		// TODO Change this to send what's in eedata.S SERNUM_ADDR
-		hal_io_sendByteT0( 0x34 );
-		hal_io_sendByteT0( 0x44 );
-		hal_io_sendByteT0( 0x01 );
-	}
-	
-	if (header[3] == R_H3_05) {
-		hal_io_sendByteT0( 0x19 );
-		hal_io_sendByteT0( 0x00 );
-		hal_io_sendByteT0( 0x00 );
-		hal_io_sendByteT0( 0xBB );
-	}
-	
-	if (header[3] == R_H3_10) {
-		hal_io_sendByteT0( 0x4E );
-		hal_io_sendByteT0( 0x01 );
-		hal_io_sendByteT0( 0x00 );
-		hal_io_sendByteT0( 0x00 );
-	}
-	
-	if (header[3] == R_H3_08) {
-		hal_io_sendByteT0( 0x00 );
-		hal_io_sendByteT0( 0x00 );
-		hal_io_sendByteT0( 0x00 );
-		hal_io_sendByteT0( 0x00 );
-	}
-
-	if (header[3] == R_H3_0C) {
-		hal_io_sendByteT0( 0x8D );
-		hal_io_sendByteT0( 0x0E );
-		hal_io_sendByteT0( 0x00 );
-		hal_io_sendByteT0( 0x00 );
-	}
-	
-	if (header[3] == R_H3_0E) {
-		hal_io_sendByteT0( 0xE8 );
-		hal_io_sendByteT0( 0x93 );
-		hal_io_sendByteT0( 0x3F );
-		hal_io_sendByteT0( 0xA2 );
+	switch(header[3]){ 
+		case R_H3_04:			// CHANGE THIS TO A "SWITCH/CASE" STATEMENT WITH DEFAULT: sendByteT0( 0x00 )
+			hal_io_sendByteT0( 0x00 );			
+			hal_io_sendByteT0( 0x00 );
+			hal_io_sendByteT0( 0x00 );
+			hal_io_sendByteT0( 0x80 );			
+			break; 
+		case R_H3_39:
+			hal_io_sendByteT0( 0x00 );
+			hal_io_sendByteT0( 0x00 );
+			hal_io_sendByteT0( 0x00 );
+			hal_io_sendByteT0( 0x00 );
+			break; 
+		case R_H3_02:
+			hal_io_sendByteT0( 0x23 );
+			hal_io_sendByteT0( 0x00 );
+			hal_io_sendByteT0( 0x00 );
+			hal_io_sendByteT0( 0x00 );
+			break; 
+		case R_H3_01:
+			hal_io_sendByteT0( 0x19 );		// TODO Change this to send what's in eedata.S SERNUM_ADDR
+			hal_io_sendByteT0( 0x34 );
+			hal_io_sendByteT0( 0x44 );
+			hal_io_sendByteT0( 0x01 );
+			break; 
+		case R_H3_05:
+			hal_io_sendByteT0( 0x19 );
+			hal_io_sendByteT0( 0x00 );
+			hal_io_sendByteT0( 0x00 );
+			hal_io_sendByteT0( 0xBB );
+			break; 
+		case R_H3_10:
+			hal_io_sendByteT0( 0x4E );
+			hal_io_sendByteT0( 0x01 );
+			hal_io_sendByteT0( 0x00 );
+			hal_io_sendByteT0( 0x00 );
+			break; 
+		case R_H3_08:
+			hal_io_sendByteT0( 0x00 );
+			hal_io_sendByteT0( 0x00 );
+			hal_io_sendByteT0( 0x00 );
+			hal_io_sendByteT0( 0x00 );
+			break; 
+		case R_H3_0C:
+			hal_io_sendByteT0( 0x8D );
+			hal_io_sendByteT0( 0x0E );
+			hal_io_sendByteT0( 0x00 );
+			hal_io_sendByteT0( 0x00 );
+			break; 
+		case R_H3_0E:
+			hal_io_sendByteT0( 0xE8 );
+			hal_io_sendByteT0( 0x93 );
+			hal_io_sendByteT0( 0x3F );
+			hal_io_sendByteT0( 0xA2 );
+			break;
+		default:
+			hal_io_sendByteT0( 0x00 );
+			hal_io_sendByteT0( 0x00 );
+			hal_io_sendByteT0( 0x00 );
+			hal_io_sendByteT0( 0x00 );
+			break;
 	}
 	
 	sw_set( SW_OK );				// Set the SW to 90 00
@@ -190,12 +189,18 @@ void cmd_gc_update( void ) {
 		hal_io_sendByteT0( 0x00 );
 	}
 
-	if (header[3] == 0x0E) {
+	else if (header[3] == 0x0E) {
 		hal_io_sendByteT0( 0xE8 );
 		hal_io_sendByteT0( 0x93 );
 		hal_io_sendByteT0( 0x3F );
 		hal_io_sendByteT0( 0xA2 );
 	}	
+	else {
+		hal_io_sendByteT0( 0x00 );
+		hal_io_sendByteT0( 0x00 );
+		hal_io_sendByteT0( 0x00 );
+		hal_io_sendByteT0( 0x00 );
+	}
 
 	sw_set( SW_OK );
 
@@ -210,6 +215,12 @@ void cmd_gc_verify( void ) {			// Current Problem:
 						// perhaps this is defined in t0.c/.h somewhere? 
 	if (header[3] == V_H3_39) {
 		hal_io_sendByteT0( 0xC0 );
+		hal_io_sendByteT0( 0x00 );
+		hal_io_sendByteT0( 0x00 );
+		hal_io_sendByteT0( 0x00 );
+	}
+	else {
+		hal_io_sendByteT0( 0x00 );
 		hal_io_sendByteT0( 0x00 );
 		hal_io_sendByteT0( 0x00 );
 		hal_io_sendByteT0( 0x00 );

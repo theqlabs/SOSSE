@@ -31,7 +31,7 @@
 #ifndef SOSSE_T0_H
 #define SOSSE_T0_H
 
-#define HEADERLEN 6 
+#define HEADERLEN 5 
 #define CSCLEN 4
 
 extern iu8 header[HEADERLEN];		// Main Command Loop header length
